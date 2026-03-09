@@ -20,6 +20,8 @@ import { BlogIndex } from './pages/blog/BlogIndex'
 import { BlogPost } from './pages/blog/BlogPost'
 import { PublicLogin } from './pages/auth/Login'
 import { PublicSignup } from './pages/auth/Signup'
+import { AllTools } from './pages/AllTools'
+import { About } from './pages/About'
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<Home />} />
+          <Route path="/tools" element={<AllTools />} />
+          <Route path="/about" element={<About />} />
           <Route path="/tools/srt-to-text" element={<SrtToText />} />
           <Route path="/tools/subtitle-cleaner" element={<SubtitleCleaner />} />
           <Route path="/tools/subtitle-counter" element={<SubtitleCounter />} />

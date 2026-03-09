@@ -19,8 +19,9 @@ export function Footer() {
 
           <div className="flex items-center gap-6">
             <Link to="/" className="text-sm text-slate-500 hover:text-cyan-600 transition-colors">Home</Link>
-            <Link to="/tools/srt-to-text" className="text-sm text-slate-500 hover:text-cyan-600 transition-colors">Tools</Link>
+            <Link to="/tools" className="text-sm text-slate-500 hover:text-cyan-600 transition-colors">Tools</Link>
             <Link to="/blog" className="text-sm text-slate-500 hover:text-cyan-600 transition-colors">Blog</Link>
+            <Link to="/about" className="text-sm text-slate-500 hover:text-cyan-600 transition-colors">About</Link>
           </div>
         </div>
       </div>

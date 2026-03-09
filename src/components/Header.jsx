@@ -26,7 +26,7 @@ const textTools = [
 
 const navItems = [
   { name: 'Home', path: '/', icon: Home },
-  { name: 'All Tools', path: '/#tools', icon: LayoutGrid },
+  { name: 'All Tools', path: '/tools', icon: LayoutGrid },
   { name: 'Blog', path: '/blog', icon: BookOpen },
 ]
 
@@ -155,10 +155,10 @@ export function Header() {
             />
 
             <Link
-              to="/admin/dashboard"
+              to="/about"
               className={cn(
                 'flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
-                location.pathname.startsWith('/admin')
+                location.pathname === '/about'
                   ? 'text-cyan-600 bg-cyan-50'
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               )}

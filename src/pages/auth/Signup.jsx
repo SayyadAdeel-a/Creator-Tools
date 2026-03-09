@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { Zap, Mail, Lock, AlertCircle, CheckCircle2 } from 'lucide-react'
@@ -13,11 +13,22 @@ export function PublicSignup() {
     const [success, setSuccess] = useState(false)
     const navigate = useNavigate()
 
+    useEffect(() => {
+        if (success) {
+            const timer = setTimeout(() => navigate('/'), 2500)
+            return () => clearTimeout(timer)
+        }
+    }, [success, navigate])
+
     const handleSignUp = async (e) => {
         e.preventDefault()
         setError('')
         setLoading(true)
-        const { error } = await supabase.auth.signUp({ email, password })
+        const { error } = await supabase.auth.signUp({
+            email,
+            password,
+            options: { emailRedirectTo: window.location.origin }
+        })
         if (error) {
             setError(error.message)
         } else {
@@ -31,15 +42,23 @@ export function PublicSignup() {
             <Layout>
                 <div className="min-h-[calc(100vh-10rem)] flex items-center justify-center px-4 py-16">
                     <div className="max-w-sm text-center">
-                        <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <CheckCircle2 className="w-7 h-7 text-emerald-500" />
+                        <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-5">
+                            <CheckCircle2 className="w-8 h-8 text-cyan-500" />
                         </div>
-                        <h2 className="text-xl font-heading font-bold text-slate-900 mb-2">Check your email!</h2>
-                        <p className="text-slate-500 text-sm mb-6">
-                            We sent a confirmation link to <strong>{email}</strong>.<br />
-                            Click it to activate your account.
+                        <h2 className="text-2xl font-heading font-bold text-slate-900 mb-2">Welcome to VidToolbox! 🎉</h2>
+                        <p className="text-slate-500 text-sm mb-4">
+                            Your account has been created. Redirecting you to the homepage…
                         </p>
-                        <Link to="/" className="text-cyan-600 hover:underline text-sm">← Back to VidToolbox</Link>
+                        <div className="w-40 h-1 bg-slate-200 rounded-full mx-auto overflow-hidden">
+                            <div
+                                className="h-full bg-cyan-500 rounded-full"
+                                style={{ animation: 'grow 2.5s linear forwards' }}
+                            />
+                        </div>
+                        <style>{`@keyframes grow { from { width: 0% } to { width: 100% } }`}</style>
+                        <Link to="/" className="inline-block mt-5 text-sm text-cyan-600 hover:underline">
+                            Go now →
+                        </Link>
                     </div>
                 </div>
             </Layout>
@@ -72,7 +91,6 @@ export function PublicSignup() {
                             </div>
                         )}
 
-                        {/* Soft pitch */}
                         <div className="bg-cyan-50 border border-cyan-100 rounded-lg px-4 py-3 text-sm text-cyan-700">
                             ✨ Sign up to stay updated with new tools, tips &amp; resources for creators.
                         </div>
