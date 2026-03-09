@@ -25,7 +25,7 @@ export function AdminLogin() {
         }
 
         // Check if user is an admin
-        const ADMIN_EMAILS = ['sayyadeadeel@gmail.com']
+        const ADMIN_EMAILS = ['adeelsayyad.a@gmail.com']
         if (!ADMIN_EMAILS.includes(data.user.email)) {
             // Sign them out immediately if they aren't an admin
             await supabase.auth.signOut()
