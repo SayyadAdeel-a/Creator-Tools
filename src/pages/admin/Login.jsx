@@ -15,12 +15,26 @@ export function AdminLogin() {
         e.preventDefault()
         setError('')
         setLoading(true)
-        const { error } = await supabase.auth.signInWithPassword({ email, password })
+
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+
         if (error) {
             setError(error.message)
-        } else {
-            navigate('/admin/dashboard')
+            setLoading(false)
+            return
         }
+
+        // Check if user is an admin
+        const ADMIN_EMAILS = ['sayyadeadeel@gmail.com']
+        if (!ADMIN_EMAILS.includes(data.user.email)) {
+            // Sign them out immediately if they aren't an admin
+            await supabase.auth.signOut()
+            setError('Access denied. This account does not have admin privileges.')
+            setLoading(false)
+            return
+        }
+
+        navigate('/admin/dashboard')
         setLoading(false)
     }
 
