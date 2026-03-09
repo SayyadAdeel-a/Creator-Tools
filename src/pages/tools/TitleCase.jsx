@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Copy, Type } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -9,6 +9,7 @@ const exceptions = ['a', 'an', 'the', 'and', 'but', 'or', 'for', 'nor', 'on', 'a
 export function TitleCase() {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
+  const tracked = useRef(false)
 
   const convertToTitleCase = (text) => {
     const words = text.trim().split(/\s+/)
@@ -30,7 +31,10 @@ export function TitleCase() {
     setInput(value)
     const converted = convertToTitleCase(value)
     setOutput(converted)
-    if (converted) trackToolUse('Title Case Converter', 'title-case')
+    if (converted && !tracked.current) {
+      trackToolUse('Title Case Converter', 'title-case')
+      tracked.current = true
+    }
   }
 
   const handleCopy = () => {

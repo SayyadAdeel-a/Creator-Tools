@@ -18,7 +18,8 @@ export function BlogPost() {
             .eq('slug', slug)
             .eq('published', true)
             .single()
-            .then(({ data }) => {
+            .then(({ data, error }) => {
+                if (error) console.error('Failed to load post:', error)
                 setPost(data)
                 setLoading(false)
             })
@@ -47,10 +48,13 @@ export function BlogPost() {
 
     const schemaJson = JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "WebPage",
+        "@type": "BlogPosting",
         "headline": post.title,
         "description": post.excerpt,
         "datePublished": post.created_at,
+        "author": { "@type": "Organization", "name": "VidToolbox" },
+        "publisher": { "@type": "Organization", "name": "VidToolbox", "url": "https://vidtoolbox.vercel.app" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://vidtoolbox.vercel.app/blog/${post.slug}` }
     })
 
     return (

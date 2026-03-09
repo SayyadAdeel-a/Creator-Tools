@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
-
-// Add your authorized admin emails here
-const ADMIN_EMAILS = ['adeelsayyad.a@gmail.com']
+import { ADMIN_EMAILS } from '../lib/adminConfig'
 
 export function AdminGuard({ children }) {
     const [user, setUser] = useState(undefined) // undefined = loading

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Copy, Link2 } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -7,6 +7,7 @@ import { trackToolUse } from '../../lib/track'
 export function SlugGenerator() {
   const [input, setInput] = useState('')
   const [output, setOutput] = useState('')
+  const tracked = useRef(false)
 
   const generateSlug = (text) => {
     return text.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '')
@@ -17,7 +18,10 @@ export function SlugGenerator() {
     setInput(value)
     const slug = generateSlug(value)
     setOutput(slug)
-    if (slug) trackToolUse('Slug Generator', 'slug-generator')
+    if (slug && !tracked.current) {
+      trackToolUse('Slug Generator', 'slug-generator')
+      tracked.current = true
+    }
   }
 
   const handleCopy = () => {

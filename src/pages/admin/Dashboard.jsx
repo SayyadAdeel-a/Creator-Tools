@@ -41,48 +41,53 @@ export function AdminDashboard() {
     }, [])
 
     const fetchAll = async () => {
-        const todayStart = new Date()
-        todayStart.setHours(0, 0, 0, 0)
-        const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
+        try {
+            const todayStart = new Date()
+            todayStart.setHours(0, 0, 0, 0)
+            const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString()
 
-        const [
-            { count: totalToolUses },
-            { count: toolUsesToday },
-            { count: totalPosts },
-            { count: pageViewsToday },
-            { data: toolEvents30d },
-            { data: pageViews30d },
-            { data: recentEvents },
-        ] = await Promise.all([
-            supabase.from('tool_events').select('*', { count: 'exact', head: true }),
-            supabase.from('tool_events').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()),
-            supabase.from('blog_posts').select('*', { count: 'exact', head: true }),
-            supabase.from('page_views').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()),
-            supabase.from('tool_events').select('tool_name, created_at').gte('created_at', thirtyDaysAgo),
-            supabase.from('page_views').select('created_at').gte('created_at', thirtyDaysAgo),
-            supabase.from('tool_events').select('tool_name, created_at').order('created_at', { ascending: false }).limit(20),
-        ])
+            const [
+                { count: totalToolUses },
+                { count: toolUsesToday },
+                { count: totalPosts },
+                { count: pageViewsToday },
+                { data: toolEvents30d },
+                { data: pageViews30d },
+                { data: recentEvents },
+            ] = await Promise.all([
+                supabase.from('tool_events').select('*', { count: 'exact', head: true }),
+                supabase.from('tool_events').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()),
+                supabase.from('blog_posts').select('*', { count: 'exact', head: true }),
+                supabase.from('page_views').select('*', { count: 'exact', head: true }).gte('created_at', todayStart.toISOString()),
+                supabase.from('tool_events').select('tool_name, created_at').gte('created_at', thirtyDaysAgo),
+                supabase.from('page_views').select('created_at').gte('created_at', thirtyDaysAgo),
+                supabase.from('tool_events').select('tool_name, created_at').order('created_at', { ascending: false }).limit(20),
+            ])
 
-        setStats({ totalToolUses, toolUsesToday, totalPosts, pageViewsToday })
+            setStats({ totalToolUses, toolUsesToday, totalPosts, pageViewsToday })
 
-        // Group tool events by tool_name
-        const toolCounts = {}
-        for (const e of toolEvents30d || []) {
-            const key = e.tool_name.replace(' Tool', '').replace(' Converter', '').replace(' Calculator', '').replace(' Generator', '').replace(' Counter', '')
-            toolCounts[key] = (toolCounts[key] || 0) + 1
+            // Group tool events by tool_name
+            const toolCounts = {}
+            for (const e of toolEvents30d || []) {
+                const key = e.tool_name.replace(' Tool', '').replace(' Converter', '').replace(' Calculator', '').replace(' Generator', '').replace(' Counter', '')
+                toolCounts[key] = (toolCounts[key] || 0) + 1
+            }
+            setToolChart(Object.entries(toolCounts).map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count))
+
+            // Group page views by day
+            const dayCounts = {}
+            for (const v of pageViews30d || []) {
+                const day = new Date(v.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+                dayCounts[day] = (dayCounts[day] || 0) + 1
+            }
+            setTrafficChart(Object.entries(dayCounts).map(([date, views]) => ({ date, views })))
+
+            setRecentActivity(recentEvents || [])
+        } catch (err) {
+            console.error('Dashboard fetch failed:', err)
+        } finally {
+            setLoading(false)
         }
-        setToolChart(Object.entries(toolCounts).map(([name, count]) => ({ name, count })).sort((a, b) => b.count - a.count))
-
-        // Group page views by day
-        const dayCounts = {}
-        for (const v of pageViews30d || []) {
-            const day = new Date(v.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-            dayCounts[day] = (dayCounts[day] || 0) + 1
-        }
-        setTrafficChart(Object.entries(dayCounts).map(([date, views]) => ({ date, views })))
-
-        setRecentActivity(recentEvents || [])
-        setLoading(false)
     }
 
     return (

@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { Zap, Lock, Mail, AlertCircle } from 'lucide-react'
+import { Lock, Mail, AlertCircle } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
+import { ADMIN_EMAILS } from '../../lib/adminConfig'
 
 export function AdminLogin() {
     const [email, setEmail] = useState('')
@@ -25,7 +26,6 @@ export function AdminLogin() {
         }
 
         // Check if user is an admin
-        const ADMIN_EMAILS = ['adeelsayyad.a@gmail.com']
         if (!ADMIN_EMAILS.includes(data.user.email)) {
             // Sign them out immediately if they aren't an admin
             await supabase.auth.signOut()
