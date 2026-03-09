@@ -2,21 +2,23 @@ import { supabase } from './supabase'
 
 export const trackToolUse = async (toolName, toolSlug) => {
   try {
-    await supabase.from('tool_events').insert({ 
-      tool_name: toolName, 
-      tool_slug: toolSlug 
+    const { error } = await supabase.from('tool_events').insert({
+      tool_name: toolName,
+      tool_slug: toolSlug
     })
+    if (error) console.error('Error tracking tool use:', error)
   } catch (e) {
-    // fail silently, never break the tool
+    console.error('Exception tracking tool use:', e)
   }
 }
 
 export const trackPageView = async (path) => {
   try {
-    await supabase.from('page_views').insert({ 
-      page_path: path 
+    const { error } = await supabase.from('page_views').insert({
+      page_path: path
     })
+    if (error) console.error('Error tracking page view:', error)
   } catch (e) {
-    // fail silently
+    console.error('Exception tracking page view:', e)
   }
 }

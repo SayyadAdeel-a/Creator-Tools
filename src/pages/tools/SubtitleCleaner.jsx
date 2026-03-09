@@ -12,7 +12,7 @@ export function SubtitleCleaner() {
   const handleFileUpload = (e) => {
     const file = e.target.files[0]
     if (!file) return
-    
+
     const reader = new FileReader()
     reader.onload = (event) => {
       setInput(event.target.result)
@@ -24,18 +24,19 @@ export function SubtitleCleaner() {
   const cleanSubtitles = (srtContent) => {
     const lines = srtContent.split('\n')
     const result = []
-    
+
     for (const line of lines) {
       const trimmed = line.trim()
       if (/^\d{2}:\d{2}:\d{2},\d{3}\s*-->\s*\d{2}:\d{2}:\d{2},\d{3}$/.test(trimmed)) continue
       result.push(line)
     }
-    
+
     setOutput(result.join('\n').trim())
   }
 
   const handleClean = () => {
     cleanSubtitles(input)
+    trackToolUse('Subtitle Cleaner', 'subtitle-cleaner')
   }
 
   const handleCopy = () => {
@@ -58,7 +59,7 @@ export function SubtitleCleaner() {
         <title>Subtitle Timestamp Remover — Free Online Tool for Creators | VidToolbox</title>
         <meta name="description" content="Remove timestamps from SRT subtitle files while keeping sequence numbers and dialogue intact." />
       </Helmet>
-      
+
       <ToolPage
         title="Subtitle Timestamp Remover"
         icon={Eraser}
@@ -97,7 +98,7 @@ export function SubtitleCleaner() {
               {input.length.toLocaleString()} characters
             </div>
           </div>
-          
+
           <div>
             <div className="p-4 border-b border-slate-100 flex items-center justify-between">
               <h3 className="font-medium text-slate-900">Cleaned Output</h3>
@@ -125,7 +126,7 @@ export function SubtitleCleaner() {
             </div>
           </div>
         </div>
-        
+
         <div className="p-4 border-t border-slate-200 flex items-center justify-between bg-slate-50">
           <button onClick={() => { setInput(''); setOutput(''); }} className="text-sm text-slate-500 hover:text-slate-700">
             Reset
