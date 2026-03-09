@@ -1,6 +1,5 @@
-// api/sitemap.js — Vercel Serverless Function (CommonJS)
-// Serves a live sitemap that auto-includes all published blog posts from Supabase.
-// Route: GET /sitemap.xml  (via vercel.json rewrite)
+// api/sitemap.js — Vercel Serverless Function (Node 20, CommonJS)
+// Serves a live /sitemap.xml that auto-includes all published blog posts.
 
 const SITE_URL = 'https://vidtoolbox.vercel.app'
 
@@ -23,22 +22,33 @@ const STATIC_PAGES = [
 ]
 
 function urlTag(page) {
-    return [
+    const lines = [
         '  <url>',
         `    <loc>${SITE_URL}${page.loc}</loc>`,
-        page.lastmod ? `    <lastmod>${page.lastmod}</lastmod>` : '',
-        `    <changefreq>${page.changefreq}</changefreq>`,
-        `    <priority>${page.priority}</priority>`,
-        '  </url>',
-    ].filter(Boolean).join('\n')
+    ]
+    if (page.lastmod) lines.push(`    <lastmod>${page.lastmod}</lastmod>`)
+    lines.push(`    <changefreq>${page.changefreq}</changefreq>`)
+    lines.push(`    <priority>${page.priority}</priority>`)
+    lines.push('  </url>')
+    return lines.join('\n')
+}
+
+function buildXml(pages) {
+    return [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        pages.map(urlTag).join('\n'),
+        '</urlset>',
+    ].join('\n')
 }
 
 module.exports = async function handler(req, res) {
+    // Always start with static pages — blog posts are bonus
+    let allPages = [...STATIC_PAGES]
+
     try {
         const supabaseUrl = process.env.VITE_SUPABASE_URL
         const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY
-
-        let blogPages = []
 
         if (supabaseUrl && supabaseKey) {
             const apiRes = await fetch(
@@ -53,31 +63,23 @@ module.exports = async function handler(req, res) {
 
             if (apiRes.ok) {
                 const posts = await apiRes.json()
-                blogPages = posts.map(post => ({
+                const blogPages = posts.map(post => ({
                     loc: `/blog/${post.slug}`,
                     changefreq: 'monthly',
                     priority: '0.7',
                     lastmod: (post.updated_at || post.created_at || '').split('T')[0],
                 }))
-            } else {
-                console.error('Supabase fetch failed:', apiRes.status, await apiRes.text())
+                allPages = [...allPages, ...blogPages]
             }
         }
-
-        const allPages = [...STATIC_PAGES, ...blogPages]
-
-        const xml = [
-            '<?xml version="1.0" encoding="UTF-8"?>',
-            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-            allPages.map(urlTag).join('\n'),
-            '</urlset>',
-        ].join('\n')
-
-        res.setHeader('Content-Type', 'application/xml; charset=utf-8')
-        res.setHeader('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400')
-        res.status(200).send(xml)
     } catch (err) {
-        console.error('Sitemap error:', err)
-        res.status(500).send('Error generating sitemap')
+        // Supabase unavailable — still serve static sitemap
+        console.error('Sitemap: Supabase fetch failed, serving static pages only:', err.message)
     }
+
+    const xml = buildXml(allPages)
+
+    res.setHeader('Content-Type', 'application/xml; charset=utf-8')
+    res.setHeader('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400')
+    return res.status(200).send(xml)
 }
