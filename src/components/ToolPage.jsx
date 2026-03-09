@@ -100,4 +100,8 @@ export function ToolPage({
         </p>
       </div>
       
-    
+      <AdSlot className="mt-8" />
+    </div>
+    </Layout>
+  )
+}

@@ -119,4 +119,6 @@ export function Home() {
           )}
         </div>
       </section>
-    </Lay
+    </Layout>
+  )
+}
