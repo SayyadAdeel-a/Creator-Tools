@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Copy, Type } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
+import { trackToolUse } from '../../lib/track'
 
 const exceptions = ['a', 'an', 'the', 'and', 'but', 'or', 'for', 'nor', 'on', 'at', 'to', 'by', 'in', 'of']
 
@@ -27,7 +28,9 @@ export function TitleCase() {
   const handleInputChange = (e) => {
     const value = e.target.value
     setInput(value)
-    setOutput(convertToTitleCase(value))
+    const converted = convertToTitleCase(value)
+    setOutput(converted)
+    if (converted) trackToolUse('Title Case Converter', 'title-case')
   }
 
   const handleCopy = () => {
@@ -40,7 +43,7 @@ export function TitleCase() {
         <title>Title Case Converter — Free Online Tool for Creators | VidToolbox</title>
         <meta name="description" content="Convert any text to proper title case." />
       </Helmet>
-      
+
       <ToolPage
         title="Title Case Converter"
         icon={Type}
@@ -62,7 +65,7 @@ export function TitleCase() {
               className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
             />
           </div>
-          
+
           {output && (
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">Output (Title Case)</label>

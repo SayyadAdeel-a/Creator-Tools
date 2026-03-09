@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Download, Split, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
 import { parseSRT, generateSRT, splitSubtitles, splitSubtitlesByTimestamp } from '../../lib/srtParser'
+import { trackToolUse } from '../../lib/track'
 
 export function SubtitleSplit() {
   const [input, setInput] = useState('')
@@ -14,15 +15,16 @@ export function SubtitleSplit() {
   const handleSplit = () => {
     const subtitles = parseSRT(input)
     let result1, result2
-    
+
     if (splitMode === 'linecount') {
       [result1, result2] = splitSubtitles(subtitles, parseInt(splitValue, 10))
     } else {
       [result1, result2] = splitSubtitlesByTimestamp(subtitles, splitValue)
     }
-    
+
     setPart1(generateSRT(result1))
     setPart2(generateSRT(result2))
+    trackToolUse('Subtitle Split Tool', 'subtitle-split')
   }
 
   const downloadPart = (content, partNum) => {
@@ -41,7 +43,7 @@ export function SubtitleSplit() {
         <title>Subtitle Split Tool — Free Online Tool for Creators | VidToolbox</title>
         <meta name="description" content="Split SRT subtitle files by line count or timestamp. Export two separate files." />
       </Helmet>
-      
+
       <ToolPage
         title="Subtitle Split Tool"
         icon={Split}
@@ -108,7 +110,7 @@ export function SubtitleSplit() {
               </div>
             </div>
           </div>
-          
+
           <div>
             <div className="p-4 border-b border-slate-100 flex items-center justify-between">
               <h3 className="font-medium text-slate-900">Output Parts</h3>
@@ -154,7 +156,7 @@ export function SubtitleSplit() {
             </div>
           </div>
         </div>
-        
+
         <div className="p-4 border-t border-slate-200 flex items-center justify-between bg-slate-50">
           <button onClick={() => { setInput(''); setPart1(''); setPart2(''); }} className="text-sm text-slate-500 hover:text-slate-700">
             Reset

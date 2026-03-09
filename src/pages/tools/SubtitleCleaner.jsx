@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Upload, Copy, Download, Eraser, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
+import { trackToolUse } from '../../lib/track'
 
 export function SubtitleCleaner() {
   const [input, setInput] = useState('')

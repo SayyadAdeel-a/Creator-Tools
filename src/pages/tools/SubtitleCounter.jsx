@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { FileText, AlignLeft, Type, List, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
 import { parseSRT } from '../../lib/srtParser'
+import { trackToolUse } from '../../lib/track'
 
 export function SubtitleCounter() {
   const [input, setInput] = useState('')
@@ -25,6 +26,7 @@ export function SubtitleCounter() {
       lines: dialogueLines,
       characters: totalChars
     })
+    trackToolUse('Subtitle Line Counter', 'subtitle-counter')
   }
 
   return (

@@ -12,14 +12,15 @@ export function Footer() {
             </div>
             <span className="font-heading font-semibold text-slate-900">VidToolbox</span>
           </Link>
-          
+
           <p className="text-sm text-slate-500">
             © {new Date().getFullYear()} VidToolbox. All rights reserved.
           </p>
-          
+
           <div className="flex items-center gap-6">
             <Link to="/" className="text-sm text-slate-500 hover:text-cyan-600 transition-colors">Home</Link>
             <Link to="/tools/srt-to-text" className="text-sm text-slate-500 hover:text-cyan-600 transition-colors">Tools</Link>
+            <Link to="/blog" className="text-sm text-slate-500 hover:text-cyan-600 transition-colors">Blog</Link>
           </div>
         </div>
       </div>

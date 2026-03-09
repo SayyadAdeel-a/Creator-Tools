@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Type, Clock, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
+import { trackToolUse } from '../../lib/track'
 
 export function ReadingTime() {
   const [input, setInput] = useState('')
@@ -14,6 +15,7 @@ export function ReadingTime() {
     const mins = Math.floor(readTime)
     const readTimeString = mins === 1 ? '1 minute read' : `≈ ${mins} minute read`
     setResult({ words: wordCount, readTime: readTimeString })
+    trackToolUse('Reading Time Calculator', 'reading-time')
   }
 
   return (
@@ -22,7 +24,7 @@ export function ReadingTime() {
         <title>Reading Time Calculator — Free Online Tool for Creators | VidToolbox</title>
         <meta name="description" content="Calculate estimated reading time for any text." />
       </Helmet>
-      
+
       <ToolPage
         title="Reading Time Calculator"
         icon={Clock}
@@ -43,7 +45,7 @@ export function ReadingTime() {
               className="w-full h-48 p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-sm resize-none"
             />
           </div>
-          
+
           <div className="flex items-center justify-between">
             <span className="text-sm text-slate-500">{input.split(/\s+/).filter(w => w).length.toLocaleString()} words</span>
             <button
@@ -54,7 +56,7 @@ export function ReadingTime() {
             </button>
           </div>
         </div>
-        
+
         {result && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 border-t border-slate-200">
             <div className="bg-cyan-50 rounded-xl p-5 text-center">

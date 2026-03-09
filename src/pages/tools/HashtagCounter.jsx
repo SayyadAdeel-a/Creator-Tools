@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Hash, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
+import { trackToolUse } from '../../lib/track'
 
 export function HashtagCounter() {
   const [input, setInput] = useState('')
@@ -12,6 +13,7 @@ export function HashtagCounter() {
     const matches = input.match(regex) || []
     const unique = [...new Set(matches)]
     setResult({ total: matches.length, unique: unique.length, hashtags: unique })
+    trackToolUse('Hashtag Counter', 'hashtag-counter')
   }
 
   return (
@@ -20,7 +22,7 @@ export function HashtagCounter() {
         <title>Hashtag Counter — Free Online Tool for Creators | VidToolbox</title>
         <meta name="description" content="Count and extract hashtags from any text." />
       </Helmet>
-      
+
       <ToolPage
         title="Hashtag Counter"
         icon={Hash}
@@ -45,7 +47,7 @@ export function HashtagCounter() {
               className="w-full h-48 p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-sm resize-none"
             />
           </div>
-          
+
           <div className="flex items-center justify-between">
             <span className="text-sm text-slate-500">{input.length.toLocaleString()} characters</span>
             <button
@@ -56,7 +58,7 @@ export function HashtagCounter() {
             </button>
           </div>
         </div>
-        
+
         {result && (
           <div className="border-t border-slate-200 p-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -70,7 +72,7 @@ export function HashtagCounter() {
                 <div className="text-sm text-slate-600 mt-1">Unique Hashtags</div>
               </div>
             </div>
-            
+
             {result.hashtags.length > 0 && (
               <div>
                 <h3 className="font-medium text-slate-900 mb-3">Found Hashtags:</h3>

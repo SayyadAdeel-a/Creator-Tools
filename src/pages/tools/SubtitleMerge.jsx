@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { Upload, Download, FileText, X, Merge, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
 import { parseSRT, mergeSubtitles, generateSRT } from '../../lib/srtParser'
+import { trackToolUse } from '../../lib/track'
 
 export function SubtitleMerge() {
   const [files, setFiles] = useState([])
@@ -12,7 +13,7 @@ export function SubtitleMerge() {
 
   const handleFileUpload = (e) => {
     const uploadedFiles = Array.from(e.target.files)
-    
+
     Promise.all(
       uploadedFiles.map(file => {
         return new Promise((resolve) => {
@@ -35,6 +36,7 @@ export function SubtitleMerge() {
     const subtitlesList = allFiles.map(f => parseSRT(f.content))
     const merged = mergeSubtitles(subtitlesList)
     setOutput(generateSRT(merged))
+    trackToolUse('Subtitle Merge Tool', 'subtitle-merge')
   }
 
   const handleDownload = () => {
@@ -64,7 +66,7 @@ export function SubtitleMerge() {
         <title>Subtitle Merge Tool — Free Online Tool for Creators | VidToolbox</title>
         <meta name="description" content="Merge multiple SRT subtitle files into one. Combine subtitles chronologically with proper indexing." />
       </Helmet>
-      
+
       <ToolPage
         title="Subtitle Merge Tool"
         icon={Merge}
@@ -96,7 +98,7 @@ export function SubtitleMerge() {
             onChange={handleFileUpload}
             className="hidden"
           />
-          
+
           {fileNames.length > 0 && (
             <div className="mt-4 space-y-2">
               <p className="text-sm font-medium text-slate-700">{fileNames.length} files uploaded:</p>
@@ -113,7 +115,7 @@ export function SubtitleMerge() {
               </div>
             </div>
           )}
-          
+
           {output && (
             <div className="mt-6 flex items-center justify-between bg-slate-50 rounded-xl p-4">
               <div className="flex items-center gap-3">

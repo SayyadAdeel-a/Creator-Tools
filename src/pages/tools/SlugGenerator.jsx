@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Copy, Link2 } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
+import { trackToolUse } from '../../lib/track'
 
 export function SlugGenerator() {
   const [input, setInput] = useState('')
@@ -14,7 +15,9 @@ export function SlugGenerator() {
   const handleInputChange = (e) => {
     const value = e.target.value
     setInput(value)
-    setOutput(generateSlug(value))
+    const slug = generateSlug(value)
+    setOutput(slug)
+    if (slug) trackToolUse('Slug Generator', 'slug-generator')
   }
 
   const handleCopy = () => {
@@ -27,7 +30,7 @@ export function SlugGenerator() {
         <title>Slug Generator — Free Online Tool for Creators | VidToolbox</title>
         <meta name="description" content="Generate URL-friendly slugs from any text." />
       </Helmet>
-      
+
       <ToolPage
         title="Slug Generator"
         icon={Link2}
@@ -49,7 +52,7 @@ export function SlugGenerator() {
               className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
             />
           </div>
-          
+
           {output && (
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">Generated Slug</label>

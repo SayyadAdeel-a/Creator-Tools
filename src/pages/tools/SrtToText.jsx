@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Upload, Copy, Download, FileText, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
+import { trackToolUse } from '../../lib/track'
 
 export function SrtToText() {
   const [input, setInput] = useState('')
@@ -47,6 +48,7 @@ export function SrtToText() {
 
   const handleConvert = () => {
     convertToText(input)
+    trackToolUse('SRT to Text Converter', 'srt-to-text')
   }
 
   const handleCopy = () => {

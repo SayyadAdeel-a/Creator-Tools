@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Type, AlignLeft, Clock, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
+import { trackToolUse } from '../../lib/track'
 
 export function ScriptWordCounter() {
   const [input, setInput] = useState('')
@@ -11,13 +12,14 @@ export function ScriptWordCounter() {
     const words = input.trim().split(/\s+/).filter(w => w.length > 0)
     const chars = input.length
     const wordCount = words.length
-    
+
     const minutes = wordCount / 130
     const mins = Math.floor(minutes)
     const secs = Math.round((minutes - mins) * 60)
     const duration = mins > 0 ? `${mins}m ${secs}s` : `${secs}s`
-    
+
     setStats({ words: wordCount, chars, duration })
+    trackToolUse('YouTube Script Word Counter', 'script-word-counter')
   }
 
   return (
@@ -26,7 +28,7 @@ export function ScriptWordCounter() {
         <title>YouTube Script Word Counter — Free Online Tool for Creators | VidToolbox</title>
         <meta name="description" content="Count words and estimate video duration for your YouTube scripts." />
       </Helmet>
-      
+
       <ToolPage
         title="YouTube Script Word Counter"
         icon={Type}
@@ -51,7 +53,7 @@ export function ScriptWordCounter() {
               className="w-full h-48 p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-sm resize-none"
             />
           </div>
-          
+
           <div className="flex items-center justify-between">
             <span className="text-sm text-slate-500">{input.length.toLocaleString()} characters</span>
             <button
@@ -62,7 +64,7 @@ export function ScriptWordCounter() {
             </button>
           </div>
         </div>
-        
+
         {stats && (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 border-t border-slate-200">
             <div className="bg-cyan-50 rounded-xl p-5 text-center">
