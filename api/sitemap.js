@@ -1,5 +1,5 @@
-// api/sitemap.js — Vercel Serverless Function (Node 20, CommonJS)
-// Serves a live /sitemap.xml that auto-includes all published blog posts.
+// api/sitemap.js — Vercel Serverless Function
+// Project has "type": "module" in package.json so this uses ESM syntax.
 
 const SITE_URL = 'https://vidtoolbox.vercel.app'
 
@@ -42,8 +42,7 @@ function buildXml(pages) {
     ].join('\n')
 }
 
-module.exports = async function handler(req, res) {
-    // Always start with static pages — blog posts are bonus
+export default async function handler(req, res) {
     let allPages = [...STATIC_PAGES]
 
     try {
@@ -73,12 +72,10 @@ module.exports = async function handler(req, res) {
             }
         }
     } catch (err) {
-        // Supabase unavailable — still serve static sitemap
-        console.error('Sitemap: Supabase fetch failed, serving static pages only:', err.message)
+        console.error('Sitemap Supabase error (serving static only):', err.message)
     }
 
     const xml = buildXml(allPages)
-
     res.setHeader('Content-Type', 'application/xml; charset=utf-8')
     res.setHeader('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400')
     return res.status(200).send(xml)
