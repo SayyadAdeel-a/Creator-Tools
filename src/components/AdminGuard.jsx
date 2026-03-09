@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 
 // Add your authorized admin emails here
-const ADMIN_EMAILS = ['sayyadeadeel@gmail.com']
+const ADMIN_EMAILS = ['adeelsayyad.a@gmail.com']
 
 export function AdminGuard({ children }) {
     const [user, setUser] = useState(undefined) // undefined = loading
