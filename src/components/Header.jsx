@@ -27,7 +27,6 @@ const textTools = [
 const navItems = [
   { name: 'Home', path: '/', icon: Home },
   { name: 'All Tools', path: '/tools', icon: LayoutGrid },
-  { name: 'Blog', path: '/blog', icon: BookOpen },
 ]
 
 function NavDropdown({ label, icon: Icon, items, isActive }) {

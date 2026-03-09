@@ -22,6 +22,7 @@ import { PublicLogin } from './pages/auth/Login'
 import { PublicSignup } from './pages/auth/Signup'
 import { AllTools } from './pages/AllTools'
 import { About } from './pages/About'
+import { Privacy } from './pages/Privacy'
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/tools" element={<AllTools />} />
           <Route path="/about" element={<About />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/tools/srt-to-text" element={<SrtToText />} />
           <Route path="/tools/subtitle-cleaner" element={<SubtitleCleaner />} />
           <Route path="/tools/subtitle-counter" element={<SubtitleCounter />} />
