@@ -1,6 +1,6 @@
-// api/sitemap.js — Vercel Serverless Function
-// Serves a dynamic sitemap that includes all published blog posts from Supabase.
-// Accessed at: https://vidtoolbox.vercel.app/sitemap.xml (via vercel.json rewrite)
+// api/sitemap.js — Vercel Serverless Function (CommonJS)
+// Serves a live sitemap that auto-includes all published blog posts from Supabase.
+// Route: GET /sitemap.xml  (via vercel.json rewrite)
 
 const SITE_URL = 'https://vidtoolbox.vercel.app'
 
@@ -22,26 +22,26 @@ const STATIC_PAGES = [
     { loc: '/tools/hashtag-counter', changefreq: 'monthly', priority: '0.8' },
 ]
 
-function urlTag({ loc, changefreq, priority, lastmod }) {
-    return `
-  <url>
-    <loc>${SITE_URL}${loc}</loc>
-    ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-  </url>`
+function urlTag(page) {
+    return [
+        '  <url>',
+        `    <loc>${SITE_URL}${page.loc}</loc>`,
+        page.lastmod ? `    <lastmod>${page.lastmod}</lastmod>` : '',
+        `    <changefreq>${page.changefreq}</changefreq>`,
+        `    <priority>${page.priority}</priority>`,
+        '  </url>',
+    ].filter(Boolean).join('\n')
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
     try {
-        // Fetch published blog posts from Supabase REST API directly
         const supabaseUrl = process.env.VITE_SUPABASE_URL
         const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY
 
-        let blogUrls = []
+        let blogPages = []
 
         if (supabaseUrl && supabaseKey) {
-            const response = await fetch(
+            const apiRes = await fetch(
                 `${supabaseUrl}/rest/v1/blog_posts?select=slug,created_at,updated_at&published=eq.true&order=created_at.desc`,
                 {
                     headers: {
@@ -51,29 +51,33 @@ export default async function handler(req, res) {
                 }
             )
 
-            if (response.ok) {
-                const posts = await response.json()
-                blogUrls = posts.map(post => ({
+            if (apiRes.ok) {
+                const posts = await apiRes.json()
+                blogPages = posts.map(post => ({
                     loc: `/blog/${post.slug}`,
                     changefreq: 'monthly',
                     priority: '0.7',
                     lastmod: (post.updated_at || post.created_at || '').split('T')[0],
                 }))
+            } else {
+                console.error('Supabase fetch failed:', apiRes.status, await apiRes.text())
             }
         }
 
-        const allPages = [...STATIC_PAGES, ...blogUrls]
+        const allPages = [...STATIC_PAGES, ...blogPages]
 
-        const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allPages.map(urlTag).join('')}
-</urlset>`
+        const xml = [
+            '<?xml version="1.0" encoding="UTF-8"?>',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+            allPages.map(urlTag).join('\n'),
+            '</urlset>',
+        ].join('\n')
 
         res.setHeader('Content-Type', 'application/xml; charset=utf-8')
         res.setHeader('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400')
         res.status(200).send(xml)
     } catch (err) {
-        console.error('Sitemap generation error:', err)
+        console.error('Sitemap error:', err)
         res.status(500).send('Error generating sitemap')
     }
 }
