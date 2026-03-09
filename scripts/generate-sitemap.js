@@ -1,6 +1,13 @@
-// api/sitemap.js — Vercel Serverless Function
-// Project has "type": "module" in package.json so this uses ESM syntax.
+// scripts/generate-sitemap.js
+// Run at build time: node scripts/generate-sitemap.js
+// Fetches published blog posts from Supabase and writes public/sitemap.xml
 
+import { createClient } from '@supabase/supabase-js'
+import { writeFileSync } from 'fs'
+import { join, dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 const SITE_URL = 'https://vidtoolbox.vercel.app'
 
 const STATIC_PAGES = [
@@ -22,10 +29,7 @@ const STATIC_PAGES = [
 ]
 
 function urlTag(page) {
-    const lines = [
-        '  <url>',
-        `    <loc>${SITE_URL}${page.loc}</loc>`,
-    ]
+    const lines = ['  <url>', `    <loc>${SITE_URL}${page.loc}</loc>`]
     if (page.lastmod) lines.push(`    <lastmod>${page.lastmod}</lastmod>`)
     lines.push(`    <changefreq>${page.changefreq}</changefreq>`)
     lines.push(`    <priority>${page.priority}</priority>`)
@@ -33,35 +37,24 @@ function urlTag(page) {
     return lines.join('\n')
 }
 
-function buildXml(pages) {
-    return [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-        pages.map(urlTag).join('\n'),
-        '</urlset>',
-    ].join('\n')
-}
-
-export default async function handler(req, res) {
+async function main() {
     let allPages = [...STATIC_PAGES]
 
-    try {
-        const supabaseUrl = process.env.VITE_SUPABASE_URL
-        const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY
+    const supabaseUrl = process.env.VITE_SUPABASE_URL
+    const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY
 
-        if (supabaseUrl && supabaseKey) {
-            const apiRes = await fetch(
-                `${supabaseUrl}/rest/v1/blog_posts?select=slug,created_at,updated_at&published=eq.true&order=created_at.desc`,
-                {
-                    headers: {
-                        apikey: supabaseKey,
-                        Authorization: `Bearer ${supabaseKey}`,
-                    },
-                }
-            )
+    if (supabaseUrl && supabaseKey) {
+        try {
+            const supabase = createClient(supabaseUrl, supabaseKey)
+            const { data: posts, error } = await supabase
+                .from('blog_posts')
+                .select('slug, created_at, updated_at')
+                .eq('published', true)
+                .order('created_at', { ascending: false })
 
-            if (apiRes.ok) {
-                const posts = await apiRes.json()
+            if (error) {
+                console.warn('⚠️  Sitemap: Supabase error, using static pages only:', error.message)
+            } else if (posts?.length) {
                 const blogPages = posts.map(post => ({
                     loc: `/blog/${post.slug}`,
                     changefreq: 'monthly',
@@ -69,14 +62,25 @@ export default async function handler(req, res) {
                     lastmod: (post.updated_at || post.created_at || '').split('T')[0],
                 }))
                 allPages = [...allPages, ...blogPages]
+                console.log(`✅  Sitemap: Added ${blogPages.length} blog post(s)`)
             }
+        } catch (err) {
+            console.warn('⚠️  Sitemap: Could not reach Supabase:', err.message)
         }
-    } catch (err) {
-        console.error('Sitemap Supabase error (serving static only):', err.message)
+    } else {
+        console.warn('⚠️  Sitemap: No Supabase env vars found, using static pages only')
     }
 
-    const xml = buildXml(allPages)
-    res.setHeader('Content-Type', 'application/xml; charset=utf-8')
-    res.setHeader('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400')
-    return res.status(200).send(xml)
+    const xml = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        allPages.map(urlTag).join('\n'),
+        '</urlset>',
+    ].join('\n')
+
+    const outPath = join(__dirname, '..', 'public', 'sitemap.xml')
+    writeFileSync(outPath, xml, 'utf-8')
+    console.log(`✅  Sitemap written to public/sitemap.xml (${allPages.length} URLs)`)
 }
+
+main()
