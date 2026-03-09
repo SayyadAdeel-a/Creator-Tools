@@ -40,8 +40,22 @@ export function TitleCase() {
   return (
     <>
       <Helmet>
-        <title>Title Case Converter — Free Online Tool for Creators | VidToolbox</title>
-        <meta name="description" content="Convert any text to proper title case." />
+        <title>Title Case Converter — Free Online AP & Chicago Title Case Tool | VidToolbox</title>
+        <meta name="description" content="Convert any text to proper AP or Chicago title case online, instantly and free. Great for YouTube titles, blog headlines, and article headings. No account needed." />
+        <meta name="keywords" content="title case converter, title case tool, capitalize title online, AP title case, Chicago title case, make title case" />
+        <link rel="canonical" href="https://vidtoolbox.vercel.app/tools/title-case" />
+        <meta property="og:title" content="Title Case Converter — Free Online Tool | VidToolbox" />
+        <meta property="og:url" content="https://vidtoolbox.vercel.app/tools/title-case" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Title Case Converter",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "url": "https://vidtoolbox.vercel.app/tools/title-case",
+          "description": "Convert text to proper AP or Chicago title case. Free, instant, no sign-up."
+        })}</script>
       </Helmet>
 
       <ToolPage

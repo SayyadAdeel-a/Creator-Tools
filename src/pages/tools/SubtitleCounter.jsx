@@ -11,16 +11,16 @@ export function SubtitleCounter() {
 
   const countStats = () => {
     const subtitles = parseSRT(input)
-    
+
     let dialogueLines = 0
     let totalChars = 0
-    
+
     for (const sub of subtitles) {
       const lines = sub.text.split('\n').filter(l => l.trim())
       dialogueLines += lines.length
       totalChars += sub.text.replace(/\n/g, '').length
     }
-    
+
     setStats({
       blocks: subtitles.length,
       lines: dialogueLines,
@@ -32,10 +32,24 @@ export function SubtitleCounter() {
   return (
     <>
       <Helmet>
-        <title>Subtitle Line Counter — Free Online Tool for Creators | VidToolbox</title>
-        <meta name="description" content="Count subtitle blocks, dialogue lines, and characters in your SRT files instantly." />
+        <title>Subtitle Line Counter — Count SRT Blocks, Lines & Characters | VidToolbox</title>
+        <meta name="description" content="Count subtitle blocks, dialogue lines, and characters in any SRT file in seconds. Free online tool, no upload needed. Great for estimating translation or editing time." />
+        <meta name="keywords" content="subtitle counter, SRT line counter, count subtitle blocks, count SRT characters, subtitle stats" />
+        <link rel="canonical" href="https://vidtoolbox.vercel.app/tools/subtitle-counter" />
+        <meta property="og:title" content="Subtitle Line Counter — Free Online Tool | VidToolbox" />
+        <meta property="og:url" content="https://vidtoolbox.vercel.app/tools/subtitle-counter" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Subtitle Line Counter",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "url": "https://vidtoolbox.vercel.app/tools/subtitle-counter",
+          "description": "Count subtitle blocks, lines, and characters in SRT files. Free and runs in your browser."
+        })}</script>
       </Helmet>
-      
+
       <ToolPage
         title="Subtitle Line Counter"
         icon={List}
@@ -60,7 +74,7 @@ export function SubtitleCounter() {
               className="w-full h-48 p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 font-mono text-sm resize-none"
             />
           </div>
-          
+
           <div className="flex items-center justify-between">
             <span className="text-sm text-slate-500">{input.length.toLocaleString()} characters</span>
             <button
@@ -71,7 +85,7 @@ export function SubtitleCounter() {
             </button>
           </div>
         </div>
-        
+
         {stats && (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 border-t border-slate-200">
             <div className="bg-cyan-50 rounded-xl p-5 text-center">

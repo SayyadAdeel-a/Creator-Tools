@@ -63,8 +63,22 @@ export function SubtitleMerge() {
   return (
     <>
       <Helmet>
-        <title>Subtitle Merge Tool — Free Online Tool for Creators | VidToolbox</title>
-        <meta name="description" content="Merge multiple SRT subtitle files into one. Combine subtitles chronologically with proper indexing." />
+        <title>Subtitle Merge Tool — Combine Multiple SRT Files Online Free | VidToolbox</title>
+        <meta name="description" content="Merge multiple SRT subtitle files into one chronologically ordered file online. Free, instant, and runs entirely in your browser — no sign-up, no file upload to servers." />
+        <meta name="keywords" content="merge SRT files, combine subtitle files, SRT merge tool, join SRT files, subtitle combiner online" />
+        <link rel="canonical" href="https://vidtoolbox.vercel.app/tools/subtitle-merge" />
+        <meta property="og:title" content="Subtitle Merge Tool — Combine SRT Files Online | VidToolbox" />
+        <meta property="og:url" content="https://vidtoolbox.vercel.app/tools/subtitle-merge" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Subtitle Merge Tool",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "url": "https://vidtoolbox.vercel.app/tools/subtitle-merge",
+          "description": "Merge multiple SRT files into one. Free, browser-based, no upload to servers."
+        })}</script>
       </Helmet>
 
       <ToolPage

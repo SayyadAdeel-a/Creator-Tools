@@ -12,7 +12,7 @@ export function SrtToText() {
   const handleFileUpload = (e) => {
     const file = e.target.files[0]
     if (!file) return
-    
+
     const reader = new FileReader()
     reader.onload = (event) => {
       setInput(event.target.result)
@@ -25,13 +25,13 @@ export function SrtToText() {
     const lines = srtContent.split('\n')
     const result = []
     let lastWasEmpty = false
-    
+
     for (const line of lines) {
       const trimmed = line.trim()
-      
+
       if (/^\d+$/.test(trimmed)) continue
       if (/^\d{2}:\d{2}:\d{2},\d{3}\s*-->\s*\d{2}:\d{2}:\d{2},\d{3}$/.test(trimmed)) continue
-      
+
       if (trimmed === '') {
         if (!lastWasEmpty) {
           result.push('')
@@ -42,7 +42,7 @@ export function SrtToText() {
         lastWasEmpty = false
       }
     }
-    
+
     setOutput(result.filter(line => line !== '').join(' '))
   }
 
@@ -71,10 +71,25 @@ export function SrtToText() {
   return (
     <>
       <Helmet>
-        <title>SRT to Text Converter — Free Online Tool for Creators | VidToolbox</title>
-        <meta name="description" content="Convert SRT subtitle files to plain text instantly. Remove timestamps and sequence numbers, get clean text output." />
+        <title>SRT to Text Converter — Free Online Tool | VidToolbox</title>
+        <meta name="description" content="Convert SRT subtitle files to plain text online, free and instantly. Remove sequence numbers, timestamps, and blank lines — get clean readable text. No upload required, works in your browser." />
+        <meta name="keywords" content="SRT to text, convert SRT to text, remove subtitle timestamps, subtitle to plain text, free SRT converter online" />
+        <link rel="canonical" href="https://vidtoolbox.vercel.app/tools/srt-to-text" />
+        <meta property="og:title" content="SRT to Text Converter — Free Online Tool | VidToolbox" />
+        <meta property="og:description" content="Convert SRT subtitle files to plain text instantly — no sign-up, no upload limits. Runs entirely in your browser." />
+        <meta property="og:url" content="https://vidtoolbox.vercel.app/tools/srt-to-text" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "SRT to Text Converter",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "url": "https://vidtoolbox.vercel.app/tools/srt-to-text",
+          "description": "Convert SRT subtitle files to plain text. Remove timestamps and sequence numbers. Free, instant, browser-based."
+        })}</script>
       </Helmet>
-      
+
       <ToolPage
         title="SRT to Text Converter"
         icon={FileText}
@@ -113,7 +128,7 @@ export function SrtToText() {
               {inputLength.toLocaleString()} characters
             </div>
           </div>
-          
+
           <div>
             <div className="p-4 border-b border-slate-100 flex items-center justify-between">
               <h3 className="font-medium text-slate-900">Plain Text</h3>
@@ -149,7 +164,7 @@ export function SrtToText() {
             </div>
           </div>
         </div>
-        
+
         <div className="p-4 border-t border-slate-200 flex items-center justify-between bg-slate-50">
           <button
             onClick={() => { setInput(''); setOutput(''); }}
