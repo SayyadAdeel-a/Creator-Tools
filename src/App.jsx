@@ -18,6 +18,8 @@ import { BlogList } from './pages/admin/BlogList'
 import { BlogEditor } from './pages/admin/BlogEditor'
 import { BlogIndex } from './pages/blog/BlogIndex'
 import { BlogPost } from './pages/blog/BlogPost'
+import { PublicLogin } from './pages/auth/Login'
+import { PublicSignup } from './pages/auth/Signup'
 
 function App() {
   return (
@@ -40,6 +42,10 @@ function App() {
           {/* Public blog */}
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+
+          {/* Public auth */}
+          <Route path="/login" element={<PublicLogin />} />
+          <Route path="/signup" element={<PublicSignup />} />
 
           {/* Admin — no auth required */}
           <Route path="/admin/login" element={<AdminLogin />} />
