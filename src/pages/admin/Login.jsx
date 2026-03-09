@@ -46,9 +46,7 @@ export function AdminLogin() {
             <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
                 <div className="w-full max-w-sm">
                     <div className="text-center mb-8">
-                        <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <Zap className="w-6 h-6 text-white" />
-                        </div>
+                        <img src="/logo.svg" alt="VidToolbox Logo" className="w-12 h-12 mx-auto mb-4" />
                         <h1 className="text-2xl font-heading font-bold text-slate-900">Admin Login</h1>
                         <p className="text-slate-500 text-sm mt-1">VidToolbox Dashboard</p>
                     </div>

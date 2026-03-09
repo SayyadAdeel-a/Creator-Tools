@@ -39,9 +39,7 @@ export function About() {
             {/* Hero */}
             <section className="bg-gradient-to-b from-white to-slate-50 border-b border-slate-100 py-20">
                 <div className="max-w-3xl mx-auto px-4 text-center">
-                    <div className="w-14 h-14 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <Zap className="w-7 h-7 text-white" />
-                    </div>
+                    <img src="/logo.svg" alt="VidToolbox Logo" className="w-14 h-14 mx-auto mb-6" />
                     <h1 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-5">
                         About <span className="text-cyan-500">VidToolbox</span>
                     </h1>

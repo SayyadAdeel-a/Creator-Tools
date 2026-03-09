@@ -115,9 +115,7 @@ export function Header() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-lg flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
-            </div>
+            <img src="/logo.svg" alt="VidToolbox Logo" className="w-8 h-8" />
             <span className="font-heading font-bold text-xl text-slate-900">VidToolbox</span>
           </Link>
 

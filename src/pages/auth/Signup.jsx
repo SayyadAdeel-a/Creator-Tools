@@ -75,9 +75,7 @@ export function PublicSignup() {
                 <div className="w-full max-w-sm">
                     <div className="text-center mb-8">
                         <Link to="/" className="inline-flex items-center gap-2 mb-4">
-                            <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl flex items-center justify-center">
-                                <Zap className="w-5 h-5 text-white" />
-                            </div>
+                            <img src="/logo.svg" alt="VidToolbox Logo" className="w-10 h-10" />
                         </Link>
                         <h1 className="text-2xl font-heading font-bold text-slate-900">Create your account</h1>
                         <p className="text-slate-500 text-sm mt-1">Free forever — no credit card required</p>
