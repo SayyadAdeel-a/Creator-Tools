@@ -23,11 +23,13 @@ import { PublicSignup } from './pages/auth/Signup'
 import { AllTools } from './pages/AllTools'
 import { About } from './pages/About'
 import { Privacy } from './pages/Privacy'
+import { ScrollToTop } from './components/ScrollToTop'
 
 function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<Home />} />
