@@ -43,9 +43,9 @@ export function SubtitleSplit() {
         <title>Subtitle Split Tool — Split SRT Files by Line or Timestamp | VidToolbox</title>
         <meta name="description" content="Split a large SRT subtitle file into two parts by line count or timestamp. Free, instant, browser-based — no upload, no sign-up required. Great for splitting long videos." />
         <meta name="keywords" content="split SRT file, subtitle split, divide SRT file, SRT splitter online, subtitle file split by timestamp" />
-        <link rel="canonical" href="https://vidtoolbox.vercel.app/tools/subtitle-split" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/subtitle-split" />
         <meta property="og:title" content="Subtitle Split Tool — Split SRT Files Online | VidToolbox" />
-        <meta property="og:url" content="https://vidtoolbox.vercel.app/tools/subtitle-split" />
+        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/subtitle-split" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -53,7 +53,7 @@ export function SubtitleSplit() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.vercel.app/tools/subtitle-split",
+          "url": "https://vidtoolbox.qzz.io/tools/subtitle-split",
           "description": "Split a large SRT file into two parts by line count or timestamp. Free and offline."
         })}</script>
       </Helmet>

@@ -43,7 +43,7 @@ export function BlogIndex() {
             <Helmet>
                 <title>Blog — VidToolbox</title>
                 <meta name="description" content="Tips, guides and resources for content creators. Learn how to script videos, optimize subtitles, and grow your audience." />
-                <link rel="canonical" href="https://vidtoolbox.vercel.app/blog" />
+                <link rel="canonical" href="https://vidtoolbox.qzz.io/blog" />
             </Helmet>
 
             {/* Hero */}

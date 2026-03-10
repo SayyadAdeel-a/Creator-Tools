@@ -22,9 +22,9 @@ export function HashtagCounter() {
         <title>Hashtag Counter — Count & Extract Instagram Hashtags Free | VidToolbox</title>
         <meta name="description" content="Count total and unique hashtags in any text. Instantly extract all hashtags from your Instagram, Twitter or TikTok captions. Free online tool, no sign-up needed." />
         <meta name="keywords" content="hashtag counter, count hashtags, Instagram hashtag counter, extract hashtags, unique hashtag counter, hashtag tool online" />
-        <link rel="canonical" href="https://vidtoolbox.vercel.app/tools/hashtag-counter" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/hashtag-counter" />
         <meta property="og:title" content="Hashtag Counter — Count & Extract Hashtags Free | VidToolbox" />
-        <meta property="og:url" content="https://vidtoolbox.vercel.app/tools/hashtag-counter" />
+        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/hashtag-counter" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -32,7 +32,7 @@ export function HashtagCounter() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.vercel.app/tools/hashtag-counter",
+          "url": "https://vidtoolbox.qzz.io/tools/hashtag-counter",
           "description": "Count and extract hashtags from social media posts. Free, instant, no sign-up."
         })}</script>
       </Helmet>

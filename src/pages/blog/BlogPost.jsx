@@ -70,8 +70,8 @@ export function BlogPost() {
         "description": post.excerpt,
         "datePublished": post.created_at,
         "author": { "@type": "Organization", "name": "VidToolbox" },
-        "publisher": { "@type": "Organization", "name": "VidToolbox", "url": "https://vidtoolbox.vercel.app" },
-        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://vidtoolbox.vercel.app/blog/${post.slug}` }
+        "publisher": { "@type": "Organization", "name": "VidToolbox", "url": "https://vidtoolbox.qzz.io" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://vidtoolbox.qzz.io/blog/${post.slug}` }
     })
 
     return (

@@ -24,9 +24,9 @@ export function ReadingTime() {
         <title>Reading Time Calculator — Estimate Blog & Article Read Time Free | VidToolbox</title>
         <meta name="description" content="Calculate the estimated reading time of any blog post, article, or script instantly. Free online tool based on an average 200 wpm reading speed. No account needed." />
         <meta name="keywords" content="reading time calculator, estimate reading time, how long to read, blog reading time, article read time tool" />
-        <link rel="canonical" href="https://vidtoolbox.vercel.app/tools/reading-time" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/reading-time" />
         <meta property="og:title" content="Reading Time Calculator — Estimate Blog Read Time | VidToolbox" />
-        <meta property="og:url" content="https://vidtoolbox.vercel.app/tools/reading-time" />
+        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/reading-time" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -34,7 +34,7 @@ export function ReadingTime() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.vercel.app/tools/reading-time",
+          "url": "https://vidtoolbox.qzz.io/tools/reading-time",
           "description": "Calculate how long it takes to read any text at 200 words per minute. Free and instant."
         })}</script>
       </Helmet>

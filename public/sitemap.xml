@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vidtoolbox.vercel.app/</loc>
+    <loc>https://vidtoolbox.qzz.io/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools</loc>
+    <loc>https://vidtoolbox.qzz.io/tools</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/blog</loc>
+    <loc>https://vidtoolbox.qzz.io/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/about</loc>
+    <loc>https://vidtoolbox.qzz.io/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/privacy</loc>
+    <loc>https://vidtoolbox.qzz.io/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools/srt-to-text</loc>
+    <loc>https://vidtoolbox.qzz.io/tools/srt-to-text</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools/subtitle-cleaner</loc>
+    <loc>https://vidtoolbox.qzz.io/tools/subtitle-cleaner</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools/subtitle-counter</loc>
+    <loc>https://vidtoolbox.qzz.io/tools/subtitle-counter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools/subtitle-merge</loc>
+    <loc>https://vidtoolbox.qzz.io/tools/subtitle-merge</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools/subtitle-split</loc>
+    <loc>https://vidtoolbox.qzz.io/tools/subtitle-split</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools/script-word-counter</loc>
+    <loc>https://vidtoolbox.qzz.io/tools/script-word-counter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools/reading-time</loc>
+    <loc>https://vidtoolbox.qzz.io/tools/reading-time</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools/title-case</loc>
+    <loc>https://vidtoolbox.qzz.io/tools/title-case</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools/slug-generator</loc>
+    <loc>https://vidtoolbox.qzz.io/tools/slug-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vidtoolbox.vercel.app/tools/hashtag-counter</loc>
+    <loc>https://vidtoolbox.qzz.io/tools/hashtag-counter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

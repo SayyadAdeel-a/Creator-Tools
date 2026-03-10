@@ -74,10 +74,10 @@ export function SrtToText() {
         <title>SRT to Text Converter — Free Online Tool | VidToolbox</title>
         <meta name="description" content="Convert SRT subtitle files to plain text online, free and instantly. Remove sequence numbers, timestamps, and blank lines — get clean readable text. No upload required, works in your browser." />
         <meta name="keywords" content="SRT to text, convert SRT to text, remove subtitle timestamps, subtitle to plain text, free SRT converter online" />
-        <link rel="canonical" href="https://vidtoolbox.vercel.app/tools/srt-to-text" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/srt-to-text" />
         <meta property="og:title" content="SRT to Text Converter — Free Online Tool | VidToolbox" />
         <meta property="og:description" content="Convert SRT subtitle files to plain text instantly — no sign-up, no upload limits. Runs entirely in your browser." />
-        <meta property="og:url" content="https://vidtoolbox.vercel.app/tools/srt-to-text" />
+        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/srt-to-text" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -85,7 +85,7 @@ export function SrtToText() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.vercel.app/tools/srt-to-text",
+          "url": "https://vidtoolbox.qzz.io/tools/srt-to-text",
           "description": "Convert SRT subtitle files to plain text. Remove timestamps and sequence numbers. Free, instant, browser-based."
         })}</script>
       </Helmet>

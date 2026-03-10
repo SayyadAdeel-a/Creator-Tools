@@ -59,9 +59,9 @@ export function SubtitleCleaner() {
         <title>Subtitle Cleaner — Remove Timestamps from SRT Files Free | VidToolbox</title>
         <meta name="description" content="Clean SRT subtitle files by removing all timestamps while keeping the dialogue intact. Free, instant, no upload required. Perfect for turning subtitles into a readable script." />
         <meta name="keywords" content="subtitle cleaner, remove SRT timestamps, clean subtitle file, subtitle to script, remove timestamps from SRT" />
-        <link rel="canonical" href="https://vidtoolbox.vercel.app/tools/subtitle-cleaner" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/subtitle-cleaner" />
         <meta property="og:title" content="Subtitle Cleaner — Remove Timestamps from SRT Files | VidToolbox" />
-        <meta property="og:url" content="https://vidtoolbox.vercel.app/tools/subtitle-cleaner" />
+        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/subtitle-cleaner" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -69,7 +69,7 @@ export function SubtitleCleaner() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.vercel.app/tools/subtitle-cleaner",
+          "url": "https://vidtoolbox.qzz.io/tools/subtitle-cleaner",
           "description": "Remove timestamps from SRT subtitle files and keep only the dialogue text. Free and instant."
         })}</script>
       </Helmet>
