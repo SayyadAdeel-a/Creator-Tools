@@ -30,7 +30,8 @@ export function Home() {
     <Layout>
       <Helmet>
         <title>VidToolbox — Free Online Tools for Creators</title>
-        <meta name="description" content="A comprehensive collection of free online tools for video creators. Convert subtitles, count words, generate slugs, and more." />
+        <meta name="description" content="Free online tools for video creators. SRT subtitle converter, word counter, slug generator, reading time calculator, hashtag counter and more. No sign-up required." />
+        <meta name="keywords" content="free online tools, SRT to text converter, subtitle tools, word counter, reading time calculator, title case converter, slug generator, hashtag counter, content creator tools" />
       </Helmet>
       
       <section className="bg-gradient-to-b from-white to-slate-50 py-24">
@@ -117,6 +118,12 @@ export function Home() {
               <p className="text-slate-500">No tools found matching "{searchQuery}"</p>
             </div>
           )}
+
+          <div className="mt-12 flex flex-wrap justify-center gap-6">
+            <Link to="/blog" className="text-cyan-600 hover:text-cyan-700 font-medium">Read our Blog</Link>
+            <Link to="/about" className="text-cyan-600 hover:text-cyan-700 font-medium">About Us</Link>
+            <Link to="/privacy" className="text-cyan-600 hover:text-cyan-700 font-medium">Privacy Policy</Link>
+          </div>
         </div>
       </section>
     </Layout>
