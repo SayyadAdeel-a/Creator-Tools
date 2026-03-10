@@ -29,16 +29,16 @@ export function Home() {
   return (
     <Layout>
       <Helmet>
-        <title>VidToolbox — Free Online Tools for Creators</title>
-        <meta name="description" content="Free online tools for video creators. SRT subtitle converter, word counter, slug generator, reading time calculator, hashtag counter and more. No sign-up required." />
-        <meta name="keywords" content="free online tools, SRT to text converter, subtitle tools, word counter, reading time calculator, title case converter, slug generator, hashtag counter, content creator tools" />
+        <title>Free Online Tools for Content Creators | VidToolbox</title>
+        <meta name="description" content="Free online tools for content creators. SRT subtitle converter, word counter, slug generator, reading time calculator and more. No sign-up required." />
+        <meta name="keywords" content="free online tools, SRT to text converter, subtitle tools, word counter, reading time calculator, slug generator, hashtag counter, content creator tools" />
       </Helmet>
       
       <section className="bg-gradient-to-b from-white to-slate-50 py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-cyan-50 text-cyan-600 px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in-up">
             <Zap className="w-4 h-4" />
-            <span>Free Creator Tools</span>
+            <span>Free Online Tools</span>
           </div>
           
           <h1 className="text-5xl md:text-6xl font-heading font-bold text-slate-900 mb-6 animate-fade-in-up delay-100">
@@ -46,8 +46,7 @@ export function Home() {
           </h1>
           
           <p className="text-xl text-slate-600 mb-10 max-w-xl mx-auto animate-fade-in-up delay-200">
-            A comprehensive collection of free online tools for video creators. 
-            Convert, encode, decode, and transform — all in your browser.
+            Use our <strong>free online tools</strong> to boost your content creation. Convert subtitles, count words, generate slugs, and calculate reading time. No downloads needed.
           </p>
           
           <div className="relative max-w-xl mx-auto animate-fade-in-up delay-300">
@@ -123,7 +122,20 @@ export function Home() {
             <Link to="/blog" className="text-cyan-600 hover:text-cyan-700 font-medium">Read our Blog</Link>
             <Link to="/about" className="text-cyan-600 hover:text-cyan-700 font-medium">About Us</Link>
             <Link to="/privacy" className="text-cyan-600 hover:text-cyan-700 font-medium">Privacy Policy</Link>
+            <a href="https://www.subtitle.org" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:text-cyan-700 font-medium">Subtitle Resources</a>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <img 
+            src="/og-image.png" 
+            alt="VidToolbox - Free online tools for content creators" 
+            className="mx-auto rounded-xl shadow-lg max-w-lg w-full"
+            width="800"
+            height="400"
+          />
         </div>
       </section>
     </Layout>
