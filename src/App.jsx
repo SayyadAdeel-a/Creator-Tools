@@ -39,8 +39,8 @@ import { InstagramFormatter } from './pages/tools/InstagramFormatter'
 import { ThreadSplitter } from './pages/tools/ThreadSplitter'
 import { EmojiRemover } from './pages/tools/EmojiRemover'
 import { HashtagGenerator } from './pages/tools/HashtagGenerator'
-import { SocialCharacterCounter } from './pages/tools/SocialCharacterCounter'
-import { BioLengthChecker } from './pages/tools/BioLengthChecker'
+import { CharacterCounter } from './pages/tools/CharacterCounter'
+import { BioChecker } from './pages/tools/BioChecker'
 import { AdminGuard } from './components/AdminGuard'
 import { AdminLogin } from './pages/admin/Login'
 import { AdminDashboard } from './pages/admin/Dashboard'
@@ -105,8 +105,8 @@ function App() {
           <Route path="/tools/thread-splitter" element={<ThreadSplitter />} />
           <Route path="/tools/emoji-remover" element={<EmojiRemover />} />
           <Route path="/tools/hashtag-generator" element={<HashtagGenerator />} />
-          <Route path="/tools/social-character-counter" element={<SocialCharacterCounter />} />
-          <Route path="/tools/bio-length-checker" element={<BioLengthChecker />} />
+          <Route path="/tools/character-counter" element={<CharacterCounter />} />
+          <Route path="/tools/bio-checker" element={<BioChecker />} />
 
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

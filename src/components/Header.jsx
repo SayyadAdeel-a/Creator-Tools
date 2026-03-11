@@ -6,18 +6,10 @@ import {
   Eraser, List, Merge, Split, Clock, Hash, Link2, User, LogOut,
   AlignLeft, Undo2, UserCheck, FileCode, Braces,
   Video, Share2, FileText, BarChart3, Timer, Search, MessageSquare,
-  Twitter, Instagram, Wand2, TrendingUp, Hash as HashtagIcon
+  Twitter, Instagram, Wand2, TrendingUp, Smartphone, Hash as HashtagIcon
 } from 'lucide-react'
 import { cn } from '../lib/utils'
 import { supabase } from '../lib/supabase'
-
-const subtitleTools = [
-  { name: 'SRT to Text', path: '/tools/srt-to-text', icon: Captions },
-  { name: 'Subtitle Cleaner', path: '/tools/subtitle-cleaner', icon: Eraser },
-  { name: 'Subtitle Counter', path: '/tools/subtitle-counter', icon: List },
-  { name: 'Subtitle Merge', path: '/tools/subtitle-merge', icon: Merge },
-  { name: 'Subtitle Split', path: '/tools/subtitle-split', icon: Split },
-]
 
 const youtubeTools = [
   { name: 'YouTube Title Gen', path: '/tools/youtube-title-generator', icon: Wand2 },
@@ -33,37 +25,26 @@ const seoTools = [
   { name: 'Word Frequency', path: '/tools/word-frequency', icon: Hash },
   { name: 'Sentence Counter', path: '/tools/sentence-counter', icon: AlignLeft },
   { name: 'Readability Score', path: '/tools/readability', icon: BookOpen },
-  { name: 'Title Checker', path: '/tools/title-checker', icon: Type },
+  { name: 'Title Checker', path: '/tools/title-checker', icon: TrendingUp },
   { name: 'Meta Title', path: '/tools/meta-title', icon: Search },
   { name: 'Duplicate Lines', path: '/tools/duplicate-lines', icon: Eraser },
   { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List },
-]
-
-const textTools = [
-  { name: 'Word Frequency Old', path: '/tools/word-frequency', icon: BarChart3 },
-  { name: 'Readability Old', path: '/tools/readability', icon: BookOpen },
-  { name: 'Title Checker', path: '/tools/title-checker', icon: UserCheck },
-  { name: 'Meta Title Checker', path: '/tools/meta-title', icon: Search },
-  { name: 'Duplicate Remover', path: '/tools/duplicate-lines', icon: Eraser },
-  { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List },
-  { name: 'Reading Time', path: '/tools/reading-time', icon: Clock },
 ]
 
 const socialTools = [
   { name: 'Instagram Formatter', path: '/tools/instagram-formatter', icon: Instagram },
   { name: 'Thread Splitter', path: '/tools/thread-splitter', icon: Twitter },
   { name: 'Emoji Remover', path: '/tools/emoji-remover', icon: Eraser },
-  { name: 'Hashtag Generator', path: '/tools/hashtag-generator', icon: HashtagIcon },
-  { name: 'Social Counter', path: '/tools/social-character-counter', icon: Hash },
-  { name: 'Bio Length Check', path: '/tools/bio-length-checker', icon: User },
+  { name: 'Hashtag Generator', path: '/tools/hashtag-generator', icon: Hash },
+  { name: 'Character Counter', path: '/tools/character-counter', icon: Smartphone },
+  { name: 'Bio Length Check', path: '/tools/bio-checker', icon: User },
 ]
 
 const utilityTools = [
   { name: 'JSON Formatter', path: '/tools/json-formatter', icon: Braces },
-  { name: 'Base64 Encoder', path: '/tools/base64', icon: FileCode },
+  { name: 'Base64 Tool', path: '/tools/base64', icon: FileCode },
   { name: 'URL Encoder', path: '/tools/url-encoder', icon: Link2 },
-  { name: 'Random Name Picker', path: '/tools/random-name-picker', icon: UserCheck },
-  { name: 'Random Team Generator', path: '/tools/random-team-generator', icon: LayoutGrid },
+  { name: 'Random Picker', path: '/tools/random-name-picker', icon: UserCheck },
 ]
 
 const navItems = [
@@ -96,7 +77,7 @@ function NavDropdown({ label, icon: Icon, items, isActive }) {
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50">
+        <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
           {items.map((item) => (
             <Link
               key={item.path}
@@ -142,10 +123,8 @@ export function Header() {
     navigate('/')
   }
 
-  const isSubtitleActive = location.pathname.startsWith('/tools/srt') || location.pathname.startsWith('/tools/subtitle')
   const isYoutubeActive = youtubeTools.some(t => location.pathname === t.path)
   const isSeoActive = seoTools.some(t => location.pathname === t.path)
-  const isTextActive = textTools.some(t => location.pathname === t.path)
   const isSocialActive = socialTools.some(t => location.pathname === t.path)
   const isUtilityActive = utilityTools.some(t => location.pathname === t.path)
 
@@ -156,8 +135,10 @@ export function Header() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <img src="/logo.svg" alt="VidToolbox Logo" className="w-8 h-8" />
-            <span className="font-heading font-bold text-xl text-slate-900">VidToolbox</span>
+            <div className="w-8 h-8 bg-gradient-to-tr from-cyan-500 to-teal-400 rounded-xl flex items-center justify-center p-1 shadow-lg shadow-cyan-500/20">
+                <img src="/logo.svg" alt="VidToolbox Logo font-black" className="w-6 h-6 invert brightness-0" />
+            </div>
+            <span className="font-heading font-bold text-xl text-slate-900 tracking-tight">VidToolbox</span>
           </Link>
 
           {/* Desktop nav */}
@@ -186,14 +167,14 @@ export function Header() {
             />
 
             <NavDropdown
-              label="YouTube Tools"
+              label="YouTube"
               icon={Video}
               items={youtubeTools}
               isActive={isYoutubeActive}
             />
 
             <NavDropdown
-              label="Social Tools"
+              label="Social"
               icon={Share2}
               items={socialTools}
               isActive={isSocialActive}
@@ -257,7 +238,7 @@ export function Header() {
                 </Link>
                 <Link
                   to="/signup"
-                  className="text-sm font-medium text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 px-4 py-2 rounded-lg transition-all"
+                  className="text-sm font-medium text-white bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 px-5 py-2 rounded-xl transition-all shadow-lg shadow-cyan-500/20"
                 >
                   Sign Up
                 </Link>
@@ -276,68 +257,54 @@ export function Header() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="md:hidden py-4 border-t border-slate-200 space-y-1">
+          <div className="md:hidden py-4 border-t border-slate-200 space-y-1 bg-white animate-in slide-in-from-top-4 duration-300 rounded-b-3xl shadow-2xl">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className="flex items-center gap-2 py-2.5 px-2 text-sm text-slate-600 hover:text-cyan-600 rounded-lg"
+                className="flex items-center gap-2 py-3 px-4 text-sm font-bold text-slate-700 hover:text-cyan-600 hover:bg-cyan-50 rounded-xl"
                 onClick={() => setMobileOpen(false)}
               >
                 <item.icon className="w-4 h-4" /> {item.name}
               </Link>
             ))}
 
-            <div className="pt-2 pb-1">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">SEO Tools</p>
+            <div className="pt-4 pb-1">
+              <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-4 mb-2">SEO Tools</p>
               {seoTools.map((t) => (
-                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
+                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-6 text-sm text-slate-600 hover:text-cyan-600 transition-colors" onClick={() => setMobileOpen(false)}>
                   <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
                 </Link>
               ))}
             </div>
-            <div className="pt-1 pb-1">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">YouTube Tools</p>
-              {youtubeTools.map((t) => (
-                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
-                  <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
-                </Link>
-              ))}
-            </div>
-            <div className="pt-1 pb-1">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Subtitle Tools</p>
-              {subtitleTools.map((t) => (
-                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
-                  <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
-                </Link>
-              ))}
-            </div>
-            <div className="pt-1 pb-1">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Social Tools</p>
+            
+            <div className="pt-2 pb-1">
+              <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-4 mb-2">Social Tools</p>
               {socialTools.map((t) => (
-                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
-                  <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
-                </Link>
-              ))}
-            </div>
-            <div className="pt-1 pb-1">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Utility Tools</p>
-              {utilityTools.map((t) => (
-                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
+                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-6 text-sm text-slate-600 hover:text-cyan-600 transition-colors" onClick={() => setMobileOpen(false)}>
                   <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
                 </Link>
               ))}
             </div>
 
-            <div className="pt-3 flex gap-3 px-2">
+            <div className="pt-2 pb-1">
+              <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-4 mb-2">YouTube Tools</p>
+              {youtubeTools.map((t) => (
+                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-6 text-sm text-slate-600 hover:text-cyan-600 transition-colors" onClick={() => setMobileOpen(false)}>
+                  <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
+                </Link>
+              ))}
+            </div>
+            
+            <div className="pt-4 flex flex-col gap-3 px-4 pb-6">
               {user ? (
-                <button onClick={handleSignOut} className="flex items-center gap-2 text-sm text-red-500">
+                <button onClick={handleSignOut} className="flex items-center gap-2 text-sm font-bold text-red-500 py-2">
                   <LogOut className="w-4 h-4" /> Sign out
                 </button>
               ) : (
                 <>
-                  <Link to="/login" className="text-sm font-medium text-slate-600" onClick={() => setMobileOpen(false)}>Login</Link>
-                  <Link to="/signup" className="text-sm font-medium text-white bg-cyan-500 px-4 py-1.5 rounded-lg" onClick={() => setMobileOpen(false)}>Sign Up</Link>
+                  <Link to="/login" className="text-sm font-bold text-slate-700 py-2" onClick={() => setMobileOpen(false)}>Login</Link>
+                  <Link to="/signup" className="text-sm font-bold text-white bg-gradient-to-r from-cyan-500 to-cyan-600 px-6 py-3 rounded-xl text-center shadow-xl shadow-cyan-500/20" onClick={() => setMobileOpen(false)}>Get Started Free</Link>
                 </>
               )}
             </div>

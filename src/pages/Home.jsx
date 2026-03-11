@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { 
   Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, 
   Captions, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces, 
-  Video, Share2, Instagram, Twitter, Zap, BookOpen, Wand2, TrendingUp
+  Video, Share2, Instagram, Twitter, Zap, BookOpen, Wand2, TrendingUp, Smartphone, User
 } from 'lucide-react'
 import { Layout } from '../components/Layout'
 import { trackToolUse } from '../lib/track'
@@ -27,35 +27,23 @@ const tools = [
   { name: 'Duplicate Lines', path: '/tools/duplicate-lines', icon: Eraser, description: 'Clean up repeated lines', tags: ['text', 'cleanup', 'list'] },
   { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List, description: 'Convert text to list formats', tags: ['format', 'writing', 'list'] },
   
-  // Additional SEO & Text Utilities
-  { name: 'Meta Description Check', path: '/tools/meta-description-checker', icon: Type, description: 'Validate meta length', tags: ['seo', 'meta', 'google'] },
-  { name: 'Keyword Density', path: '/tools/keyword-density', icon: Hash, description: 'Analyze keyword percentage', tags: ['seo', 'keyword', 'density'] },
-  { name: 'Text Compare (Diff)', path: '/tools/text-compare', icon: Split, description: 'Compare text and find diffs', tags: ['text', 'diff', 'compare'] },
-  { name: 'Reading Time', path: '/tools/reading-time', icon: Clock, description: 'Estimated reading duration', tags: ['reading', 'time', 'words'] },
-  { name: 'Title Case', path: '/tools/title-case', icon: Type, description: 'Proper capitalization', tags: ['title', 'format', 'text'] },
-  { name: 'Slug Generator', path: '/tools/slug-generator', icon: Link2, description: 'SEO-friendly URL slugs', tags: ['slug', 'url', 'seo'] },
-  { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', icon: AlignLeft, description: 'Clean up spacing', tags: ['text', 'clean', 'format'] },
+  // Social Media Tools
+  { name: 'Instagram Formatter', path: '/tools/instagram-formatter', icon: Instagram, description: 'Keep caption line breaks', tags: ['social', 'instagram', 'bio'] },
+  { name: 'Thread Splitter', path: '/tools/thread-splitter', icon: Twitter, description: 'Auto-split long threads', tags: ['twitter', 'thread', 'social'] },
+  { name: 'Emoji Remover', path: '/tools/emoji-remover', icon: Eraser, description: 'Strip icons from text', tags: ['clean', 'text', 'formal'] },
+  { name: 'Hashtag Generator', path: '/tools/hashtag-generator', icon: Hash, description: 'Viral grouped hashtags', tags: ['social', 'growth', 'tags'] },
+  { name: 'Character Counter', path: '/tools/character-counter', icon: Smartphone, description: 'All-platform post limits', tags: ['social', 'stats', 'limit'] },
+  { name: 'Bio Length Check', path: '/tools/bio-checker', icon: User, description: 'Fix profile bio cut-offs', tags: ['social', 'bio', 'profile'] },
 
   // Subtitle Tools
   { name: 'SRT to Text', path: '/tools/srt-to-text', icon: Captions, description: 'Extract text from subtitles', tags: ['video', 'transcript', 'subtitle'] },
   { name: 'Subtitle Cleaner', path: '/tools/subtitle-cleaner', icon: Eraser, description: 'Fix timing and formatting', tags: ['subtitle', 'edit', 'clean'] },
-  { name: 'Subtitle Counter', path: '/tools/subtitle-counter', icon: List, description: 'Count lines and timing', tags: ['subtitle', 'stats', 'lines'] },
-  { name: 'Subtitle Merge', path: '/tools/subtitle-merge', icon: Merge, description: 'Combine multiple SRT files', tags: ['subtitle', 'merge', 'join'] },
-  { name: 'Subtitle Split', path: '/tools/subtitle-split', icon: Split, description: 'Split large subtitle files', tags: ['subtitle', 'split', 'cut'] },
-
-  // Social & Character Tools
-  { name: 'Instagram Formatter', path: '/tools/instagram-formatter', icon: Instagram, description: 'Add line breaks for bios', tags: ['social', 'instagram', 'bio'] },
-  { name: 'Thread Splitter', path: '/tools/thread-splitter', icon: Twitter, description: 'Split text into X threads', tags: ['twitter', 'thread', 'social'] },
-  { name: 'Emoji Remover', path: '/tools/emoji-remover', icon: Eraser, description: 'Remove icons from text', tags: ['clean', 'text', 'format'] },
-  { name: 'Social Counter', path: '/tools/social-character-counter', icon: Hash, description: 'Check limits for all platforms', tags: ['social', 'stats', 'characters'] },
-  { name: 'Bio Length Check', path: '/tools/bio-length-checker', icon: UserCheck, description: 'Optimize social bios', tags: ['social', 'bio', 'limit'] },
 
   // Generic Utilities
   { name: 'JSON Formatter', path: '/tools/json-formatter', icon: Braces, description: 'Beautify and validate JSON', tags: ['developer', 'json', 'format'] },
   { name: 'Base64 Tool', path: '/tools/base64', icon: FileCode, description: 'Encode or decode string', tags: ['developer', 'base64', 'security'] },
   { name: 'URL Encoder', path: '/tools/url-encoder', icon: Link2, description: 'Encode/decode special characters', tags: ['developer', 'url', 'seo'] },
-  { name: 'Random Picker', path: '/tools/random-name-picker', icon: UserCheck, description: 'Select winners from a list', tags: ['random', 'picker', 'name'] },
-  { name: 'Team Generator', path: '/tools/random-team-generator', icon: LayoutGrid, description: 'Split group into teams', tags: ['random', 'team', 'generator'] }
+  { name: 'Random Picker', path: '/tools/random-name-picker', icon: UserCheck, description: 'Select winners from a list', tags: ['random', 'picker', 'name'] }
 ]
 
 export function Home() {
@@ -81,18 +69,21 @@ export function Home() {
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
             <div className="max-w-3xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100 text-cyan-600 text-xs font-black uppercase tracking-widest mb-6 animate-in fade-in slide-in-from-left-4 duration-500">
+                    <Zap className="w-3.5 h-3.5 fill-cyan-600" /> 40+ Creator Tools Added
+                </div>
               <h1 className="text-5xl md:text-6xl font-bold font-heading text-slate-900 mb-6 leading-tight">
-                Professional Tools for <span className="text-cyan-600">Video Creators</span> & SEOs
+                Professional Tools for <span className="text-cyan-600">Viral Creators</span> & SEOs
               </h1>
               <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
-                The ultimate toolbox to polish your content, optimize your search performance, and streamline your creative workflow. Completely free.
+                The ultimate toolbox to polish your content, optimize your search performance, and streamline your social media presence. Free, fast, and secure.
               </p>
               
               <div className="relative group max-w-xl">
                 <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 group-focus-within:text-cyan-500 transition-colors" />
                 <input
                   type="text"
-                  placeholder="Seach for 'Subtitles', 'YouTube', 'SEO'..."
+                  placeholder="Seach for 'Subtitles', 'YouTube', 'Social'..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-14 pr-6 py-5 bg-white border border-slate-200 rounded-2xl shadow-xl focus:ring-4 focus:ring-cyan-500/10 focus:border-cyan-500 outline-none text-lg transition-all"
@@ -106,7 +97,7 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-3xl font-bold text-slate-900 font-heading">
-              {searchQuery ? `Search results for "${searchQuery}"` : 'Popular Tools'}
+              {searchQuery ? `Search results for "${searchQuery}"` : 'Core Creator Suite'}
             </h2>
             <Link to="/tools" className="text-cyan-600 font-bold hover:text-cyan-700 flex items-center gap-1 group">
               View all tools <span className="group-hover:translate-x-1 transition-transform">→</span>
