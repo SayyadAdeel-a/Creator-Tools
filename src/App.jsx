@@ -96,10 +96,10 @@ function App() {
           <Route path="/tools/duration-calculator" element={<DurationCalculator />} />
           <Route path="/tools/word-frequency" element={<WordFrequency />} />
           <Route path="/tools/sentence-counter" element={<SentenceCounter />} />
-          <Route path="/tools/readability-score" element={<ReadabilityScore />} />
+          <Route path="/tools/readability" element={<ReadabilityScore />} />
           <Route path="/tools/title-checker" element={<ArticleTitleChecker />} />
-          <Route path="/tools/meta-title-checker" element={<MetaTitleChecker />} />
-          <Route path="/tools/duplicate-line-remover" element={<DuplicateLineRemover />} />
+          <Route path="/tools/meta-title" element={<MetaTitleChecker />} />
+          <Route path="/tools/duplicate-lines" element={<DuplicateLineRemover />} />
           <Route path="/tools/text-to-bullets" element={<TextToBullets />} />
           <Route path="/tools/instagram-formatter" element={<InstagramFormatter />} />
           <Route path="/tools/thread-splitter" element={<ThreadSplitter />} />

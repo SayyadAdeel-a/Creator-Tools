@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import { 
   Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, 
   Captions, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces, 
-  Video, Share2, Instagram, Twitter, Zap, BookOpen 
+  Video, Share2, Instagram, Twitter, Zap, BookOpen, TrendingUp 
 } from 'lucide-react'
 import { Layout } from '../components/Layout'
 import { FavoriteButton } from '../components/FavoriteButton'
@@ -39,21 +39,29 @@ const categories = [
         ]
     },
     {
-        name: 'Text & SEO Tools',
-        description: 'Optimize your scripts and written content',
-        icon: Type,
+        name: 'SEO Tools',
+        description: 'Optimize your content for high search rankings',
+        icon: TrendingUp, // I'll use TrendingUp from imports
         color: 'bg-violet-50 text-violet-600 border-violet-100',
         tools: [
-            { name: 'Word Frequency', path: '/tools/word-frequency', description: 'Find overused words', icon: Hash, tags: ['seo', 'text', 'analysis'] },
-            { name: 'Sentence Counter', path: '/tools/sentence-counter', description: 'Analyze sentence structure', icon: AlignLeft, tags: ['writing', 'stats', 'text'] },
-            { name: 'Readability Score', path: '/tools/readability-score', description: 'Check content difficulty', icon: BookOpen, tags: ['seo', 'writing', 'readability'] },
-            { name: 'Article Title Checker', path: '/tools/title-checker', description: 'Headline SEO analysis', icon: Type, tags: ['seo', 'copywriting', 'title'] },
-            { name: 'Meta Title Checker', path: '/tools/meta-title-checker', description: 'Google search preview', icon: Search, tags: ['seo', 'meta', 'google'] },
+            { name: 'Word Frequency', path: '/tools/word-frequency', description: 'Analyze keyword count and percentage', icon: Hash, tags: ['seo', 'keywords', 'frequency'] },
+            { name: 'Sentence Counter', path: '/tools/sentence-counter', description: 'Real-time structural stats for writers', icon: AlignLeft, tags: ['writing', 'stats', 'text'] },
+            { name: 'Readability Score', path: '/tools/readability', description: 'Check content difficulty level', icon: BookOpen, tags: ['seo', 'flesch', 'score'] },
+            { name: 'Title Checker', path: '/tools/title-checker', description: 'Optimize headlines for high CTR', icon: Type, tags: ['seo', 'headline', 'title'] },
+            { name: 'Meta Title', path: '/tools/meta-title', description: 'Google search preview and limit check', icon: Search, tags: ['seo', 'meta', 'google'] },
+            { name: 'Duplicate Lines', path: '/tools/duplicate-lines', description: 'Strip out repeated list entries', icon: Eraser, tags: ['cleanup', 'list', 'text'] },
+            { name: 'Text to Bullets', path: '/tools/text-to-bullets', description: 'Convert sentences into list formats', icon: List, tags: ['format', 'bullet', 'social'] },
+        ]
+    },
+    {
+        name: 'More Text Tools',
+        description: 'Useful formatting and analysis utilities',
+        icon: Type,
+        color: 'bg-slate-50 text-slate-600 border-slate-100',
+        tools: [
             { name: 'Meta Description Check', path: '/tools/meta-description-checker', description: 'Validate meta length', icon: Type, tags: ['seo', 'meta', 'description'] },
             { name: 'Keyword Density', path: '/tools/keyword-density', description: 'Analyze frequency relative to total', icon: Hash, tags: ['seo', 'keyword', 'density'] },
             { name: 'Text Compare (Diff)', path: '/tools/text-compare', description: 'Compare two text versions', icon: Split, tags: ['text', 'diff', 'compare'] },
-            { name: 'Duplicate Remover', path: '/tools/duplicate-line-remover', description: 'Strip duplicate lines', icon: Eraser, tags: ['text', 'cleanup', 'list'] },
-            { name: 'Text to Bullets', path: '/tools/text-to-bullets', description: 'Convert text to lists', icon: List, tags: ['format', 'writing', 'list'] },
             { name: 'Script Word Counter', path: '/tools/script-word-counter', description: 'Count words for recording duration', icon: Type, tags: ['script', 'words', 'youtube'] },
             { name: 'Reading Time', path: '/tools/reading-time', description: 'Calculate reading duration', icon: Clock, tags: ['reading', 'time', 'blog'] },
             { name: 'Title Case', path: '/tools/title-case', description: 'Convert text to proper title case', icon: Type, tags: ['title', 'capitalize', 'format'] },

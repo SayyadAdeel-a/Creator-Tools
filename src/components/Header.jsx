@@ -6,7 +6,7 @@ import {
   Eraser, List, Merge, Split, Clock, Hash, Link2, User, LogOut,
   AlignLeft, Undo2, UserCheck, FileCode, Braces,
   Video, Share2, FileText, BarChart3, Timer, Search, MessageSquare,
-  Twitter, Instagram, Wand2, Hash as HashtagIcon
+  Twitter, Instagram, Wand2, TrendingUp, Hash as HashtagIcon
 } from 'lucide-react'
 import { cn } from '../lib/utils'
 import { supabase } from '../lib/supabase'
@@ -29,12 +29,22 @@ const youtubeTools = [
   { name: 'Duration Calculator', path: '/tools/duration-calculator', icon: Timer },
 ]
 
+const seoTools = [
+  { name: 'Word Frequency', path: '/tools/word-frequency', icon: Hash },
+  { name: 'Sentence Counter', path: '/tools/sentence-counter', icon: AlignLeft },
+  { name: 'Readability Score', path: '/tools/readability', icon: BookOpen },
+  { name: 'Title Checker', path: '/tools/title-checker', icon: Type },
+  { name: 'Meta Title', path: '/tools/meta-title', icon: Search },
+  { name: 'Duplicate Lines', path: '/tools/duplicate-lines', icon: Eraser },
+  { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List },
+]
+
 const textTools = [
-  { name: 'Word Frequency', path: '/tools/word-frequency', icon: BarChart3 },
-  { name: 'Readability Score', path: '/tools/readability-score', icon: BookOpen },
+  { name: 'Word Frequency Old', path: '/tools/word-frequency', icon: BarChart3 },
+  { name: 'Readability Old', path: '/tools/readability', icon: BookOpen },
   { name: 'Title Checker', path: '/tools/title-checker', icon: UserCheck },
-  { name: 'Meta Title Checker', path: '/tools/meta-title-checker', icon: Search },
-  { name: 'Duplicate Remover', path: '/tools/duplicate-line-remover', icon: Eraser },
+  { name: 'Meta Title Checker', path: '/tools/meta-title', icon: Search },
+  { name: 'Duplicate Remover', path: '/tools/duplicate-lines', icon: Eraser },
   { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List },
   { name: 'Reading Time', path: '/tools/reading-time', icon: Clock },
 ]
@@ -134,6 +144,7 @@ export function Header() {
 
   const isSubtitleActive = location.pathname.startsWith('/tools/srt') || location.pathname.startsWith('/tools/subtitle')
   const isYoutubeActive = youtubeTools.some(t => location.pathname === t.path)
+  const isSeoActive = seoTools.some(t => location.pathname === t.path)
   const isTextActive = textTools.some(t => location.pathname === t.path)
   const isSocialActive = socialTools.some(t => location.pathname === t.path)
   const isUtilityActive = utilityTools.some(t => location.pathname === t.path)
@@ -168,10 +179,10 @@ export function Header() {
             ))}
 
             <NavDropdown
-              label="Subtitle Tools"
-              icon={Captions}
-              items={subtitleTools}
-              isActive={isSubtitleActive}
+              label="SEO Tools"
+              icon={TrendingUp}
+              items={seoTools}
+              isActive={isSeoActive}
             />
 
             <NavDropdown
@@ -179,13 +190,6 @@ export function Header() {
               icon={Video}
               items={youtubeTools}
               isActive={isYoutubeActive}
-            />
-
-            <NavDropdown
-              label="Text Tools"
-              icon={Type}
-              items={textTools}
-              isActive={isTextActive}
             />
 
             <NavDropdown
@@ -285,8 +289,8 @@ export function Header() {
             ))}
 
             <div className="pt-2 pb-1">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Subtitle Tools</p>
-              {subtitleTools.map((t) => (
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">SEO Tools</p>
+              {seoTools.map((t) => (
                 <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
                   <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
                 </Link>
@@ -301,8 +305,8 @@ export function Header() {
               ))}
             </div>
             <div className="pt-1 pb-1">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Text Tools</p>
-              {textTools.map((t) => (
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Subtitle Tools</p>
+              {subtitleTools.map((t) => (
                 <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
                   <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
                 </Link>

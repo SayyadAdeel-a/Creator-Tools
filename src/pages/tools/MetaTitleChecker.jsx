@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { Type, CheckCircle, AlertCircle, XCircle, Search } from 'lucide-react'
+import { Search, Info, CheckCircle2, AlertCircle, Globe, MoreHorizontal } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
 import { trackToolUse } from '../../lib/track'
 
@@ -8,72 +8,126 @@ export function MetaTitleChecker() {
   const [title, setTitle] = useState('')
 
   const charCount = title.length
-
+  
   const getStatus = () => {
-    if (charCount === 0) return { label: "Empty", color: "text-slate-400", bg: "bg-slate-200", icon: AlertCircle }
-    if (charCount <= 60) return { label: "Perfect Length", color: "text-emerald-600", bg: "bg-emerald-500", icon: CheckCircle }
-    if (charCount <= 65) return { label: "Slightly Long", color: "text-amber-600", bg: "bg-amber-500", icon: AlertCircle }
-    return { label: "Too Long", color: "text-red-600", bg: "bg-red-500", icon: XCircle }
+    if (charCount >= 50 && charCount <= 60) return { label: 'Ideal', color: 'text-emerald-500', bar: 'bg-emerald-500', icon: CheckCircle2 }
+    if ((charCount >= 40 && charCount < 50) || (charCount > 60 && charCount <= 65)) return { label: 'Acceptable', color: 'text-amber-500', bar: 'bg-amber-500', icon: Info }
+    return { label: 'Poor', color: 'text-red-500', bar: 'bg-red-500', icon: AlertCircle }
   }
 
   const status = getStatus()
-
-  if (charCount === 20) trackToolUse('Meta Title Length Checker', 'meta-title-checker')
+  const progressRatio = Math.min(100, (charCount / 65) * 100)
 
   return (
     <>
       <Helmet>
-        <title>Meta Title Length Checker — SEO Google Preview | VidToolbox</title>
-        <meta name="description" content="Check your SEO meta title length and see a preview of how it will look in Google search results. Ensure your titles don't get cut off. Free online SEO tool." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/meta-title-checker" />
+        <title>Google Meta Title Length Checker — SEO Preview Tool | VidToolbox</title>
+        <meta name="description" content="Validate your meta titles for Google Search. Track character counts with a real-time progress bar and preview how your headline looks in the SERPs before publishing." />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/meta-title" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Meta Title Length Checker",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "url": "https://vidtoolbox.qzz.io/tools/meta-title",
+          "description": "Ensure your meta titles are optimized for Google search results with character count thresholds and a live SERP preview."
+        })}</script>
       </Helmet>
 
       <ToolPage
         title="Meta Title Length Checker"
-        icon={Type}
-        description="Optimize your SEO titles for Google. We help you stay within the 60-character limit and provide a live preview of your search result appearace."
+        icon={Search}
+        description="Verify your SEO title's character count to prevent truncation in Google search results. Live preview of your search snippet included."
         howToUse={[
-          "Enter your SEO meta title above",
-          "Ensure the progress bar stays green (under 60 characters)",
-          "Check the Google Preview below to see if the title fits"
+          "Type or paste your SEO meta title into the input field",
+          "Monitor the real-time character count and colored progress bar",
+          "Follow the 'Ideal' range (50-60 chars) for maximum Google visibility"
+        ]}
+        faq={[
+            { question: "Why is 60 characters the limit?", answer: "Google typically truncates titles that exceed 600 pixels in width, which roughly translates to 60-65 characters depending on the letters used." },
+            { question: "What is a 'truncation'?", answer: "It's when Google cuts off the end of your title and replaces it with three dots (...). This can lower your click-through rate if the message is incomplete." },
+            { question: "Should I include my brand name?", answer: "Yes! A common best practice is 'Page Title | Brand Name'. Just ensure the entire string stays within the recommended character limits." }
         ]}
       >
         <div className="p-6">
-          <div className="mb-6">
-            <div className="flex items-center justify-between mb-2">
-              <label className="text-sm font-medium text-slate-700">Meta Title</label>
-              <div className={`flex items-center gap-1.5 text-xs font-bold ${status.color}`}>
-                <status.icon className="w-3.5 h-3.5" /> {status.label} ({charCount}/60)
-              </div>
-            </div>
+          <div className="mb-10">
+            <label className="block text-sm font-bold text-slate-700 mb-2 font-heading">Meta Title Input</label>
             <input
               type="text"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="e.g., Best Free Online Video Tools for YouTubers | VidToolbox"
-              className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none"
+              onChange={(e) => {
+                  setTitle(e.target.value);
+                  if (e.target.value.length === 20) trackToolUse('Meta Title Checker', 'meta-title');
+              }}
+              placeholder="e.g., Best SEO Tools for 2025 | VidToolbox"
+              className="w-full px-6 py-4 border border-slate-200 rounded-3xl focus:ring-4 focus:ring-cyan-500/10 focus:border-cyan-500 outline-none text-xl font-bold text-slate-800 shadow-sm"
             />
           </div>
 
-          <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden mb-12">
-            <div 
-              className={`h-full transition-all duration-300 ${status.bg}`}
-              style={{ width: `${Math.min(100, (charCount / 60) * 100)}%` }}
-            ></div>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="space-y-8">
+                <div className="bg-slate-50 p-8 rounded-3xl border border-slate-200 relative overflow-hidden">
+                    <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
+                             <status.icon className={`w-5 h-5 ${status.color}`} />
+                             <span className={`text-sm font-bold uppercase tracking-widest ${status.color}`}>{status.label}</span>
+                        </div>
+                        <div className="text-xl font-mono font-bold text-slate-900">{charCount} / 65</div>
+                    </div>
+                    <div className="h-4 bg-white border border-slate-200 rounded-full overflow-hidden shadow-inner">
+                        <div 
+                            className={`h-full transition-all duration-500 ${status.bar}`} 
+                            style={{ width: `${progressRatio}%` }}
+                        ></div>
+                    </div>
+                    <div className="mt-4 grid grid-cols-3 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+                        <div>Under 40</div>
+                        <div className="text-center font-bold text-emerald-500">50-60 Ideal</div>
+                        <div className="text-right">Over 65</div>
+                    </div>
+                </div>
 
-          <div className="relative">
-            <div className="absolute -top-3 left-6 px-3 py-1 bg-white border border-slate-200 rounded-full text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5 shadow-sm">
-                <Search className="w-3 h-3" /> Google Search Preview
+                <div className="p-8 bg-slate-900 rounded-3xl text-white shadow-xl relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform"><AlertCircle className="w-24 h-24" /></div>
+                    <h3 className="font-bold text-slate-900 bg-white inline-block px-3 py-1 rounded-lg text-xs mb-6 relative z-10">SEO Guidelines</h3>
+                    <div className="space-y-4 relative z-10">
+                        <div className="flex items-start gap-4">
+                            <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
+                            <p className="text-sm font-medium text-slate-100 italic">"Ensure your primary keyword is at the very beginning of the meta title for better search ranking."</p>
+                        </div>
+                        <div className="flex items-start gap-4">
+                            <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-2 shrink-0"></div>
+                            <p className="text-sm font-medium text-slate-100 italic">"Avoid all caps unless it's a brand acronym. It can look spammy to searchers."</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                <div className="flex flex-col gap-1 max-w-xl">
-                    <div className="text-[12px] text-[#202124] leading-5 truncate">https://vidtoolbox.qzz.io › tools › ...</div>
-                    <h3 className="text-[20px] text-[#1a0dab] leading-6 font-medium hover:underline cursor-pointer truncate">
-                        {title || "Page Title Will Appear Here"}
-                    </h3>
-                    <div className="text-[14px] text-[#4d5156] leading-5 line-clamp-2">
-                        Enter a meta title to see how it might look on a Google search results page. A good title is descriptive, includes keywords, and stays under 60 characters...
+
+            <div className="space-y-6">
+                <h3 className="text-xl font-bold text-slate-900 flex items-center gap-3 font-heading">
+                    <Globe className="w-5 h-5 text-cyan-500" /> Google Search Preview
+                </h3>
+                <div className="bg-white p-8 border border-slate-200 rounded-3xl shadow-xl space-y-4 hover:border-cyan-100 transition-all cursor-default">
+                    <div className="flex items-center gap-2 mb-1">
+                        <div className="w-7 h-7 bg-slate-100 rounded-full flex items-center justify-center border border-slate-200">
+                             <Globe className="w-3.5 h-3.5 text-slate-400" />
+                        </div>
+                        <div className="text-xs">
+                            <p className="text-slate-900 font-medium">VidToolbox</p>
+                            <p className="text-slate-500 truncate max-w-[200px]">https://vidtoolbox.qzz.io › tools › meta-title</p>
+                        </div>
+                        <MoreHorizontal className="w-4 h-4 text-slate-400 ml-auto" />
+                    </div>
+                    <div>
+                        <h4 className="text-[20px] text-[#1a0dab] font-medium leading-tight mb-2 hover:underline cursor-pointer break-words">
+                            {title || 'Your SEO Title Preview Will Appear Here...'}
+                            {charCount > 65 && '...'}
+                        </h4>
+                        <p className="text-sm text-[#4d5156] leading-relaxed line-clamp-2">
+                             Calculate your content's meta title length and see its performance in real-time. This is how your page title looks in Google search results. Stay within 50-60 characters for best results.
+                        </p>
                     </div>
                 </div>
             </div>

@@ -1,105 +1,127 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { BookOpen, CheckCircle, Info } from 'lucide-react'
+import { BookOpen, AlertCircle, CheckCircle2, Info, Clock, BarChart3 } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
 import { trackToolUse } from '../../lib/track'
 
 export function ReadabilityScore() {
   const [text, setText] = useState('')
-  const [score, setScore] = useState(null)
 
   const countSyllables = (word) => {
     word = word.toLowerCase().replace(/[^a-z]/g, '')
     if (word.length <= 3) return 1
     word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '')
     word = word.replace(/^y/, '')
-    const vowels = word.match(/[aeiouy]{1,2}/g)
-    return vowels ? vowels.length : 1
+    const syllables = word.match(/[aeiouy]{1,2}/g)
+    return syllables ? syllables.length : 1
   }
 
-  const calculateReadability = () => {
-    if (!text.trim()) return
-
-    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length || 1
-    const words = text.trim().split(/\s+/).filter(w => w.length > 0)
-    const wordCount = words.length || 1
-    const syllables = words.reduce((acc, word) => acc + countSyllables(word), 0)
-
-    // Flesch Reading Ease Formula
-    const fse = 206.835 - 1.015 * (wordCount / sentences) - 84.6 * (syllables / wordCount)
-    const finalScore = Math.max(0, Math.min(100, Math.round(fse)))
+  const results = useMemo(() => {
+    if (!text.trim()) return null
     
-    setScore(finalScore)
-    trackToolUse('Readability Score Checker', 'readability-score')
-  }
+    const words = text.trim().split(/\s+/).filter(w => w.length > 0)
+    const sentences = (text.match(/[^\.!\?]+[\.!\?]+/g) || []).length || 1
+    const totalWords = words.length
+    const totalSyllables = words.reduce((acc, word) => acc + countSyllables(word), 0)
 
-  const getLabel = (s) => {
-    if (s >= 90) return { label: 'Very Easy', color: 'bg-emerald-500', text: 'emerald' }
-    if (s >= 70) return { label: 'Easy', color: 'bg-teal-500', text: 'teal' }
-    if (s >= 60) return { label: 'Standard', color: 'bg-cyan-500', text: 'cyan' }
-    if (s >= 50) return { label: 'Fairly Difficult', color: 'bg-amber-500', text: 'amber' }
-    if (s >= 30) return { label: 'Difficult', color: 'bg-orange-500', text: 'orange' }
-    return { label: 'Very Difficult', color: 'bg-red-500', text: 'red' }
-  }
+    // Formula: 206.835 - 1.015(words/sentences) - 84.6(syllables/words)
+    const score = 206.835 - 1.015 * (totalWords / sentences) - 84.6 * (totalSyllables / totalWords)
+    const finalScore = Math.max(0, Math.min(100, Math.round(score)))
 
-  const label = score !== null ? getLabel(score) : null
+    let grade, audience, color, bg, icon
+    if (finalScore >= 90) {
+      grade = "Grade 5"; audience = "Very Easy to Read"; color = "text-emerald-500"; bg = "bg-emerald-50 border-emerald-200"; icon = CheckCircle2
+    } else if (finalScore >= 80) {
+      grade = "Grade 6"; audience = "Easy to Read"; color = "text-emerald-500"; bg = "bg-emerald-50 border-emerald-200"; icon = CheckCircle2
+    } else if (finalScore >= 70) {
+      grade = "Grade 7"; audience = "Fairly Easy"; color = "text-emerald-500"; bg = "bg-emerald-50 border-emerald-200"; icon = CheckCircle2
+    } else if (finalScore >= 60) {
+      grade = "Grade 8-9"; audience = "Standard Audience"; color = "text-cyan-600"; bg = "bg-cyan-50 border-cyan-200"; icon = Info
+    } else if (finalScore >= 50) {
+      grade = "Grade 10-12"; audience = "Fairly Difficult"; color = "text-amber-500"; bg = "bg-amber-50 border-amber-200"; icon = AlertCircle
+    } else if (finalScore >= 30) {
+      grade = "College"; audience = "Difficult to Read"; color = "text-red-500"; bg = "bg-red-50 border-red-200"; icon = AlertCircle
+    } else {
+      grade = "College Graduate"; audience = "Very Confusing"; color = "text-red-500"; bg = "bg-red-50 border-red-200"; icon = AlertCircle
+    }
+
+    return { score: finalScore, grade, audience, color, bg, icon }
+  }, [text])
+
+  const handleInput = (e) => {
+      setText(e.target.value)
+      if (e.target.value.length === 50) trackToolUse('Readability Score Checker', 'readability')
+  }
 
   return (
     <>
       <Helmet>
-        <title>Readability Score Checker — Flesch Reading Ease | VidToolbox</title>
-        <meta name="description" content="Check the readability of your content using the Flesch Reading Ease score. Get instant feedback on how easy or difficult your text is to read. Free online SEO tool." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/readability-score" />
+        <title>Readability Score Checker — Flesch Reading Ease Tool | VidToolbox</title>
+        <meta name="description" content="Calculate your content's Flesch Reading Ease score instantly. Check grade levels and audience difficulty to ensure your writing is clear and engaging. Free SEO tool." />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/readability" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Readability Score Checker",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "url": "https://vidtoolbox.qzz.io/tools/readability",
+          "description": "Analyze writing difficulty using the Flesch-Kincaid scale. Optimize for search and reader engagement."
+        })}</script>
       </Helmet>
 
       <ToolPage
         title="Readability Score Checker"
         icon={BookOpen}
-        description="Analyze your text to see how accessible it is to your audience. We use the Flesch Reading Ease formula to score your content from 0 to 100."
+        description="Optimize your writing for your target audience. We calculate readability using the Flesch-Kincaid scale to ensure your message is clear and effective."
         howToUse={[
-          "Paste your article, script, or blog post above",
-          "Click 'Check Readability' to calculate your score",
-          "Modify your text to reach the desired readability level for your audience"
+          "Paste your blog post, script, or long-form copy into the editor",
+          "Check the real-time scoring and color-coded status at the top",
+          "Simplify complex words or split long sentences to improve the result"
+        ]}
+        faq={[
+            { question: "What is a good Flesch Reading Ease score?", answer: "For general marketing content and blogs, aim for a score between 60 and 70 (Grade 8-9 level). This ensures maximum reach and retention." },
+            { question: "How does the formula work?", answer: "It weighs the average sentence length and average syllable count per word. Long sentences and multi-syllabic words lower your score." },
+            { question: "Should I always aim for 'Easy'?", answer: "Not necessarily. If your audience is highly technical or academic, a 'College' or 'Difficult' score might be appropriate for the niche." }
         ]}
       >
         <div className="p-6">
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Paste your content here to check readability..."
-            className="w-full h-64 p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none resize-none mb-6 text-sm"
-          />
-
-          <button
-            onClick={calculateReadability}
-            className="w-full bg-gradient-to-r from-cyan-500 to-cyan-600 text-white py-3.5 rounded-xl font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all flex items-center justify-center gap-2 mb-8"
-          >
-            <CheckCircle className="w-5 h-5" /> Calculate Readability
-          </button>
-
-          {score !== null && (
-            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center">
-              <div className="mb-2 text-xs font-bold text-slate-400 uppercase tracking-widest">Readability Score</div>
-              <div className={`text-6xl font-black mb-4 text-${label.text}-600`}>{score}</div>
-              
-              <div className="max-w-xs mx-auto mb-6">
-                <div className="h-4 bg-slate-200 rounded-full overflow-hidden flex">
-                    <div className={`${label.color} h-full transition-all duration-500`} style={{ width: `${score}%` }}></div>
+          <div className="mb-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className={`p-6 bg-white border border-slate-200 rounded-3xl shadow-sm text-center relative overflow-hidden group hover:border-cyan-200 transition-all ${!results && 'opacity-30 pointer-events-none'}`}>
+                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-125 transition-transform"><Clock className="w-16 h-16" /></div>
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Reading Ease</p>
+                <p className="text-5xl font-bold text-slate-900 mb-2 font-mono">{results ? results.score : '0'}</p>
+                <div className="h-1.5 w-24 bg-slate-100 rounded-full mx-auto relative overflow-hidden">
+                    <div className="absolute top-0 left-0 h-full bg-cyan-500 transition-all duration-1000" style={{ width: `${results ? results.score : 0}%` }}></div>
                 </div>
-              </div>
-
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-${label.text}-50 text-${label.text}-700 border border-${label.text}-100`}>
-                {label.label}
-              </div>
-
-              <div className="mt-8 flex items-start gap-3 text-left bg-white p-4 rounded-xl border border-slate-100 max-w-lg mx-auto">
-                <Info className="w-5 h-5 text-cyan-500 shrink-0 mt-0.5" />
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  The **Flesch Reading Ease** score indicates how easy a text is to read. Higher numbers mean the text is easier to read, while lower numbers mean the text is more complex. Most professional content targets a score of 60–70.
-                </p>
-              </div>
             </div>
-          )}
+            <div className={`p-6 bg-white border border-slate-200 rounded-3xl shadow-sm text-center relative overflow-hidden group hover:border-cyan-200 transition-all ${!results && 'opacity-30 pointer-events-none'}`}>
+                <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-125 transition-transform"><BarChart3 className="w-16 h-16" /></div>
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Grade Level</p>
+                <p className="text-3xl font-bold text-slate-900 mb-1">{results ? results.grade : '—'}</p>
+                <p className="text-xs text-slate-400 font-medium">Flesch Grade Scale</p>
+            </div>
+            <div className={`p-6 border rounded-3xl shadow-sm text-center flex flex-col items-center justify-center transition-all ${results ? results.bg : 'bg-slate-50 border-slate-100 opacity-30'}`}>
+                {results ? <results.icon className={`w-10 h-10 mb-2 ${results.color}`} /> : <BookOpen className="w-10 h-10 mb-2 text-slate-300" />}
+                <p className={`text-2xl font-bold ${results ? results.color : 'text-slate-400'}`}>{results ? results.audience : 'No Content'}</p>
+                <p className="text-[10px] font-bold opacity-60 uppercase tracking-widest">Recommended Action</p>
+            </div>
+          </div>
+
+          <div className="relative">
+            <textarea
+              value={text}
+              onChange={handleInput}
+              placeholder="Paste your content here to calculate readability..."
+              className="w-full h-96 p-8 border border-slate-200 rounded-3xl focus:ring-4 focus:ring-cyan-500/10 focus:border-cyan-500 outline-none resize-none font-medium text-slate-700 leading-relaxed shadow-inner text-lg"
+            />
+            {!text && (
+                <div className="absolute top-8 left-8 pointer-events-none text-slate-300 italic flex items-center gap-2">
+                    Start typing to see your audience score...
+                </div>
+            )}
+          </div>
         </div>
       </ToolPage>
     </>

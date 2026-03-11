@@ -1,225 +1,184 @@
-import { useState, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
 import { 
-  Search, Zap, Star, FileText, Type, Hash, Clock, Split, Merge, Eraser, 
-  List, Link2, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces,
-  BookOpen, ArrowRight, Instagram, Twitter, Video, Share2, Captions
+  Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, 
+  Captions, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces, 
+  Video, Share2, Instagram, Twitter, Zap, BookOpen, Wand2, TrendingUp
 } from 'lucide-react'
 import { Layout } from '../components/Layout'
-import { FavoriteButton } from '../components/FavoriteButton'
-import { supabase } from '../lib/supabase'
+import { trackToolUse } from '../lib/track'
 
 const tools = [
-  // Subtitle Tools
-  { name: 'SRT to Text', path: '/tools/srt-to-text', description: 'Convert subtitle files to plain text', icon: FileText, tags: ['subtitle', 'srt', 'convert'] },
-  { name: 'Subtitle Cleaner', path: '/tools/subtitle-cleaner', description: 'Remove timestamps from subtitles', icon: Eraser, tags: ['subtitle', 'timestamp', 'clean'] },
-  { name: 'Subtitle Counter', path: '/tools/subtitle-counter', description: 'Count lines and characters in subtitles', icon: List, tags: ['subtitle', 'count', 'characters'] },
-  { name: 'Subtitle Merge', path: '/tools/subtitle-merge', description: 'Combine multiple SRT files into one', icon: Merge, tags: ['subtitle', 'merge', 'combine'] },
-  { name: 'Subtitle Split', path: '/tools/subtitle-split', description: 'Split SRT files by line or timestamp', icon: Split, tags: ['subtitle', 'split', 'divide'] },
-  
-  // Video Creator Tools
-  { name: 'YouTube Title Generator', path: '/tools/youtube-title-generator', description: 'Generate viral title ideas', icon: Zap, tags: ['youtube', 'video', 'ideas'] },
-  { name: 'Description Formatter', path: '/tools/youtube-description-formatter', description: 'Pro video description formatting', icon: FileText, tags: ['youtube', 'seo', 'format'] },
-  { name: 'Video Timestamps', path: '/tools/timestamp-generator', description: 'Create YouTube chapters quickly', icon: Clock, tags: ['youtube', 'timestamps', 'chapters'] },
-  { name: 'YouTube Tags', path: '/tools/youtube-tags', description: 'Extract keywords from text', icon: Hash, tags: ['youtube', 'seo', 'tags'] },
-  { name: 'Script Outline', path: '/tools/script-outline', icon: List, description: 'Structure your next video', tags: ['video', 'planning', 'script'] },
-  { name: 'Thumbnail Text', path: '/tools/thumbnail-text', icon: Type, description: 'Optimize thumbnail text', tags: ['youtube', 'design', 'thumbnail'] },
+  // YouTube & Video Tools
+  { name: 'YouTube Title Gen', path: '/tools/youtube-title-generator', icon: Wand2, description: 'Viral title formulas', tags: ['youtube', 'ctr', 'titles'] },
+  { name: 'Description Formatter', path: '/tools/youtube-description-formatter', icon: FileText, description: 'Professional video descriptions', tags: ['youtube', 'format', 'seo'] },
+  { name: 'Video Timestamps', path: '/tools/timestamp-generator', icon: Clock, description: 'Create YouTube chapters', tags: ['youtube', 'timestamps', 'video'] },
+  { name: 'YouTube Tags', path: '/tools/youtube-tags', icon: Search, description: 'Extract and optimize tags', tags: ['youtube', 'seo', 'tags'] },
+  { name: 'Script Outline', path: '/tools/script-outline', icon: List, description: 'Structure your video content', tags: ['youtube', 'script', 'outline'] },
+  { name: 'Thumbnail Text', path: '/tools/thumbnail-text', icon: Type, description: 'Optimize thumbnail readability', tags: ['youtube', 'design', 'thumbnail'] },
   { name: 'Duration Calculator', path: '/tools/duration-calculator', icon: Clock, description: 'Sum up your video clips', tags: ['video', 'calculator', 'timer'] },
   
-  // Text & SEO Tools
-  { name: 'Word Frequency', path: '/tools/word-frequency', icon: Hash, description: 'Find overused words', tags: ['seo', 'text', 'analysis'] },
-  { name: 'Sentence Counter', path: '/tools/sentence-counter', icon: AlignLeft, description: 'Analyze sentence structure', tags: ['writing', 'stats', 'text'] },
-  { name: 'Readability Score', path: '/tools/readability-score', icon: BookOpen, description: 'Check content difficulty', tags: ['seo', 'writing', 'readability'] },
-  { name: 'Article Title Checker', path: '/tools/title-checker', icon: Type, description: 'Headline SEO analysis', tags: ['seo', 'copywriting', 'title'] },
-  { name: 'Meta Title Checker', path: '/tools/meta-title-checker', icon: Search, description: 'Google search preview', tags: ['seo', 'meta', 'google'] },
-  { name: 'Meta Description Checker', path: '/tools/meta-description-checker', description: 'Check meta description length', icon: Type, tags: ['seo', 'meta', 'google'] },
-  { name: 'Keyword Density', path: '/tools/keyword-density', description: 'Analyze keyword frequency', icon: Hash, tags: ['seo', 'keyword', 'density'] },
-  { name: 'Text Compare', path: '/tools/text-compare', description: 'Compare text and find diffs', icon: Split, tags: ['text', 'diff', 'compare'] },
-  { name: 'Duplicate Remover', path: '/tools/duplicate-line-remover', icon: Eraser, description: 'Strip duplicate lines', tags: ['text', 'cleanup', 'list'] },
-  { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List, description: 'Convert text to lists', tags: ['format', 'writing', 'list'] },
-  { name: 'Script Word Counter', path: '/tools/script-word-counter', description: 'Count words for your video scripts', icon: Type, tags: ['youtube', 'script', 'words'] },
-  { name: 'Reading Time', path: '/tools/reading-time', description: 'Calculate estimated reading time', icon: Clock, tags: ['reading', 'time', 'words'] },
-  { name: 'Title Case', path: '/tools/title-case', description: 'Convert text to title case', icon: Type, tags: ['title', 'case', 'capitalize'] },
-  { name: 'Slug Generator', path: '/tools/slug-generator', description: 'Create URL-friendly slugs', icon: Link2, tags: ['slug', 'url', 'seo'] },
-  { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', description: 'Clean up text spacing', icon: AlignLeft, tags: ['text', 'clean', 'format'] },
-  { name: 'Text Reverser', path: '/tools/text-reverser', description: 'Reverse letters or words', icon: Undo2, tags: ['text', 'fun', 'reverse'] },
+  // SEO & Writing Tools
+  { name: 'Word Frequency', path: '/tools/word-frequency', icon: Hash, description: 'Analyze keyword frequency', tags: ['seo', 'text', 'analysis'] },
+  { name: 'Sentence Counter', path: '/tools/sentence-counter', icon: AlignLeft, description: 'Writing structure stats', tags: ['writing', 'stats', 'text'] },
+  { name: 'Readability Score', path: '/tools/readability', icon: BookOpen, description: 'Check content difficulty', tags: ['seo', 'flesch', 'reading'] },
+  { name: 'Title Checker', path: '/tools/title-checker', icon: TrendingUp, description: 'Headline SEO analysis', tags: ['seo', 'ctr', 'title'] },
+  { name: 'Meta Title', path: '/tools/meta-title', icon: Search, description: 'Google search preview', tags: ['seo', 'meta', 'google'] },
+  { name: 'Duplicate Lines', path: '/tools/duplicate-lines', icon: Eraser, description: 'Clean up repeated lines', tags: ['text', 'cleanup', 'list'] },
+  { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List, description: 'Convert text to list formats', tags: ['format', 'writing', 'list'] },
   
-  // Social Media Tools
-  { name: 'Instagram Formatter', path: '/tools/instagram-formatter', icon: Instagram, description: 'Preserve caption spacing', tags: ['instagram', 'social', 'format'] },
-  { name: 'Thread Splitter', path: '/tools/thread-splitter', icon: Twitter, description: 'Split text into tweets', tags: ['twitter', 'x', 'social'] },
-  { name: 'Emoji Remover', path: '/tools/emoji-remover', icon: Eraser, description: 'Strip emojis from text', tags: ['text', 'clean', 'format'] },
-  { name: 'Hashtag Generator', path: '/tools/hashtag-generator', icon: Hash, description: 'Find viral hashtags', tags: ['social', 'seo', 'tags'] },
-  { name: 'Social Character Count', path: '/tools/social-character-counter', icon: Type, description: 'Check limits for all social media', tags: ['social', 'stats', 'limits'] },
-  { name: 'Bio Length Checker', path: '/tools/bio-length-checker', icon: UserCheck, description: 'Optimize your social bios', tags: ['social', 'bio', 'profile'] },
-  { name: 'Hashtag Counter', path: '/tools/hashtag-counter', description: 'Count and extract hashtags', icon: Hash, tags: ['hashtag', 'social', 'instagram'] },
+  // Additional SEO & Text Utilities
+  { name: 'Meta Description Check', path: '/tools/meta-description-checker', icon: Type, description: 'Validate meta length', tags: ['seo', 'meta', 'google'] },
+  { name: 'Keyword Density', path: '/tools/keyword-density', icon: Hash, description: 'Analyze keyword percentage', tags: ['seo', 'keyword', 'density'] },
+  { name: 'Text Compare (Diff)', path: '/tools/text-compare', icon: Split, description: 'Compare text and find diffs', tags: ['text', 'diff', 'compare'] },
+  { name: 'Reading Time', path: '/tools/reading-time', icon: Clock, description: 'Estimated reading duration', tags: ['reading', 'time', 'words'] },
+  { name: 'Title Case', path: '/tools/title-case', icon: Type, description: 'Proper capitalization', tags: ['title', 'format', 'text'] },
+  { name: 'Slug Generator', path: '/tools/slug-generator', icon: Link2, description: 'SEO-friendly URL slugs', tags: ['slug', 'url', 'seo'] },
+  { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', icon: AlignLeft, description: 'Clean up spacing', tags: ['text', 'clean', 'format'] },
 
-  // Developer & Utilities
-  { name: 'Random Name Picker', path: '/tools/random-name-picker', description: 'Pick a winner from a list', icon: UserCheck, tags: ['random', 'picker', 'winner'] },
-  { name: 'Team Generator', path: '/tools/random-team-generator', description: 'Split names into random teams', icon: LayoutGrid, tags: ['random', 'teams', 'groups'] },
-  { name: 'URL Encoder', path: '/tools/url-encoder', description: 'Encode or decode URLs', icon: Link2, tags: ['url', 'developer', 'encode'] },
-  { name: 'Base64 Encoder', path: '/tools/base64', description: 'Encode or decode Base64', icon: FileCode, tags: ['base64', 'developer', 'decode'] },
-  { name: 'JSON Formatter', path: '/tools/json-formatter', description: 'Format or minify JSON', icon: Braces, tags: ['json', 'developer', 'format'] },
+  // Subtitle Tools
+  { name: 'SRT to Text', path: '/tools/srt-to-text', icon: Captions, description: 'Extract text from subtitles', tags: ['video', 'transcript', 'subtitle'] },
+  { name: 'Subtitle Cleaner', path: '/tools/subtitle-cleaner', icon: Eraser, description: 'Fix timing and formatting', tags: ['subtitle', 'edit', 'clean'] },
+  { name: 'Subtitle Counter', path: '/tools/subtitle-counter', icon: List, description: 'Count lines and timing', tags: ['subtitle', 'stats', 'lines'] },
+  { name: 'Subtitle Merge', path: '/tools/subtitle-merge', icon: Merge, description: 'Combine multiple SRT files', tags: ['subtitle', 'merge', 'join'] },
+  { name: 'Subtitle Split', path: '/tools/subtitle-split', icon: Split, description: 'Split large subtitle files', tags: ['subtitle', 'split', 'cut'] },
+
+  // Social & Character Tools
+  { name: 'Instagram Formatter', path: '/tools/instagram-formatter', icon: Instagram, description: 'Add line breaks for bios', tags: ['social', 'instagram', 'bio'] },
+  { name: 'Thread Splitter', path: '/tools/thread-splitter', icon: Twitter, description: 'Split text into X threads', tags: ['twitter', 'thread', 'social'] },
+  { name: 'Emoji Remover', path: '/tools/emoji-remover', icon: Eraser, description: 'Remove icons from text', tags: ['clean', 'text', 'format'] },
+  { name: 'Social Counter', path: '/tools/social-character-counter', icon: Hash, description: 'Check limits for all platforms', tags: ['social', 'stats', 'characters'] },
+  { name: 'Bio Length Check', path: '/tools/bio-length-checker', icon: UserCheck, description: 'Optimize social bios', tags: ['social', 'bio', 'limit'] },
+
+  // Generic Utilities
+  { name: 'JSON Formatter', path: '/tools/json-formatter', icon: Braces, description: 'Beautify and validate JSON', tags: ['developer', 'json', 'format'] },
+  { name: 'Base64 Tool', path: '/tools/base64', icon: FileCode, description: 'Encode or decode string', tags: ['developer', 'base64', 'security'] },
+  { name: 'URL Encoder', path: '/tools/url-encoder', icon: Link2, description: 'Encode/decode special characters', tags: ['developer', 'url', 'seo'] },
+  { name: 'Random Picker', path: '/tools/random-name-picker', icon: UserCheck, description: 'Select winners from a list', tags: ['random', 'picker', 'name'] },
+  { name: 'Team Generator', path: '/tools/random-team-generator', icon: LayoutGrid, description: 'Split group into teams', tags: ['random', 'team', 'generator'] }
 ]
 
 export function Home() {
   const [searchQuery, setSearchQuery] = useState('')
-  const [user, setUser] = useState(null)
-  const [favoriteSlugs, setFavoriteSlugs] = useState([])
 
-  useEffect(() => {
-    const initAuth = async () => {
-      const { data } = await supabase.auth.getSession()
-      setUser(data.session?.user ?? null)
-      if (data.session?.user) fetchFavorites(data.session.user.id)
-    }
-    initAuth()
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
-      setUser(session?.user ?? null)
-      if (session?.user) fetchFavorites(session.user.id)
-      else setFavoriteSlugs([])
-    })
-
-    return () => subscription.unsubscribe()
-  }, [])
-
-  useEffect(() => {
-    const handleUpdate = () => {
-      if (user) fetchFavorites(user.id)
-    }
-    window.addEventListener('favoritesUpdated', handleUpdate)
-    return () => window.removeEventListener('favoritesUpdated', handleUpdate)
-  }, [user])
-
-  const fetchFavorites = async (userId) => {
-    const { data } = await supabase
-      .from('user_favorites')
-      .select('tool_slug')
-      .eq('user_id', userId)
-    
-    if (data) setFavoriteSlugs(data.map(f => f.tool_slug))
-  }
-  
-  const favoriteTools = tools.filter(tool => 
-    favoriteSlugs.includes(tool.path.split('/').pop())
-  )
-
-  const filteredTools = tools.filter(tool => 
-    tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    tool.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    tool.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
-  )
+  const filteredTools = useMemo(() => {
+    return tools.filter(tool => 
+      tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      tool.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      tool.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+    )
+  }, [searchQuery])
 
   return (
     <Layout>
-      <Helmet>
-        <title>Free Online Tools for Content Creators | VidToolbox</title>
-        <meta name="description" content="Free online tools for content creators. 40+ browser-based tools for subtitle editing, SEO, social media, and more. No sign-up required." />
-      </Helmet>
-      
-      <section className="bg-gradient-to-b from-white to-slate-50 py-24">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-cyan-50 text-cyan-600 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-            <Zap className="w-4 h-4" />
-            <span>Over 40 Free Tools</span>
+      <main>
+        {/* Hero Section */}
+        <div className="bg-white border-b border-slate-100 overflow-hidden relative">
+          <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+            <div className="absolute top-10 left-10 w-64 h-64 bg-cyan-400 rounded-full blur-[100px]"></div>
+            <div className="absolute bottom-10 right-10 w-64 h-64 bg-teal-400 rounded-full blur-[100px]"></div>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-slate-900 mb-6">
-            Vid<span className="text-cyan-500">Toolbox</span>
-          </h1>
-          
-          <p className="text-xl text-slate-600 mb-10 max-w-xl mx-auto">
-            Professional browser-based tools to boost your content creation. No downloads, no accounts, just pure productivity.
-          </p>
-          
-          <div className="relative max-w-xl mx-auto">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search or browse categories below..."
-              className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-xl shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-base"
-            />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+            <div className="max-w-3xl">
+              <h1 className="text-5xl md:text-6xl font-bold font-heading text-slate-900 mb-6 leading-tight">
+                Professional Tools for <span className="text-cyan-600">Video Creators</span> & SEOs
+              </h1>
+              <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
+                The ultimate toolbox to polish your content, optimize your search performance, and streamline your creative workflow. Completely free.
+              </p>
+              
+              <div className="relative group max-w-xl">
+                <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400 group-focus-within:text-cyan-500 transition-colors" />
+                <input
+                  type="text"
+                  placeholder="Seach for 'Subtitles', 'YouTube', 'SEO'..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-14 pr-6 py-5 bg-white border border-slate-200 rounded-2xl shadow-xl focus:ring-4 focus:ring-cyan-500/10 focus:border-cyan-500 outline-none text-lg transition-all"
+                />
+              </div>
+            </div>
           </div>
         </div>
-      </section>
 
-      {user && favoriteTools.length > 0 && !searchQuery && (
-        <section className="py-12 bg-white border-b border-slate-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center gap-2 mb-8">
-              <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
-              <h2 className="text-xl font-heading font-semibold text-slate-900">Your Favorites</h2>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {favoriteTools.map((tool) => (
-                <div key={`fav-${tool.path}`} className="bg-slate-50 rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all group relative">
-                    <div className="flex items-start justify-between mb-3">
-                        <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                            <tool.icon className="w-5 h-5 text-amber-500" />
-                        </div>
-                        <FavoriteButton toolSlug={tool.path.split('/').pop()} className="w-9 h-9" />
-                    </div>
-                    <Link to={tool.path} className="block">
-                        <h3 className="font-heading font-semibold text-lg text-slate-900 mb-1">{tool.name}</h3>
-                        <p className="text-slate-500 text-sm">{tool.description}</p>
-                    </Link>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-      
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-8">
-            <Zap className="w-5 h-5 text-cyan-500" />
-            <h2 className="text-xl font-heading font-semibold text-slate-900">Featured Tools</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredTools.map((tool) => (
-              <div key={tool.path} className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-cyan-200 hover:-translate-y-1 transition-all duration-300 group relative">
-                <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 bg-cyan-50 rounded-lg flex items-center justify-center group-hover:bg-cyan-100 transition-colors">
-                    <tool.icon className="w-5 h-5 text-cyan-500" />
-                  </div>
-                  <FavoriteButton toolSlug={tool.path.split('/').pop()} className="w-9 h-9" />
-                </div>
-                
-                <Link to={tool.path} className="block">
-                    <h3 className="font-heading font-semibold text-lg text-slate-900 mb-1 group-hover:text-cyan-600 transition-colors">
-                    {tool.name}
-                    </h3>
-                    <p className="text-slate-500 text-sm mb-4">{tool.description}</p>
-                </Link>
-                
-                <div className="flex flex-wrap gap-1.5">
-                  {tool.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-0.5 border border-slate-200 rounded-full text-xs text-slate-500">{tag}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {filteredTools.length === 0 && (
-            <div className="text-center py-12 text-slate-400">
-              <p>No tools found matching your search.</p>
-            </div>
-          )}
-
-          <div className="mt-16 text-center">
-            <Link to="/tools" className="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-xl">
-                View All 40+ Tools <ArrowRight className="w-5 h-5" />
+        {/* Tools Grid */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="flex items-center justify-between mb-12">
+            <h2 className="text-3xl font-bold text-slate-900 font-heading">
+              {searchQuery ? `Search results for "${searchQuery}"` : 'Popular Tools'}
+            </h2>
+            <Link to="/tools" className="text-cyan-600 font-bold hover:text-cyan-700 flex items-center gap-1 group">
+              View all tools <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
+
+          {filteredTools.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredTools.map((tool) => (
+                <Link
+                  key={tool.path}
+                  to={tool.path}
+                  onClick={() => trackToolUse(tool.name, tool.path.split('/').pop())}
+                  className="group bg-white p-8 rounded-3xl border border-slate-200 hover:border-cyan-500 hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300 flex flex-col h-full"
+                >
+                  <div className="w-14 h-14 bg-slate-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-cyan-50 group-hover:scale-110 transition-all duration-300">
+                    <tool.icon className="w-7 h-7 text-slate-400 group-hover:text-cyan-600 transition-colors" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors">{tool.name}</h3>
+                  <p className="text-slate-500 mb-6 leading-relaxed flex-1">{tool.description}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {tool.tags.map((tag) => (
+                      <span key={tag} className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 bg-slate-50 text-slate-400 rounded-lg group-hover:bg-cyan-50 group-hover:text-cyan-500 transition-colors">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-20 bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200">
+              <p className="text-slate-500 text-lg mb-4">No tools found matching your search.</p>
+              <button 
+                onClick={() => setSearchQuery('')}
+                className="text-cyan-600 font-bold hover:underline"
+              >
+                Clear search
+              </button>
+            </div>
+          )}
         </div>
-      </section>
+
+        {/* Features/Trust Section */}
+        <div className="bg-slate-900 py-20 rounded-[40px] mx-4 mb-20 overflow-hidden relative">
+          <div className="max-w-7xl mx-auto px-8 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+            <div>
+              <Zap className="w-10 h-10 text-cyan-400 mb-6" />
+              <h3 className="text-xl font-bold text-white mb-4">Lightning Fast</h3>
+              <p className="text-slate-400 leading-relaxed">
+                All tools are optimized for performance, providing results instantly without long loading times or server delays.
+              </p>
+            </div>
+            <div>
+              <LayoutGrid className="w-10 h-10 text-cyan-400 mb-6" />
+              <h3 className="text-xl font-bold text-white mb-4">Privacy Focused</h3>
+              <p className="text-slate-400 leading-relaxed">
+                Your data stays in your browser. We don't store your sensitive text, files, or subtitle data on our servers.
+              </p>
+            </div>
+            <div>
+              <Share2 className="w-10 h-10 text-cyan-400 mb-6" />
+              <h3 className="text-xl font-bold text-white mb-4">Always Free</h3>
+              <p className="text-slate-400 leading-relaxed">
+                VidToolbox is built for creators, by creators. Our goal is to provide high-quality utilities at no cost, forever.
+              </p>
+            </div>
+          </div>
+          {/* Abstract backgrounds */}
+          <div className="absolute top-0 right-0 w-[500px] h-full bg-cyan-500/10 skew-x-12 translate-x-32 pointer-events-none"></div>
+        </div>
+      </main>
     </Layout>
   )
 }

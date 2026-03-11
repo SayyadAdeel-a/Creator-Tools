@@ -1,124 +1,149 @@
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import { BarChart3, Hash, Search } from 'lucide-react'
+import { Hash, List, Filter, ArrowUpDown } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
 import { trackToolUse } from '../../lib/track'
 
+const STOP_WORDS = new Set([
+  'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'was', 'were', 'will', 'with'
+])
+
 export function WordFrequency() {
   const [text, setText] = useState('')
-  const [filterStopwords, setFilterStopwords] = useState(true)
-  const [results, setResults] = useState([])
+  const [ignoreStopWords, setIgnoreStopWords] = useState(true)
+  const [showAll, setShowAll] = useState(false)
 
-  const stopWords = new Set(['the', 'a', 'an', 'is', 'in', 'on', 'at', 'to', 'of', 'and', 'or', 'but', 'for', 'with', 'that', 'this', 'it', 'as', 'my', 'you', 'your', 'i', 'was', 'were', 'be', 'been'])
-
-  const analyzeFrequency = () => {
-    if (!text.trim()) return
-
-    const rawWords = text.toLowerCase()
-      .replace(/[^\w\s]|_/g, "")
-      .replace(/\s+/g, " ")
-      .trim()
-      .split(" ")
-
-    const freq = {}
-    let total = 0
-
-    rawWords.forEach(word => {
-      if (word.length < 2) return
-      if (filterStopwords && stopWords.has(word)) return
+  const processText = () => {
+    if (!text.trim()) return []
+    
+    const words = text.toLowerCase()
+      .replace(/[^\w\s]/g, '')
+      .split(/\s+/)
+      .filter(w => w.length > 0)
       
+    const totalCount = words.length
+    const freq = {}
+    
+    words.forEach(word => {
+      if (ignoreStopWords && STOP_WORDS.has(word)) return
       freq[word] = (freq[word] || 0) + 1
-      total++
     })
 
     const sorted = Object.entries(freq)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 20)
       .map(([word, count]) => ({
         word,
         count,
-        percentage: ((count / total) * 100).toFixed(1)
+        percentage: ((count / totalCount) * 100).toFixed(2)
       }))
+      .sort((a, b) => b.count - a.count)
 
-    setResults(sorted)
-    trackToolUse('Word Frequency Counter', 'word-frequency')
+    return sorted
   }
+
+  const results = processText()
+  const displayResults = showAll ? results : results.slice(0, 20)
 
   return (
     <>
       <Helmet>
-        <title>Word Frequency Counter — Analyze Keyword Density Free | VidToolbox</title>
-        <meta name="description" content="Find the most used words in your text instantly. Perfect for SEO keyword analysis and content optimization. Free online word frequency tool." />
+        <title>Word Frequency Counter — Content SEO Tool | VidToolbox</title>
+        <meta name="description" content="Analyze keyword density and word frequency in your content. Identify overused words and optimize your writing for better SEO and readability." />
         <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/word-frequency" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          "name": "Word Frequency Counter",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Web",
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "url": "https://vidtoolbox.qzz.io/tools/word-frequency",
+          "description": "Analyze word frequency and patterns in your text for SEO and writing improvement."
+        })}</script>
       </Helmet>
 
       <ToolPage
         title="Word Frequency Counter"
-        icon={BarChart3}
-        description="Paste your content to see which words appear most frequently. Great for identifying overused words or checking keyword density."
+        icon={Hash}
+        description="Identify overused words and find keyword patterns in your writing. Perfect for SEO optimization and improving content flow."
         howToUse={[
-          "Paste your article or script into the text area",
-          "Toggle 'Filter Stopwords' to hide common words like 'the' or 'and'",
-          "Click 'Analyze' to see your top 20 most frequent words"
+          "Paste your text or article content into the editor",
+          "Toggle 'Ignore Common Words' to filter out fillers like 'the', 'a', 'is'",
+          "Review the table to see which keywords dominate your content"
+        ]}
+        faq={[
+            { question: "What is the benefit of word frequency analysis?", answer: "It helps you avoid repetitive language and ensures your main keywords aren't appearing too many (or too few) times." },
+            { question: "What are stop words?", answer: "Common words like 'the', 'and', 'at' that don't carry much semantic meaning. Filtering them helps you focus on substance words." },
+            { question: "How many words should I analyze?", answer: "This tool can handle thousands of words instantly, making it great for everything from social posts to full blog articles." }
         ]}
       >
         <div className="p-6">
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Paste your text here to analyze word frequency..."
-            className="w-full h-64 p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none resize-none mb-6 text-sm font-mono"
-          />
-
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
-            <label className="flex items-center gap-3 cursor-pointer group">
-              <input 
-                type="checkbox" 
-                checked={filterStopwords} 
-                onChange={(e) => setFilterStopwords(e.target.checked)}
-                className="w-5 h-5 rounded border-slate-300 text-cyan-500 focus:ring-cyan-500"
-              />
-              <span className="text-slate-600 group-hover:text-slate-900 transition-colors">Ignore common stop words</span>
-            </label>
-            <button
-              onClick={analyzeFrequency}
-              className="w-full md:w-auto bg-gradient-to-r from-cyan-500 to-cyan-600 text-white px-10 py-3 rounded-xl font-medium hover:from-cyan-600 hover:to-cyan-700 transition-all flex items-center justify-center gap-2"
-            >
-              <Search className="w-5 h-5" /> Analyze Text
-            </button>
+          <div className="mb-8">
+            <label className="block text-sm font-bold text-slate-700 mb-2">Input Content</label>
+            <textarea
+              value={text}
+              onChange={(e) => {
+                  setText(e.target.value);
+                  if (e.target.value.length === 1) trackToolUse('Word Frequency Counter', 'word-frequency');
+              }}
+              placeholder="Paste your text here..."
+              className="w-full h-64 p-4 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 outline-none resize-none mb-4"
+            />
+            
+            <div className="flex flex-wrap items-center gap-4">
+                <label className="flex items-center gap-2 cursor-pointer group">
+                    <input 
+                        type="checkbox" 
+                        checked={ignoreStopWords} 
+                        onChange={(e) => setIgnoreStopWords(e.target.checked)}
+                        className="w-5 h-5 rounded border-slate-300 text-cyan-500 focus:ring-cyan-500"
+                    />
+                    <span className="text-sm font-bold text-slate-600 group-hover:text-slate-900 transition-colors">Ignore Common Stop Words</span>
+                </label>
+            </div>
           </div>
 
-          {results.length > 0 ? (
-            <div className="overflow-hidden bg-white border border-slate-200 rounded-xl shadow-sm">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="bg-slate-50 border-b border-slate-200">
-                    <th className="px-6 py-4 font-bold text-slate-900 text-sm">Word</th>
-                    <th className="px-6 py-4 font-bold text-slate-900 text-sm text-center">Count</th>
-                    <th className="px-6 py-4 font-bold text-slate-900 text-sm text-right">Percentage</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {results.map((res, i) => (
-                    <tr key={res.word} className="hover:bg-slate-50 transition-colors">
-                      <td className="px-6 py-4 text-slate-700 font-medium">{res.word}</td>
-                      <td className="px-6 py-4 text-slate-600 text-center font-mono">{res.count}</td>
-                      <td className="px-6 py-4 text-right">
-                        <div className="flex items-center justify-end gap-3 text-cyan-600 font-bold font-mono">
-                          {res.percentage}%
-                          <div className="w-20 bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                            <div className="bg-cyan-500 h-full" style={{ width: `${res.percentage}%` }}></div>
-                          </div>
-                        </div>
-                      </td>
+          {results.length > 0 && (
+            <div className="space-y-6">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2 font-heading">
+                    <List className="w-5 h-5 text-cyan-500" /> Analysis Results
+                </h3>
+                <div className="text-sm font-bold text-slate-400 uppercase tracking-widest">
+                    Showing {displayResults.length} of {results.length} words
+                </div>
+              </div>
+
+              <div className="overflow-hidden border border-slate-200 rounded-2xl bg-white shadow-sm">
+                <table className="w-full text-left">
+                  <thead>
+                    <tr className="bg-slate-50 border-b border-slate-200">
+                      <th className="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Word</th>
+                      <th className="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest text-center">Count</th>
+                      <th className="px-6 py-4 text-xs font-bold text-slate-400 uppercase tracking-widest text-right">Percentage</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          ) : text.length > 0 && (
-            <div className="text-center py-12 text-slate-400 border-2 border-dashed border-slate-100 rounded-2xl">
-              Click Analyze to see results
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {displayResults.map((row, i) => (
+                      <tr key={i} className="hover:bg-slate-50 transition-colors">
+                        <td className="px-6 py-3 text-slate-900 font-medium">{row.word}</td>
+                        <td className="px-6 py-3 text-slate-600 font-mono text-center">{row.count}</td>
+                        <td className="px-6 py-3 text-slate-400 text-right font-mono">
+                            <span className="text-cyan-600 font-bold">{row.percentage}%</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {results.length > 20 && !showAll && (
+                <button
+                    onClick={() => setShowAll(true)}
+                    className="w-full py-4 border-2 border-dashed border-slate-200 rounded-2xl font-bold text-slate-500 hover:border-cyan-300 hover:text-cyan-600 transition-all flex items-center justify-center gap-2"
+                >
+                    <ArrowUpDown className="w-4 h-4" /> Show All {results.length} Words
+                </button>
+              )}
             </div>
           )}
         </div>
