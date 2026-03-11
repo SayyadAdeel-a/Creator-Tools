@@ -4,35 +4,21 @@ import { Helmet } from 'react-helmet-async'
 import { 
   Search, Zap, Star, FileText, Type, Hash, Clock, Split, Merge, Eraser, 
   List, Link2, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces,
-  BookOpen, ArrowRight
+  BookOpen, ArrowRight, Instagram, Twitter, Video, Share2, Captions
 } from 'lucide-react'
 import { Layout } from '../components/Layout'
 import { FavoriteButton } from '../components/FavoriteButton'
 import { supabase } from '../lib/supabase'
 
 const tools = [
+  // Subtitle Tools
   { name: 'SRT to Text', path: '/tools/srt-to-text', description: 'Convert subtitle files to plain text', icon: FileText, tags: ['subtitle', 'srt', 'convert'] },
   { name: 'Subtitle Cleaner', path: '/tools/subtitle-cleaner', description: 'Remove timestamps from subtitles', icon: Eraser, tags: ['subtitle', 'timestamp', 'clean'] },
   { name: 'Subtitle Counter', path: '/tools/subtitle-counter', description: 'Count lines and characters in subtitles', icon: List, tags: ['subtitle', 'count', 'characters'] },
   { name: 'Subtitle Merge', path: '/tools/subtitle-merge', description: 'Combine multiple SRT files into one', icon: Merge, tags: ['subtitle', 'merge', 'combine'] },
   { name: 'Subtitle Split', path: '/tools/subtitle-split', description: 'Split SRT files by line or timestamp', icon: Split, tags: ['subtitle', 'split', 'divide'] },
-  { name: 'Script Word Counter', path: '/tools/script-word-counter', description: 'Count words for your video scripts', icon: Type, tags: ['youtube', 'script', 'words'] },
-  { name: 'Reading Time', path: '/tools/reading-time', description: 'Calculate estimated reading time', icon: Clock, tags: ['reading', 'time', 'words'] },
-  { name: 'Title Case', path: '/tools/title-case', description: 'Convert text to title case', icon: Type, tags: ['title', 'case', 'capitalize'] },
-  { name: 'Slug Generator', path: '/tools/slug-generator', description: 'Create URL-friendly slugs', icon: Link2, tags: ['slug', 'url', 'seo'] },
-  { name: 'Hashtag Counter', path: '/tools/hashtag-counter', description: 'Count and extract hashtags', icon: Hash, tags: ['hashtag', 'social', 'instagram'] },
-  { name: 'Meta Description', path: '/tools/meta-description-checker', description: 'Check meta description length', icon: Type, tags: ['seo', 'meta', 'google'] },
-  { name: 'Keyword Density', path: '/tools/keyword-density', description: 'Analyze keyword frequency', icon: Hash, tags: ['seo', 'keyword', 'density'] },
-  { name: 'Text Compare', path: '/tools/text-compare', description: 'Compare text and find diffs', icon: Split, tags: ['text', 'diff', 'compare'] },
-  { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', description: 'Clean up text spacing', icon: AlignLeft, tags: ['text', 'clean', 'format'] },
-  { name: 'Text Reverser', path: '/tools/text-reverser', description: 'Reverse letters or words', icon: Undo2, tags: ['text', 'fun', 'reverse'] },
-  { name: 'Random Name Picker', path: '/tools/random-name-picker', description: 'Pick a winner from a list', icon: UserCheck, tags: ['random', 'picker', 'winner'] },
-  { name: 'Team Generator', path: '/tools/random-team-generator', description: 'Split names into random teams', icon: LayoutGrid, tags: ['random', 'teams', 'groups'] },
-  { name: 'URL Encoder', path: '/tools/url-encoder', description: 'Encode or decode URLs', icon: Link2, tags: ['url', 'developer', 'encode'] },
-  { name: 'Base64', path: '/tools/base64', description: 'Encode or decode Base64', icon: FileCode, tags: ['base64', 'developer', 'decode'] },
-  { name: 'JSON Formatter', path: '/tools/json-formatter', description: 'Format or minify JSON', icon: Braces, tags: ['json', 'developer', 'format'] },
   
-  // YouTube Tools
+  // Video Creator Tools
   { name: 'YouTube Title Generator', path: '/tools/youtube-title-generator', description: 'Generate viral title ideas', icon: Zap, tags: ['youtube', 'video', 'ideas'] },
   { name: 'Description Formatter', path: '/tools/youtube-description-formatter', description: 'Pro video description formatting', icon: FileText, tags: ['youtube', 'seo', 'format'] },
   { name: 'Video Timestamps', path: '/tools/timestamp-generator', description: 'Create YouTube chapters quickly', icon: Clock, tags: ['youtube', 'timestamps', 'chapters'] },
@@ -47,16 +33,33 @@ const tools = [
   { name: 'Readability Score', path: '/tools/readability-score', icon: BookOpen, description: 'Check content difficulty', tags: ['seo', 'writing', 'readability'] },
   { name: 'Article Title Checker', path: '/tools/title-checker', icon: Type, description: 'Headline SEO analysis', tags: ['seo', 'copywriting', 'title'] },
   { name: 'Meta Title Checker', path: '/tools/meta-title-checker', icon: Search, description: 'Google search preview', tags: ['seo', 'meta', 'google'] },
+  { name: 'Meta Description Checker', path: '/tools/meta-description-checker', description: 'Check meta description length', icon: Type, tags: ['seo', 'meta', 'google'] },
+  { name: 'Keyword Density', path: '/tools/keyword-density', description: 'Analyze keyword frequency', icon: Hash, tags: ['seo', 'keyword', 'density'] },
+  { name: 'Text Compare', path: '/tools/text-compare', description: 'Compare text and find diffs', icon: Split, tags: ['text', 'diff', 'compare'] },
   { name: 'Duplicate Remover', path: '/tools/duplicate-line-remover', icon: Eraser, description: 'Strip duplicate lines', tags: ['text', 'cleanup', 'list'] },
   { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List, description: 'Convert text to lists', tags: ['format', 'writing', 'list'] },
+  { name: 'Script Word Counter', path: '/tools/script-word-counter', description: 'Count words for your video scripts', icon: Type, tags: ['youtube', 'script', 'words'] },
+  { name: 'Reading Time', path: '/tools/reading-time', description: 'Calculate estimated reading time', icon: Clock, tags: ['reading', 'time', 'words'] },
+  { name: 'Title Case', path: '/tools/title-case', description: 'Convert text to title case', icon: Type, tags: ['title', 'case', 'capitalize'] },
+  { name: 'Slug Generator', path: '/tools/slug-generator', description: 'Create URL-friendly slugs', icon: Link2, tags: ['slug', 'url', 'seo'] },
+  { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', description: 'Clean up text spacing', icon: AlignLeft, tags: ['text', 'clean', 'format'] },
+  { name: 'Text Reverser', path: '/tools/text-reverser', description: 'Reverse letters or words', icon: Undo2, tags: ['text', 'fun', 'reverse'] },
   
-  // Social Tools
+  // Social Media Tools
   { name: 'Instagram Formatter', path: '/tools/instagram-formatter', icon: Instagram, description: 'Preserve caption spacing', tags: ['instagram', 'social', 'format'] },
-  { name: 'Thread Splitter', path: '/tools/thread-splitter', icon: Split, description: 'Split text into tweets', tags: ['twitter', 'x', 'social'] },
+  { name: 'Thread Splitter', path: '/tools/thread-splitter', icon: Twitter, description: 'Split text into tweets', tags: ['twitter', 'x', 'social'] },
   { name: 'Emoji Remover', path: '/tools/emoji-remover', icon: Eraser, description: 'Strip emojis from text', tags: ['text', 'clean', 'format'] },
   { name: 'Hashtag Generator', path: '/tools/hashtag-generator', icon: Hash, description: 'Find viral hashtags', tags: ['social', 'seo', 'tags'] },
   { name: 'Social Character Count', path: '/tools/social-character-counter', icon: Type, description: 'Check limits for all social media', tags: ['social', 'stats', 'limits'] },
   { name: 'Bio Length Checker', path: '/tools/bio-length-checker', icon: UserCheck, description: 'Optimize your social bios', tags: ['social', 'bio', 'profile'] },
+  { name: 'Hashtag Counter', path: '/tools/hashtag-counter', description: 'Count and extract hashtags', icon: Hash, tags: ['hashtag', 'social', 'instagram'] },
+
+  // Developer & Utilities
+  { name: 'Random Name Picker', path: '/tools/random-name-picker', description: 'Pick a winner from a list', icon: UserCheck, tags: ['random', 'picker', 'winner'] },
+  { name: 'Team Generator', path: '/tools/random-team-generator', description: 'Split names into random teams', icon: LayoutGrid, tags: ['random', 'teams', 'groups'] },
+  { name: 'URL Encoder', path: '/tools/url-encoder', description: 'Encode or decode URLs', icon: Link2, tags: ['url', 'developer', 'encode'] },
+  { name: 'Base64 Encoder', path: '/tools/base64', description: 'Encode or decode Base64', icon: FileCode, tags: ['base64', 'developer', 'decode'] },
+  { name: 'JSON Formatter', path: '/tools/json-formatter', description: 'Format or minify JSON', icon: Braces, tags: ['json', 'developer', 'format'] },
 ]
 
 export function Home() {
@@ -136,7 +139,7 @@ export function Home() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search or browser categories below..."
+              placeholder="Search or browse categories below..."
               className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-xl shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-base"
             />
           </div>

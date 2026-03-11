@@ -49,14 +49,17 @@ const categories = [
             { name: 'Readability Score', path: '/tools/readability-score', description: 'Check content difficulty', icon: BookOpen, tags: ['seo', 'writing', 'readability'] },
             { name: 'Article Title Checker', path: '/tools/title-checker', description: 'Headline SEO analysis', icon: Type, tags: ['seo', 'copywriting', 'title'] },
             { name: 'Meta Title Checker', path: '/tools/meta-title-checker', description: 'Google search preview', icon: Search, tags: ['seo', 'meta', 'google'] },
+            { name: 'Meta Description Check', path: '/tools/meta-description-checker', description: 'Validate meta length', icon: Type, tags: ['seo', 'meta', 'description'] },
+            { name: 'Keyword Density', path: '/tools/keyword-density', description: 'Analyze frequency relative to total', icon: Hash, tags: ['seo', 'keyword', 'density'] },
+            { name: 'Text Compare (Diff)', path: '/tools/text-compare', description: 'Compare two text versions', icon: Split, tags: ['text', 'diff', 'compare'] },
             { name: 'Duplicate Remover', path: '/tools/duplicate-line-remover', description: 'Strip duplicate lines', icon: Eraser, tags: ['text', 'cleanup', 'list'] },
             { name: 'Text to Bullets', path: '/tools/text-to-bullets', description: 'Convert text to lists', icon: List, tags: ['format', 'writing', 'list'] },
             { name: 'Script Word Counter', path: '/tools/script-word-counter', description: 'Count words for recording duration', icon: Type, tags: ['script', 'words', 'youtube'] },
             { name: 'Reading Time', path: '/tools/reading-time', description: 'Calculate reading duration', icon: Clock, tags: ['reading', 'time', 'blog'] },
             { name: 'Title Case', path: '/tools/title-case', description: 'Convert text to proper title case', icon: Type, tags: ['title', 'capitalize', 'format'] },
             { name: 'Slug Generator', path: '/tools/slug-generator', description: 'SEO-friendly URL slugs', icon: Link2, tags: ['slug', 'url', 'seo'] },
-            { name: 'Keyword Density', path: '/tools/keyword-density', description: 'Analyze frequency relative to total', icon: Hash, tags: ['seo', 'keyword', 'density'] },
             { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', description: 'Clean up text spacing', icon: AlignLeft, tags: ['text', 'clean', 'format'] },
+            { name: 'Text Reverser', path: '/tools/text-reverser', description: 'Reverse character or word order', icon: Undo2, tags: ['text', 'fun', 'reverse'] },
         ]
     },
     {
