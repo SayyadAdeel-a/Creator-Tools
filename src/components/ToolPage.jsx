@@ -16,8 +16,8 @@ const faqItems = [
     answer: "Absolutely! All processing happens locally in your browser. Your data is never sent to any server."
   },
   {
-    question: "What file formats are supported?",
-    answer: "We support the standard SubRip (.srt) format for all subtitle-related tools."
+    question: "Do I need to install anything?",
+    answer: "No, this tool works entirely in your web browser. No downloads or installations are required."
   }
 ]
 

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, Captions, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces } from 'lucide-react'
+import { Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, Captions, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces, Video, Share2, Instagram, Twitter, Search as SearchIcon } from 'lucide-react'
 import { Layout } from '../components/Layout'
 import { FavoriteButton } from '../components/FavoriteButton'
 
@@ -20,21 +20,54 @@ const categories = [
         ]
     },
     {
+        name: 'Video Creator Tools',
+        description: 'Essential formatting tools for YouTubers',
+        icon: Video,
+        color: 'bg-red-50 text-red-600 border-red-100',
+        tools: [
+            { name: 'YouTube Title Gen', path: '/tools/youtube-title-generator', description: 'Generate viral title ideas', icon: Zap, tags: ['youtube', 'video', 'ideas'] },
+            { name: 'Description Formatter', path: '/tools/youtube-description-formatter', description: 'Pro video description formatting', icon: FileText, tags: ['youtube', 'seo', 'format'] },
+            { name: 'Video Timestamps', path: '/tools/timestamp-generator', description: 'Create YouTube chapters quickly', icon: Clock, tags: ['youtube', 'timestamps', 'chapters'] },
+            { name: 'YouTube Tags', path: '/tools/youtube-tags-extractor', description: 'Extract keywords from text', icon: Hash, tags: ['youtube', 'seo', 'tags'] },
+            { name: 'Script Outline', path: '/tools/script-outline-generator', description: 'Structure your next video', icon: List, tags: ['video', 'planning', 'script'] },
+            { name: 'Thumbnail Checker', path: '/tools/thumbnail-text-checker', description: 'Optimize thumbnail text', icon: Type, tags: ['youtube', 'design', 'thumbnail'] },
+            { name: 'Video Duration', path: '/tools/video-duration-calculator', description: 'Sum up your video clips', icon: Clock, tags: ['video', 'calculator', 'timer'] },
+        ]
+    },
+    {
         name: 'Text & SEO Tools',
         description: 'Optimize your scripts and written content',
         icon: Type,
         color: 'bg-violet-50 text-violet-600 border-violet-100',
         tools: [
-            { name: 'Script Word Counter', path: '/tools/script-word-counter', description: 'Count words and estimate video recording duration', icon: Type, tags: ['script', 'words', 'youtube'] },
-            { name: 'Reading Time Calculator', path: '/tools/reading-time', description: 'Calculate how long it takes to read any text', icon: Clock, tags: ['reading', 'time', 'blog'] },
-            { name: 'Title Case Converter', path: '/tools/title-case', description: 'Convert text to proper AP / Chicago title case', icon: Type, tags: ['title', 'capitalize', 'format'] },
-            { name: 'Slug Generator', path: '/tools/slug-generator', description: 'Generate SEO-friendly URL slugs from any text', icon: Link2, tags: ['slug', 'url', 'seo'] },
-            { name: 'Hashtag Counter', path: '/tools/hashtag-counter', description: 'Count and extract all hashtags from social posts', icon: Hash, tags: ['hashtag', 'instagram', 'social'] },
-            { name: 'Meta Description Checker', path: '/tools/meta-description-checker', description: 'Check meta description length for Google SEO', icon: Type, tags: ['seo', 'meta', 'google'] },
-            { name: 'Keyword Density', path: '/tools/keyword-density', description: 'Analyze keyword frequency relative to total words', icon: Hash, tags: ['seo', 'keyword', 'density'] },
-            { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', description: 'Clean up text spacing and remove blank lines', icon: AlignLeft, tags: ['text', 'clean', 'format'] },
-            { name: 'Text Reverser', path: '/tools/text-reverser', description: 'Reverse letters or word order instantly', icon: Undo2, tags: ['text', 'fun', 'reverse'] },
-            { name: 'Text Compare', path: '/tools/text-compare', description: 'Compare two texts and find differences', icon: Split, tags: ['text', 'diff', 'compare'] },
+            { name: 'Word Frequency', path: '/tools/word-frequency', description: 'Find overused words', icon: Hash, tags: ['seo', 'text', 'analysis'] },
+            { name: 'Sentence Counter', path: '/tools/sentence-counter', description: 'Analyze sentence structure', icon: AlignLeft, tags: ['writing', 'stats', 'text'] },
+            { name: 'Readability Score', path: '/tools/readability-score', description: 'Check content difficulty', icon: BookOpen, tags: ['seo', 'writing', 'readability'] },
+            { name: 'Article Title Checker', path: '/tools/title-checker', description: 'Headline SEO analysis', icon: Type, tags: ['seo', 'copywriting', 'title'] },
+            { name: 'Meta Title Checker', path: '/tools/meta-title-checker', description: 'Google search preview', icon: Search, tags: ['seo', 'meta', 'google'] },
+            { name: 'Duplicate Remover', path: '/tools/duplicate-line-remover', description: 'Strip duplicate lines', icon: Eraser, tags: ['text', 'cleanup', 'list'] },
+            { name: 'Text to Bullets', path: '/tools/text-to-bullets', description: 'Convert text to lists', icon: List, tags: ['format', 'writing', 'list'] },
+            { name: 'Script Word Counter', path: '/tools/script-word-counter', description: 'Count words for recording duration', icon: Type, tags: ['script', 'words', 'youtube'] },
+            { name: 'Reading Time', path: '/tools/reading-time', description: 'Calculate reading duration', icon: Clock, tags: ['reading', 'time', 'blog'] },
+            { name: 'Title Case', path: '/tools/title-case', description: 'Convert text to proper title case', icon: Type, tags: ['title', 'capitalize', 'format'] },
+            { name: 'Slug Generator', path: '/tools/slug-generator', description: 'SEO-friendly URL slugs', icon: Link2, tags: ['slug', 'url', 'seo'] },
+            { name: 'Keyword Density', path: '/tools/keyword-density', description: 'Analyze frequency relative to total', icon: Hash, tags: ['seo', 'keyword', 'density'] },
+            { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', description: 'Clean up text spacing', icon: AlignLeft, tags: ['text', 'clean', 'format'] },
+        ]
+    },
+    {
+        name: 'Social Media Tools',
+        description: 'Formatted content for all social platforms',
+        icon: Share2,
+        color: 'bg-pink-50 text-pink-600 border-pink-100',
+        tools: [
+            { name: 'Instagram Formatter', path: '/tools/instagram-formatter', description: 'Preserve caption spacing', icon: Instagram, tags: ['instagram', 'social', 'format'] },
+            { name: 'Thread Splitter', path: '/tools/thread-splitter', description: 'Split text into tweets', icon: Twitter, tags: ['twitter', 'x', 'social'] },
+            { name: 'Emoji Remover', path: '/tools/emoji-remover', description: 'Strip emojis from text', icon: Eraser, tags: ['text', 'clean', 'format'] },
+            { name: 'Hashtag Generator', path: '/tools/hashtag-generator', description: 'Find viral hashtags', icon: Hash, tags: ['social', 'seo', 'tags'] },
+            { name: 'Social Counter', path: '/tools/social-character-counter', description: 'Check limits for all social media', icon: Type, tags: ['social', 'stats', 'limits'] },
+            { name: 'Bio Length Check', path: '/tools/bio-length-checker', description: 'Optimize your social bios', icon: UserCheck, tags: ['social', 'bio', 'profile'] },
+            { name: 'Hashtag Counter', path: '/tools/hashtag-counter', description: 'Count and extract all hashtags', icon: Hash, tags: ['hashtag', 'instagram', 'social'] },
         ]
     },
     {
@@ -43,9 +76,9 @@ const categories = [
         icon: FileCode,
         color: 'bg-amber-50 text-amber-600 border-amber-100',
         tools: [
-            { name: 'URL Encoder / Decoder', path: '/tools/url-encoder', description: 'Make strings safe for URLs or decode them', icon: Link2, tags: ['url', 'developer', 'encode'] },
-            { name: 'Base64 Encoder / Decoder', path: '/tools/base64', description: 'Encode or decode strings to/from Base64', icon: FileCode, tags: ['base64', 'developer', 'decode'] },
-            { name: 'JSON Formatter', path: '/tools/json-formatter', description: 'Format or minify JSON with one click', icon: Braces, tags: ['json', 'developer', 'format'] },
+            { name: 'URL Encoder / Decoder', path: '/tools/url-encoder', description: 'Make strings safe for URLs', icon: Link2, tags: ['url', 'developer', 'encode'] },
+            { name: 'Base64 Encoder / Decoder', path: '/tools/base64', description: 'Encode or decode strings', icon: FileCode, tags: ['base64', 'developer', 'decode'] },
+            { name: 'JSON Formatter', path: '/tools/json-formatter', description: 'Format or minify JSON', icon: Braces, tags: ['json', 'developer', 'format'] },
         ]
     },
     {
@@ -54,8 +87,8 @@ const categories = [
         icon: UserCheck,
         color: 'bg-green-50 text-green-600 border-green-100',
         tools: [
-            { name: 'Random Name Picker', path: '/tools/random-name-picker', description: 'Pick a random winner from a list of names', icon: UserCheck, tags: ['random', 'picker', 'winner'] },
-            { name: 'Random Team Generator', path: '/tools/random-team-generator', description: 'Split a list of names into random groups', icon: LayoutGrid, tags: ['random', 'teams', 'groups'] },
+            { name: 'Random Name Picker', path: '/tools/random-name-picker', description: 'Pick a winner from a list', icon: UserCheck, tags: ['random', 'picker', 'winner'] },
+            { name: 'Random Team Generator', path: '/tools/random-team-generator', description: 'Split names into random groups', icon: LayoutGrid, tags: ['random', 'teams', 'groups'] },
         ]
     }
 ]
@@ -86,7 +119,7 @@ export function AllTools() {
                     <h1 className="text-4xl font-heading font-bold text-slate-900 mb-3">
                         All <span className="text-cyan-500">Tools</span>
                     </h1>
-                    <p className="text-slate-500 mb-8">20 free browser-based tools for content creators — no sign-in required.</p>
+                    <p className="text-slate-500 mb-8">40+ free browser-based tools for content creators — no sign-in required.</p>
                     <div className="relative max-w-md mx-auto">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                         <input

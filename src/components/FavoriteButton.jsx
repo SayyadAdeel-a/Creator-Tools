@@ -51,7 +51,7 @@ export function FavoriteButton({ toolSlug, className }) {
     e.stopPropagation()
 
     if (!user) {
-      if (window.confirm('Please login to add tools to your favorites. Go to login page?')) {
+      if (window.confirm('Want to save this tool for later? Please login or sign up to add it to your favorites.')) {
         navigate('/login')
       }
       return

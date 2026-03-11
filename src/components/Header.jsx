@@ -4,7 +4,9 @@ import {
   Home, LayoutGrid, Captions, Type, BookOpen, Info,
   Menu, X, Zap, ChevronDown,
   Eraser, List, Merge, Split, Clock, Hash, Link2, User, LogOut,
-  AlignLeft, Undo2, UserCheck, FileCode, Braces
+  AlignLeft, Undo2, UserCheck, FileCode, Braces,
+  Video, Share2, FileText, BarChart3, Timer, Search, MessageSquare,
+  Twitter, Instagram, Wand2, Hash as HashtagIcon
 } from 'lucide-react'
 import { cn } from '../lib/utils'
 import { supabase } from '../lib/supabase'
@@ -17,14 +19,33 @@ const subtitleTools = [
   { name: 'Subtitle Split', path: '/tools/subtitle-split', icon: Split },
 ]
 
+const videoTools = [
+  { name: 'YouTube Title Gen', path: '/tools/youtube-title-generator', icon: Wand2 },
+  { name: 'Description Formatter', path: '/tools/youtube-description-formatter', icon: FileText },
+  { name: 'Video Timestamps', path: '/tools/timestamp-generator', icon: Clock },
+  { name: 'YouTube Tags', path: '/tools/youtube-tags-extractor', icon: Search },
+  { name: 'Script Outline', path: '/tools/script-outline-generator', icon: List },
+  { name: 'Thumbnail Checker', path: '/tools/thumbnail-text-checker', icon: Type },
+  { name: 'Video Duration', path: '/tools/video-duration-calculator', icon: Timer },
+]
+
 const textTools = [
-  { name: 'Script Word Counter', path: '/tools/script-word-counter', icon: Type },
+  { name: 'Word Frequency', path: '/tools/word-frequency', icon: BarChart3 },
+  { name: 'Readability Score', path: '/tools/readability-score', icon: BookOpen },
+  { name: 'Title Checker', path: '/tools/title-checker', icon: UserCheck },
+  { name: 'Meta Title Checker', path: '/tools/meta-title-checker', icon: Search },
+  { name: 'Duplicate Remover', path: '/tools/duplicate-line-remover', icon: Eraser },
+  { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List },
   { name: 'Reading Time', path: '/tools/reading-time', icon: Clock },
-  { name: 'Meta Description', path: '/tools/meta-description-checker', icon: Type },
-  { name: 'Keyword Density', path: '/tools/keyword-density', icon: Hash },
-  { name: 'Text Compare', path: '/tools/text-compare', icon: Split },
-  { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', icon: AlignLeft },
-  { name: 'Text Reverser', path: '/tools/text-reverser', icon: Undo2 },
+]
+
+const socialTools = [
+  { name: 'Instagram Formatter', path: '/tools/instagram-formatter', icon: Instagram },
+  { name: 'Thread Splitter', path: '/tools/thread-splitter', icon: Twitter },
+  { name: 'Emoji Remover', path: '/tools/emoji-remover', icon: Eraser },
+  { name: 'Hashtag Generator', path: '/tools/hashtag-generator', icon: HashtagIcon },
+  { name: 'Social Counter', path: '/tools/social-character-counter', icon: Hash },
+  { name: 'Bio Length Check', path: '/tools/bio-length-checker', icon: User },
 ]
 
 const utilityTools = [
@@ -111,18 +132,11 @@ export function Header() {
     navigate('/')
   }
 
-  const isSubtitleActive = location.pathname.startsWith('/tools/srt-to-text') ||
-    location.pathname.startsWith('/tools/subtitle-')
-  const isTextActive = location.pathname.startsWith('/tools/script') ||
-    location.pathname.startsWith('/tools/reading') ||
-    location.pathname.startsWith('/tools/meta') ||
-    location.pathname.startsWith('/tools/keyword') ||
-    location.pathname.startsWith('/tools/text-compare') ||
-    location.pathname.startsWith('/tools/remove-extra') ||
-    location.pathname.startsWith('/tools/text-reverser') ||
-    location.pathname.startsWith('/tools/title') ||
-    location.pathname.startsWith('/tools/slug') ||
-    location.pathname.startsWith('/tools/hashtag')
+  const isSubtitleActive = location.pathname.startsWith('/tools/srt') || location.pathname.startsWith('/tools/subtitle')
+  const isVideoActive = videoTools.some(t => location.pathname === t.path)
+  const isTextActive = textTools.some(t => location.pathname === t.path)
+  const isSocialActive = socialTools.some(t => location.pathname === t.path)
+  const isUtilityActive = utilityTools.some(t => location.pathname === t.path)
 
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
@@ -161,6 +175,13 @@ export function Header() {
             />
 
             <NavDropdown
+              label="Video Tools"
+              icon={Video}
+              items={videoTools}
+              isActive={isVideoActive}
+            />
+
+            <NavDropdown
               label="Text Tools"
               icon={Type}
               items={textTools}
@@ -168,10 +189,17 @@ export function Header() {
             />
 
             <NavDropdown
-              label="Utility Tools"
+              label="Social Tools"
+              icon={Share2}
+              items={socialTools}
+              isActive={isSocialActive}
+            />
+
+            <NavDropdown
+              label="Utilities"
               icon={LayoutGrid}
               items={utilityTools}
-              isActive={location.pathname.startsWith('/tools/') && !isSubtitleActive && !isTextActive}
+              isActive={isUtilityActive}
             />
 
             <Link
@@ -265,8 +293,24 @@ export function Header() {
               ))}
             </div>
             <div className="pt-1 pb-1">
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Video Tools</p>
+              {videoTools.map((t) => (
+                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
+                  <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
+                </Link>
+              ))}
+            </div>
+            <div className="pt-1 pb-1">
               <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Text Tools</p>
               {textTools.map((t) => (
+                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
+                  <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
+                </Link>
+              ))}
+            </div>
+            <div className="pt-1 pb-1">
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Social Tools</p>
+              {socialTools.map((t) => (
                 <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
                   <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
                 </Link>

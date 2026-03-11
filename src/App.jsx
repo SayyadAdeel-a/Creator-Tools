@@ -21,6 +21,26 @@ import { RandomTeamGenerator } from './pages/tools/RandomTeamGenerator'
 import { UrlEncoder } from './pages/tools/UrlEncoder'
 import { Base64 } from './pages/tools/Base64'
 import { JsonFormatter } from './pages/tools/JsonFormatter'
+import { YoutubeTitleGenerator } from './pages/tools/YoutubeTitleGenerator'
+import { YoutubeDescriptionFormatter } from './pages/tools/YoutubeDescriptionFormatter'
+import { TimestampGenerator } from './pages/tools/TimestampGenerator'
+import { YoutubeTagsExtractor } from './pages/tools/YoutubeTagsExtractor'
+import { ScriptOutlineGenerator } from './pages/tools/ScriptOutlineGenerator'
+import { ThumbnailTextChecker } from './pages/tools/ThumbnailTextChecker'
+import { VideoDurationCalculator } from './pages/tools/VideoDurationCalculator'
+import { WordFrequency } from './pages/tools/WordFrequency'
+import { SentenceCounter } from './pages/tools/SentenceCounter'
+import { ReadabilityScore } from './pages/tools/ReadabilityScore'
+import { ArticleTitleChecker } from './pages/tools/ArticleTitleChecker'
+import { MetaTitleChecker } from './pages/tools/MetaTitleChecker'
+import { DuplicateLineRemover } from './pages/tools/DuplicateLineRemover'
+import { TextToBullets } from './pages/tools/TextToBullets'
+import { InstagramFormatter } from './pages/tools/InstagramFormatter'
+import { ThreadSplitter } from './pages/tools/ThreadSplitter'
+import { EmojiRemover } from './pages/tools/EmojiRemover'
+import { HashtagGenerator } from './pages/tools/HashtagGenerator'
+import { SocialCharacterCounter } from './pages/tools/SocialCharacterCounter'
+import { BioLengthChecker } from './pages/tools/BioLengthChecker'
 import { AdminGuard } from './components/AdminGuard'
 import { AdminLogin } from './pages/admin/Login'
 import { AdminDashboard } from './pages/admin/Dashboard'
@@ -66,6 +86,27 @@ function App() {
           <Route path="/tools/url-encoder" element={<UrlEncoder />} />
           <Route path="/tools/base64" element={<Base64 />} />
           <Route path="/tools/json-formatter" element={<JsonFormatter />} />
+          {/* New tools */}
+          <Route path="/tools/youtube-title-generator" element={<YoutubeTitleGenerator />} />
+          <Route path="/tools/youtube-description-formatter" element={<YoutubeDescriptionFormatter />} />
+          <Route path="/tools/timestamp-generator" element={<TimestampGenerator />} />
+          <Route path="/tools/youtube-tags-extractor" element={<YoutubeTagsExtractor />} />
+          <Route path="/tools/script-outline-generator" element={<ScriptOutlineGenerator />} />
+          <Route path="/tools/thumbnail-text-checker" element={<ThumbnailTextChecker />} />
+          <Route path="/tools/video-duration-calculator" element={<VideoDurationCalculator />} />
+          <Route path="/tools/word-frequency" element={<WordFrequency />} />
+          <Route path="/tools/sentence-counter" element={<SentenceCounter />} />
+          <Route path="/tools/readability-score" element={<ReadabilityScore />} />
+          <Route path="/tools/title-checker" element={<ArticleTitleChecker />} />
+          <Route path="/tools/meta-title-checker" element={<MetaTitleChecker />} />
+          <Route path="/tools/duplicate-line-remover" element={<DuplicateLineRemover />} />
+          <Route path="/tools/text-to-bullets" element={<TextToBullets />} />
+          <Route path="/tools/instagram-formatter" element={<InstagramFormatter />} />
+          <Route path="/tools/thread-splitter" element={<ThreadSplitter />} />
+          <Route path="/tools/emoji-remover" element={<EmojiRemover />} />
+          <Route path="/tools/hashtag-generator" element={<HashtagGenerator />} />
+          <Route path="/tools/social-character-counter" element={<SocialCharacterCounter />} />
+          <Route path="/tools/bio-length-checker" element={<BioLengthChecker />} />
 
           {/* Public blog */}
           <Route path="/blog" element={<BlogIndex />} />

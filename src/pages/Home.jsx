@@ -27,6 +27,29 @@ const tools = [
   { name: 'URL Encoder', path: '/tools/url-encoder', description: 'Encode or decode URLs', icon: Link2, tags: ['url', 'developer', 'encode'] },
   { name: 'Base64', path: '/tools/base64', description: 'Encode or decode Base64', icon: FileCode, tags: ['base64', 'developer', 'decode'] },
   { name: 'JSON Formatter', path: '/tools/json-formatter', description: 'Format or minify JSON', icon: Braces, tags: ['json', 'developer', 'format'] },
+  // YouTube Tools
+  { name: 'YouTube Title Generator', path: '/tools/youtube-title-generator', description: 'Generate viral title ideas', icon: Zap, tags: ['youtube', 'video', 'ideas'] },
+  { name: 'Description Formatter', path: '/tools/youtube-description-formatter', description: 'Pro video description formatting', icon: FileText, tags: ['youtube', 'seo', 'format'] },
+  { name: 'Video Timestamps', path: '/tools/timestamp-generator', description: 'Create YouTube chapters quickly', icon: Clock, tags: ['youtube', 'timestamps', 'chapters'] },
+  { name: 'YouTube Tags Extractor', path: '/tools/youtube-tags-extractor', description: 'Extract keywords from text', icon: Hash, tags: ['youtube', 'seo', 'tags'] },
+  { name: 'Script Outline', path: '/tools/script-outline-generator', icon: List, description: 'Structure your next video', tags: ['video', 'planning', 'script'] },
+  { name: 'Thumbnail Checker', path: '/tools/thumbnail-text-checker', icon: Type, description: 'Optimize thumbnail text', tags: ['youtube', 'design', 'thumbnail'] },
+  { name: 'Video Duration', path: '/tools/video-duration-calculator', icon: Clock, description: 'Sum up your video clips', tags: ['video', 'calculator', 'timer'] },
+  // Text & SEO Tools
+  { name: 'Word Frequency', path: '/tools/word-frequency', icon: Hash, description: 'Find overused words', tags: ['seo', 'text', 'analysis'] },
+  { name: 'Sentence Counter', path: '/tools/sentence-counter', icon: AlignLeft, description: 'Analyze sentence structure', tags: ['writing', 'stats', 'text'] },
+  { name: 'Readability Score', path: '/tools/readability-score', icon: BookOpen, description: 'Check content difficulty', tags: ['seo', 'writing', 'readability'] },
+  { name: 'Article Title Checker', path: '/tools/title-checker', icon: Type, description: 'Headline SEO analysis', tags: ['seo', 'copywriting', 'title'] },
+  { name: 'Meta Title Checker', path: '/tools/meta-title-checker', icon: Search, description: 'Google search preview', tags: ['seo', 'meta', 'google'] },
+  { name: 'Duplicate Remover', path: '/tools/duplicate-line-remover', icon: Eraser, description: 'Strip duplicate lines', tags: ['text', 'cleanup', 'list'] },
+  { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List, description: 'Convert text to lists', tags: ['format', 'writing', 'list'] },
+  // Social Tools
+  { name: 'Instagram Formatter', path: '/tools/instagram-formatter', icon: Type, description: 'Preserve caption spacing', tags: ['instagram', 'social', 'format'] },
+  { name: 'Thread Splitter', path: '/tools/thread-splitter', icon: Split, description: 'Split text into tweets', tags: ['twitter', 'x', 'social'] },
+  { name: 'Emoji Remover', path: '/tools/emoji-remover', icon: Eraser, description: 'Strip emojis from text', tags: ['text', 'clean', 'format'] },
+  { name: 'Hashtag Generator', path: '/tools/hashtag-generator', icon: Hash, description: 'Find viral hashtags', tags: ['social', 'seo', 'tags'] },
+  { name: 'Social Character Count', path: '/tools/social-character-counter', icon: Type, description: 'Check limits for all social media', tags: ['social', 'stats', 'limits'] },
+  { name: 'Bio Length Checker', path: '/tools/bio-length-checker', icon: UserCheck, description: 'Optimize your social bios', tags: ['social', 'bio', 'profile'] },
 ]
 
 export function Home() {
