@@ -41,6 +41,20 @@ import { EmojiRemover } from './pages/tools/EmojiRemover'
 import { HashtagGenerator } from './pages/tools/HashtagGenerator'
 import { CharacterCounter } from './pages/tools/CharacterCounter'
 import { BioChecker } from './pages/tools/BioChecker'
+import { HexToRgb } from './pages/tools/HexToRgb'
+import { RgbToHex } from './pages/tools/RgbToHex'
+import { ColorPalette } from './pages/tools/ColorPalette'
+import { ContrastChecker } from './pages/tools/ContrastChecker'
+import { GradientGenerator } from './pages/tools/GradientGenerator'
+import { ColorName } from './pages/tools/ColorName'
+import { TintShade } from './pages/tools/TintShade'
+import { PercentageCalculator } from './pages/tools/PercentageCalculator'
+import { AspectRatio } from './pages/tools/AspectRatio'
+import { FileSizeConverter } from './pages/tools/FileSizeConverter'
+import { UnitConverter } from './pages/tools/UnitConverter'
+import { AgeCalculator } from './pages/tools/AgeCalculator'
+import { DateDifference } from './pages/tools/DateDifference'
+import { NumberToWords } from './pages/tools/NumberToWords'
 import { AdminGuard } from './components/AdminGuard'
 import { AdminLogin } from './pages/admin/Login'
 import { AdminDashboard } from './pages/admin/Dashboard'
@@ -107,6 +121,20 @@ function App() {
           <Route path="/tools/hashtag-generator" element={<HashtagGenerator />} />
           <Route path="/tools/character-counter" element={<CharacterCounter />} />
           <Route path="/tools/bio-checker" element={<BioChecker />} />
+          <Route path="/tools/hex-to-rgb" element={<HexToRgb />} />
+          <Route path="/tools/rgb-to-hex" element={<RgbToHex />} />
+          <Route path="/tools/color-palette" element={<ColorPalette />} />
+          <Route path="/tools/contrast-checker" element={<ContrastChecker />} />
+          <Route path="/tools/gradient-generator" element={<GradientGenerator />} />
+          <Route path="/tools/color-name" element={<ColorName />} />
+          <Route path="/tools/tint-shade" element={<TintShade />} />
+          <Route path="/tools/percentage-calculator" element={<PercentageCalculator />} />
+          <Route path="/tools/aspect-ratio" element={<AspectRatio />} />
+          <Route path="/tools/file-size" element={<FileSizeConverter />} />
+          <Route path="/tools/unit-converter" element={<UnitConverter />} />
+          <Route path="/tools/age-calculator" element={<AgeCalculator />} />
+          <Route path="/tools/date-difference" element={<DateDifference />} />
+          <Route path="/tools/number-to-words" element={<NumberToWords />} />
 
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
