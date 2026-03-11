@@ -22,10 +22,10 @@ const tools = [
   { name: 'YouTube Title Generator', path: '/tools/youtube-title-generator', description: 'Generate viral title ideas', icon: Zap, tags: ['youtube', 'video', 'ideas'] },
   { name: 'Description Formatter', path: '/tools/youtube-description-formatter', description: 'Pro video description formatting', icon: FileText, tags: ['youtube', 'seo', 'format'] },
   { name: 'Video Timestamps', path: '/tools/timestamp-generator', description: 'Create YouTube chapters quickly', icon: Clock, tags: ['youtube', 'timestamps', 'chapters'] },
-  { name: 'YouTube Tags Extractor', path: '/tools/youtube-tags-extractor', description: 'Extract keywords from text', icon: Hash, tags: ['youtube', 'seo', 'tags'] },
-  { name: 'Script Outline', path: '/tools/script-outline-generator', icon: List, description: 'Structure your next video', tags: ['video', 'planning', 'script'] },
-  { name: 'Thumbnail Checker', path: '/tools/thumbnail-text-checker', icon: Type, description: 'Optimize thumbnail text', tags: ['youtube', 'design', 'thumbnail'] },
-  { name: 'Video Duration', path: '/tools/video-duration-calculator', icon: Clock, description: 'Sum up your video clips', tags: ['video', 'calculator', 'timer'] },
+  { name: 'YouTube Tags', path: '/tools/youtube-tags', description: 'Extract keywords from text', icon: Hash, tags: ['youtube', 'seo', 'tags'] },
+  { name: 'Script Outline', path: '/tools/script-outline', icon: List, description: 'Structure your next video', tags: ['video', 'planning', 'script'] },
+  { name: 'Thumbnail Text', path: '/tools/thumbnail-text', icon: Type, description: 'Optimize thumbnail text', tags: ['youtube', 'design', 'thumbnail'] },
+  { name: 'Duration Calculator', path: '/tools/duration-calculator', icon: Clock, description: 'Sum up your video clips', tags: ['video', 'calculator', 'timer'] },
   
   // Text & SEO Tools
   { name: 'Word Frequency', path: '/tools/word-frequency', icon: Hash, description: 'Find overused words', tags: ['seo', 'text', 'analysis'] },

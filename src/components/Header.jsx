@@ -19,14 +19,14 @@ const subtitleTools = [
   { name: 'Subtitle Split', path: '/tools/subtitle-split', icon: Split },
 ]
 
-const videoTools = [
+const youtubeTools = [
   { name: 'YouTube Title Gen', path: '/tools/youtube-title-generator', icon: Wand2 },
   { name: 'Description Formatter', path: '/tools/youtube-description-formatter', icon: FileText },
   { name: 'Video Timestamps', path: '/tools/timestamp-generator', icon: Clock },
-  { name: 'YouTube Tags', path: '/tools/youtube-tags-extractor', icon: Search },
-  { name: 'Script Outline', path: '/tools/script-outline-generator', icon: List },
-  { name: 'Thumbnail Checker', path: '/tools/thumbnail-text-checker', icon: Type },
-  { name: 'Video Duration', path: '/tools/video-duration-calculator', icon: Timer },
+  { name: 'YouTube Tags', path: '/tools/youtube-tags', icon: Search },
+  { name: 'Script Outline', path: '/tools/script-outline', icon: List },
+  { name: 'Thumbnail Text', path: '/tools/thumbnail-text', icon: Type },
+  { name: 'Duration Calculator', path: '/tools/duration-calculator', icon: Timer },
 ]
 
 const textTools = [
@@ -133,7 +133,7 @@ export function Header() {
   }
 
   const isSubtitleActive = location.pathname.startsWith('/tools/srt') || location.pathname.startsWith('/tools/subtitle')
-  const isVideoActive = videoTools.some(t => location.pathname === t.path)
+  const isYoutubeActive = youtubeTools.some(t => location.pathname === t.path)
   const isTextActive = textTools.some(t => location.pathname === t.path)
   const isSocialActive = socialTools.some(t => location.pathname === t.path)
   const isUtilityActive = utilityTools.some(t => location.pathname === t.path)
@@ -175,10 +175,10 @@ export function Header() {
             />
 
             <NavDropdown
-              label="Video Tools"
+              label="YouTube Tools"
               icon={Video}
-              items={videoTools}
-              isActive={isVideoActive}
+              items={youtubeTools}
+              isActive={isYoutubeActive}
             />
 
             <NavDropdown
@@ -293,8 +293,8 @@ export function Header() {
               ))}
             </div>
             <div className="pt-1 pb-1">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Video Tools</p>
-              {videoTools.map((t) => (
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">YouTube Tools</p>
+              {youtubeTools.map((t) => (
                 <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
                   <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
                 </Link>

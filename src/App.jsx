@@ -24,10 +24,10 @@ import { JsonFormatter } from './pages/tools/JsonFormatter'
 import { YoutubeTitleGenerator } from './pages/tools/YoutubeTitleGenerator'
 import { YoutubeDescriptionFormatter } from './pages/tools/YoutubeDescriptionFormatter'
 import { TimestampGenerator } from './pages/tools/TimestampGenerator'
-import { YoutubeTagsExtractor } from './pages/tools/YoutubeTagsExtractor'
-import { ScriptOutlineGenerator } from './pages/tools/ScriptOutlineGenerator'
-import { ThumbnailTextChecker } from './pages/tools/ThumbnailTextChecker'
-import { VideoDurationCalculator } from './pages/tools/VideoDurationCalculator'
+import { YoutubeTags } from './pages/tools/YoutubeTags'
+import { ScriptOutline } from './pages/tools/ScriptOutline'
+import { ThumbnailText } from './pages/tools/ThumbnailText'
+import { DurationCalculator } from './pages/tools/DurationCalculator'
 import { WordFrequency } from './pages/tools/WordFrequency'
 import { SentenceCounter } from './pages/tools/SentenceCounter'
 import { ReadabilityScore } from './pages/tools/ReadabilityScore'
@@ -90,10 +90,10 @@ function App() {
           <Route path="/tools/youtube-title-generator" element={<YoutubeTitleGenerator />} />
           <Route path="/tools/youtube-description-formatter" element={<YoutubeDescriptionFormatter />} />
           <Route path="/tools/timestamp-generator" element={<TimestampGenerator />} />
-          <Route path="/tools/youtube-tags-extractor" element={<YoutubeTagsExtractor />} />
-          <Route path="/tools/script-outline-generator" element={<ScriptOutlineGenerator />} />
-          <Route path="/tools/thumbnail-text-checker" element={<ThumbnailTextChecker />} />
-          <Route path="/tools/video-duration-calculator" element={<VideoDurationCalculator />} />
+          <Route path="/tools/youtube-tags" element={<YoutubeTags />} />
+          <Route path="/tools/script-outline" element={<ScriptOutline />} />
+          <Route path="/tools/thumbnail-text" element={<ThumbnailText />} />
+          <Route path="/tools/duration-calculator" element={<DurationCalculator />} />
           <Route path="/tools/word-frequency" element={<WordFrequency />} />
           <Route path="/tools/sentence-counter" element={<SentenceCounter />} />
           <Route path="/tools/readability-score" element={<ReadabilityScore />} />
