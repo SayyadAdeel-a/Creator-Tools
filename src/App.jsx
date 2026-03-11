@@ -61,11 +61,11 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          {/* Public routes */}
           <Route path="/" element={<Home />} />
           <Route path="/tools" element={<AllTools />} />
           <Route path="/about" element={<About />} />
           <Route path="/privacy" element={<Privacy />} />
+          
           <Route path="/tools/srt-to-text" element={<SrtToText />} />
           <Route path="/tools/subtitle-cleaner" element={<SubtitleCleaner />} />
           <Route path="/tools/subtitle-counter" element={<SubtitleCounter />} />
@@ -86,7 +86,7 @@ function App() {
           <Route path="/tools/url-encoder" element={<UrlEncoder />} />
           <Route path="/tools/base64" element={<Base64 />} />
           <Route path="/tools/json-formatter" element={<JsonFormatter />} />
-          {/* New tools */}
+          
           <Route path="/tools/youtube-title-generator" element={<YoutubeTitleGenerator />} />
           <Route path="/tools/youtube-description-formatter" element={<YoutubeDescriptionFormatter />} />
           <Route path="/tools/timestamp-generator" element={<TimestampGenerator />} />
@@ -108,18 +108,11 @@ function App() {
           <Route path="/tools/social-character-counter" element={<SocialCharacterCounter />} />
           <Route path="/tools/bio-length-checker" element={<BioLengthChecker />} />
 
-          {/* Public blog */}
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
-
-          {/* Public auth */}
           <Route path="/login" element={<PublicLogin />} />
           <Route path="/signup" element={<PublicSignup />} />
-
-          {/* Admin — no auth required */}
           <Route path="/admin/login" element={<AdminLogin />} />
-
-          {/* Admin — auth required */}
           <Route path="/admin/dashboard" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
           <Route path="/admin/blog" element={<AdminGuard><BlogList /></AdminGuard>} />
           <Route path="/admin/blog/new" element={<AdminGuard><BlogEditor /></AdminGuard>} />
@@ -131,4 +124,3 @@ function App() {
 }
 
 export default App
-

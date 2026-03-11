@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { Search, Zap, Star, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces } from 'lucide-react'
+import { 
+  Search, Zap, Star, FileText, Type, Hash, Clock, Split, Merge, Eraser, 
+  List, Link2, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces,
+  BookOpen, ArrowRight
+} from 'lucide-react'
 import { Layout } from '../components/Layout'
 import { FavoriteButton } from '../components/FavoriteButton'
 import { supabase } from '../lib/supabase'
@@ -27,6 +31,7 @@ const tools = [
   { name: 'URL Encoder', path: '/tools/url-encoder', description: 'Encode or decode URLs', icon: Link2, tags: ['url', 'developer', 'encode'] },
   { name: 'Base64', path: '/tools/base64', description: 'Encode or decode Base64', icon: FileCode, tags: ['base64', 'developer', 'decode'] },
   { name: 'JSON Formatter', path: '/tools/json-formatter', description: 'Format or minify JSON', icon: Braces, tags: ['json', 'developer', 'format'] },
+  
   // YouTube Tools
   { name: 'YouTube Title Generator', path: '/tools/youtube-title-generator', description: 'Generate viral title ideas', icon: Zap, tags: ['youtube', 'video', 'ideas'] },
   { name: 'Description Formatter', path: '/tools/youtube-description-formatter', description: 'Pro video description formatting', icon: FileText, tags: ['youtube', 'seo', 'format'] },
@@ -35,6 +40,7 @@ const tools = [
   { name: 'Script Outline', path: '/tools/script-outline-generator', icon: List, description: 'Structure your next video', tags: ['video', 'planning', 'script'] },
   { name: 'Thumbnail Checker', path: '/tools/thumbnail-text-checker', icon: Type, description: 'Optimize thumbnail text', tags: ['youtube', 'design', 'thumbnail'] },
   { name: 'Video Duration', path: '/tools/video-duration-calculator', icon: Clock, description: 'Sum up your video clips', tags: ['video', 'calculator', 'timer'] },
+  
   // Text & SEO Tools
   { name: 'Word Frequency', path: '/tools/word-frequency', icon: Hash, description: 'Find overused words', tags: ['seo', 'text', 'analysis'] },
   { name: 'Sentence Counter', path: '/tools/sentence-counter', icon: AlignLeft, description: 'Analyze sentence structure', tags: ['writing', 'stats', 'text'] },
@@ -43,8 +49,9 @@ const tools = [
   { name: 'Meta Title Checker', path: '/tools/meta-title-checker', icon: Search, description: 'Google search preview', tags: ['seo', 'meta', 'google'] },
   { name: 'Duplicate Remover', path: '/tools/duplicate-line-remover', icon: Eraser, description: 'Strip duplicate lines', tags: ['text', 'cleanup', 'list'] },
   { name: 'Text to Bullets', path: '/tools/text-to-bullets', icon: List, description: 'Convert text to lists', tags: ['format', 'writing', 'list'] },
+  
   // Social Tools
-  { name: 'Instagram Formatter', path: '/tools/instagram-formatter', icon: Type, description: 'Preserve caption spacing', tags: ['instagram', 'social', 'format'] },
+  { name: 'Instagram Formatter', path: '/tools/instagram-formatter', icon: Instagram, description: 'Preserve caption spacing', tags: ['instagram', 'social', 'format'] },
   { name: 'Thread Splitter', path: '/tools/thread-splitter', icon: Split, description: 'Split text into tweets', tags: ['twitter', 'x', 'social'] },
   { name: 'Emoji Remover', path: '/tools/emoji-remover', icon: Eraser, description: 'Strip emojis from text', tags: ['text', 'clean', 'format'] },
   { name: 'Hashtag Generator', path: '/tools/hashtag-generator', icon: Hash, description: 'Find viral hashtags', tags: ['social', 'seo', 'tags'] },
@@ -95,7 +102,6 @@ export function Home() {
     favoriteSlugs.includes(tool.path.split('/').pop())
   )
 
-  
   const filteredTools = tools.filter(tool => 
     tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     tool.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -106,38 +112,33 @@ export function Home() {
     <Layout>
       <Helmet>
         <title>Free Online Tools for Content Creators | VidToolbox</title>
-        <meta name="description" content="Free online tools for content creators. SRT subtitle converter, word counter, slug generator, reading time calculator and more. No sign-up required." />
-        <meta name="keywords" content="free online tools, SRT to text converter, subtitle tools, word counter, reading time calculator, slug generator, hashtag counter, content creator tools" />
+        <meta name="description" content="Free online tools for content creators. 40+ browser-based tools for subtitle editing, SEO, social media, and more. No sign-up required." />
       </Helmet>
       
       <section className="bg-gradient-to-b from-white to-slate-50 py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-cyan-50 text-cyan-600 px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 bg-cyan-50 text-cyan-600 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
             <Zap className="w-4 h-4" />
-            <span>Free Online Tools</span>
+            <span>Over 40 Free Tools</span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-heading font-bold text-slate-900 mb-6 animate-fade-in-up delay-100">
+          <h1 className="text-5xl md:text-6xl font-heading font-bold text-slate-900 mb-6">
             Vid<span className="text-cyan-500">Toolbox</span>
           </h1>
           
-          <p className="text-xl text-slate-600 mb-10 max-w-xl mx-auto animate-fade-in-up delay-200">
-            Use our <strong>free online tools</strong> to boost your content creation. Convert subtitles, count words, generate slugs, and calculate reading time. No downloads needed.
+          <p className="text-xl text-slate-600 mb-10 max-w-xl mx-auto">
+            Professional browser-based tools to boost your content creation. No downloads, no accounts, just pure productivity.
           </p>
           
-          <div className="relative max-w-xl mx-auto animate-fade-in-up delay-300">
+          <div className="relative max-w-xl mx-auto">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search tools..."
-              className="w-full pl-12 pr-24 py-4 bg-white border border-slate-200 rounded-xl shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-base"
+              placeholder="Search or browser categories below..."
+              className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-xl shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-base"
             />
-            <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 text-slate-400 text-sm">
-              <kbd className="px-2 py-1 bg-slate-100 rounded text-xs">⌘</kbd>
-              <kbd className="px-2 py-1 bg-slate-100 rounded text-xs">K</kbd>
-            </div>
           </div>
         </div>
       </section>
@@ -152,23 +153,18 @@ export function Home() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {favoriteTools.map((tool) => (
-                <Link
-                  key={`fav-${tool.path}`}
-                  to={tool.path}
-                  className="bg-slate-50 rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-200 transition-all group"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center group-hover:bg-amber-50 transition-colors">
-                      <tool.icon className="w-5 h-5 text-amber-500" />
+                <div key={`fav-${tool.path}`} className="bg-slate-50 rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition-all group relative">
+                    <div className="flex items-start justify-between mb-3">
+                        <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                            <tool.icon className="w-5 h-5 text-amber-500" />
+                        </div>
+                        <FavoriteButton toolSlug={tool.path.split('/').pop()} className="w-9 h-9" />
                     </div>
-                    <FavoriteButton 
-                      toolSlug={tool.path.split('/').pop()} 
-                      className="w-9 h-9" 
-                    />
-                  </div>
-                  <h3 className="font-heading font-semibold text-lg text-slate-900 mb-1">{tool.name}</h3>
-                  <p className="text-slate-500 text-sm">{tool.description}</p>
-                </Link>
+                    <Link to={tool.path} className="block">
+                        <h3 className="font-heading font-semibold text-lg text-slate-900 mb-1">{tool.name}</h3>
+                        <p className="text-slate-500 text-sm">{tool.description}</p>
+                    </Link>
+                </div>
               ))}
             </div>
           </div>
@@ -179,70 +175,46 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 mb-8">
             <Zap className="w-5 h-5 text-cyan-500" />
-            <h2 className="text-xl font-heading font-semibold text-slate-900">Popular Tools</h2>
+            <h2 className="text-xl font-heading font-semibold text-slate-900">Featured Tools</h2>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredTools.map((tool, index) => (
-              <Link
-                key={tool.path}
-                to={tool.path}
-                className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-cyan-200 hover:-translate-y-1 transition-all duration-300 group opacity-0 animate-slide-in"
-                style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'forwards' }}
-              >
+            {filteredTools.map((tool) => (
+              <div key={tool.path} className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-cyan-200 hover:-translate-y-1 transition-all duration-300 group relative">
                 <div className="flex items-start justify-between mb-3">
                   <div className="w-10 h-10 bg-cyan-50 rounded-lg flex items-center justify-center group-hover:bg-cyan-100 transition-colors">
                     <tool.icon className="w-5 h-5 text-cyan-500" />
                   </div>
-                  <FavoriteButton 
-                    toolSlug={tool.path.split('/').pop()} 
-                    className="w-9 h-9" 
-                  />
+                  <FavoriteButton toolSlug={tool.path.split('/').pop()} className="w-9 h-9" />
                 </div>
                 
-                <h3 className="font-heading font-semibold text-lg text-slate-900 mb-1 group-hover:text-cyan-600 transition-colors">
-                  {tool.name}
-                </h3>
-                <p className="text-slate-500 text-sm mb-4">{tool.description}</p>
+                <Link to={tool.path} className="block">
+                    <h3 className="font-heading font-semibold text-lg text-slate-900 mb-1 group-hover:text-cyan-600 transition-colors">
+                    {tool.name}
+                    </h3>
+                    <p className="text-slate-500 text-sm mb-4">{tool.description}</p>
+                </Link>
                 
                 <div className="flex flex-wrap gap-1.5">
                   {tool.tags.map((tag) => (
-                    <span 
-                      key={tag}
-                      className="px-2 py-0.5 border border-slate-200 rounded-full text-xs text-slate-500"
-                    >
-                      {tag}
-                    </span>
+                    <span key={tag} className="px-2 py-0.5 border border-slate-200 rounded-full text-xs text-slate-500">{tag}</span>
                   ))}
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
           
           {filteredTools.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-slate-500">No tools found matching "{searchQuery}"</p>
+            <div className="text-center py-12 text-slate-400">
+              <p>No tools found matching your search.</p>
             </div>
           )}
 
-          <div className="mt-12 flex flex-wrap justify-center gap-6">
-            <Link to="/blog" className="text-cyan-600 hover:text-cyan-700 font-medium">Read our Blog</Link>
-            <Link to="/about" className="text-cyan-600 hover:text-cyan-700 font-medium">About Us</Link>
-            <Link to="/privacy" className="text-cyan-600 hover:text-cyan-700 font-medium">Privacy Policy</Link>
-            <a href="https://www.subtitle.org" target="_blank" rel="noopener noreferrer" className="text-cyan-600 hover:text-cyan-700 font-medium">Subtitle Resources</a>
+          <div className="mt-16 text-center">
+            <Link to="/tools" className="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-xl">
+                View All 40+ Tools <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <img 
-            src="/og-image.png" 
-            alt="VidToolbox - Free online tools for content creators" 
-            className="mx-auto rounded-xl shadow-lg max-w-lg w-full"
-            width="800"
-            height="400"
-          />
         </div>
       </section>
     </Layout>

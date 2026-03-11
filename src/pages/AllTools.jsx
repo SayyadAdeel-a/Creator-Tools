@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, Captions, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces, Video, Share2, Instagram, Twitter, Search as SearchIcon } from 'lucide-react'
+import { 
+  Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, 
+  Captions, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces, 
+  Video, Share2, Instagram, Twitter, Zap, BookOpen 
+} from 'lucide-react'
 import { Layout } from '../components/Layout'
 import { FavoriteButton } from '../components/FavoriteButton'
 
@@ -110,10 +114,9 @@ export function AllTools() {
         <Layout>
             <Helmet>
                 <title>All Tools — Free Online Tools for Creators | VidToolbox</title>
-                <meta name="description" content="Browse all 20 free tools for content creators — subtitle converters, SEO tools, developer utilities, and more." />
+                <meta name="description" content="Browse all 40+ free tools for content creators — subtitle converters, SEO tools, developer utilities, and more." />
             </Helmet>
 
-            {/* Hero */}
             <section className="bg-gradient-to-b from-white to-slate-50 border-b border-slate-100 py-14">
                 <div className="max-w-3xl mx-auto px-4 text-center">
                     <h1 className="text-4xl font-heading font-bold text-slate-900 mb-3">
@@ -136,7 +139,6 @@ export function AllTools() {
             <section className="py-14 bg-slate-50">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
                     {filteredTools ? (
-                        /* Search results */
                         filteredTools.length > 0 ? (
                             <div>
                                 <p className="text-sm text-slate-500 mb-5">{filteredTools.length} result{filteredTools.length !== 1 ? 's' : ''} for "<strong>{query}</strong>"</p>
@@ -151,7 +153,6 @@ export function AllTools() {
                             </div>
                         )
                     ) : (
-                        /* Categories */
                         categories.map(cat => (
                             <div key={cat.name}>
                                 <div className="flex items-center gap-3 mb-6">
