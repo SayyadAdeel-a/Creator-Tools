@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, Captions, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces } from 'lucide-react'
 import { Layout } from '../components/Layout'
+import { FavoriteButton } from '../components/FavoriteButton'
 
 const categories = [
     {
@@ -143,20 +144,22 @@ export function AllTools() {
 
 function ToolCard({ tool }) {
     return (
-        <Link
-            to={tool.path}
-            className="bg-white rounded-xl p-5 border border-slate-200 hover:shadow-lg hover:border-cyan-200 hover:-translate-y-1 transition-all duration-200 group"
-        >
-            <div className="w-10 h-10 bg-cyan-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-cyan-100 transition-colors">
-                <tool.icon className="w-5 h-5 text-cyan-500" />
+        <div className="bg-white rounded-xl p-5 border border-slate-200 hover:shadow-lg hover:border-cyan-200 hover:-translate-y-1 transition-all duration-200 group relative">
+            <div className="flex items-start justify-between mb-4">
+                <div className="w-10 h-10 bg-cyan-50 rounded-lg flex items-center justify-center group-hover:bg-cyan-100 transition-colors">
+                    <tool.icon className="w-5 h-5 text-cyan-500" />
+                </div>
+                <FavoriteButton toolSlug={tool.path.split('/').pop()} className="w-8 h-8" />
             </div>
-            <h3 className="font-heading font-semibold text-slate-900 mb-1 group-hover:text-cyan-600 transition-colors">{tool.name}</h3>
-            <p className="text-slate-500 text-sm mb-3">{tool.description}</p>
+            <Link to={tool.path} className="block">
+                <h3 className="font-heading font-semibold text-slate-900 mb-1 group-hover:text-cyan-600 transition-colors">{tool.name}</h3>
+                <p className="text-slate-500 text-sm mb-3">{tool.description}</p>
+            </Link>
             <div className="flex flex-wrap gap-1.5">
                 {tool.tags.map(tag => (
                     <span key={tag} className="px-2 py-0.5 bg-slate-100 rounded-full text-xs text-slate-500">{tag}</span>
                 ))}
             </div>
-        </Link>
+        </div>
     )
 }

@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import * as Accordion from '@radix-ui/react-accordion'
-import { ChevronDown, ArrowLeft, Star, Info } from 'lucide-react'
+import { ChevronDown, ArrowLeft, Info } from 'lucide-react'
+import { FavoriteButton } from './FavoriteButton'
 import { cn } from '../lib/utils'
 import { AdSlot } from './AdSlot'
 import { Layout } from './Layout'
@@ -28,6 +29,9 @@ export function ToolPage({
   icon: Icon,
   children 
 }) {
+  const location = useLocation()
+  const slug = location.pathname.split('/').pop()
+
   return (
     <Layout>
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -53,9 +57,7 @@ export function ToolPage({
             <p className="text-slate-500 mt-1">{description}</p>
           </div>
         </div>
-        <button className="p-2 text-slate-300 hover:text-amber-400 transition-colors">
-          <Star className="w-6 h-6" />
-        </button>
+        <FavoriteButton toolSlug={slug} className="w-10 h-10" />
       </div>
       
       <AdSlot className="mb-6" />

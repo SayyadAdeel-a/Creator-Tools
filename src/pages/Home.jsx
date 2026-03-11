@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { Search, Zap, Star, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces } from 'lucide-react'
 import { Layout } from '../components/Layout'
+import { FavoriteButton } from '../components/FavoriteButton'
+import { supabase } from '../lib/supabase'
 
 const tools = [
   { name: 'SRT to Text', path: '/tools/srt-to-text', description: 'Convert subtitle files to plain text', icon: FileText, tags: ['subtitle', 'srt', 'convert'] },
@@ -29,6 +31,47 @@ const tools = [
 
 export function Home() {
   const [searchQuery, setSearchQuery] = useState('')
+  const [user, setUser] = useState(null)
+  const [favoriteSlugs, setFavoriteSlugs] = useState([])
+
+  useEffect(() => {
+    const initAuth = async () => {
+      const { data } = await supabase.auth.getSession()
+      setUser(data.session?.user ?? null)
+      if (data.session?.user) fetchFavorites(data.session.user.id)
+    }
+    initAuth()
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
+      setUser(session?.user ?? null)
+      if (session?.user) fetchFavorites(session.user.id)
+      else setFavoriteSlugs([])
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      if (user) fetchFavorites(user.id)
+    }
+    window.addEventListener('favoritesUpdated', handleUpdate)
+    return () => window.removeEventListener('favoritesUpdated', handleUpdate)
+  }, [user])
+
+  const fetchFavorites = async (userId) => {
+    const { data } = await supabase
+      .from('user_favorites')
+      .select('tool_slug')
+      .eq('user_id', userId)
+    
+    if (data) setFavoriteSlugs(data.map(f => f.tool_slug))
+  }
+  
+  const favoriteTools = tools.filter(tool => 
+    favoriteSlugs.includes(tool.path.split('/').pop())
+  )
+
   
   const filteredTools = tools.filter(tool => 
     tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -75,6 +118,39 @@ export function Home() {
           </div>
         </div>
       </section>
+
+      {user && favoriteTools.length > 0 && !searchQuery && (
+        <section className="py-12 bg-white border-b border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-2 mb-8">
+              <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
+              <h2 className="text-xl font-heading font-semibold text-slate-900">Your Favorites</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {favoriteTools.map((tool) => (
+                <Link
+                  key={`fav-${tool.path}`}
+                  to={tool.path}
+                  className="bg-slate-50 rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-200 transition-all group"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center group-hover:bg-amber-50 transition-colors">
+                      <tool.icon className="w-5 h-5 text-amber-500" />
+                    </div>
+                    <FavoriteButton 
+                      toolSlug={tool.path.split('/').pop()} 
+                      className="w-9 h-9" 
+                    />
+                  </div>
+                  <h3 className="font-heading font-semibold text-lg text-slate-900 mb-1">{tool.name}</h3>
+                  <p className="text-slate-500 text-sm">{tool.description}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
       
       <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,12 +171,10 @@ export function Home() {
                   <div className="w-10 h-10 bg-cyan-50 rounded-lg flex items-center justify-center group-hover:bg-cyan-100 transition-colors">
                     <tool.icon className="w-5 h-5 text-cyan-500" />
                   </div>
-                  <button 
-                    className="text-slate-300 hover:text-amber-400 transition-colors"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <Star className="w-5 h-5" />
-                  </button>
+                  <FavoriteButton 
+                    toolSlug={tool.path.split('/').pop()} 
+                    className="w-9 h-9" 
+                  />
                 </div>
                 
                 <h3 className="font-heading font-semibold text-lg text-slate-900 mb-1 group-hover:text-cyan-600 transition-colors">

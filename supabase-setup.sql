@@ -79,3 +79,20 @@ CREATE INDEX idx_page_views_created_at ON page_views(created_at DESC);
 CREATE INDEX idx_page_views_page_path ON page_views(page_path);
 CREATE INDEX idx_blog_posts_published ON blog_posts(published);
 CREATE INDEX idx_blog_posts_slug ON blog_posts(slug);
+
+-- TABLE: user_favorites
+CREATE TABLE user_favorites (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id uuid REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL,
+  tool_slug text NOT NULL,
+  created_at timestamptz DEFAULT now(),
+  UNIQUE(user_id, tool_slug)
+);
+
+-- user_favorites: Only authenticated users can manage their own favorites
+ALTER TABLE user_favorites ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Users can manage their own favorites" ON user_favorites
+  FOR ALL TO authenticated USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+
+CREATE INDEX idx_user_favorites_user_id ON user_favorites(user_id);
