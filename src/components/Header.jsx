@@ -3,7 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   Home, LayoutGrid, Captions, Type, BookOpen, Info,
   Menu, X, Zap, ChevronDown,
-  Eraser, List, Merge, Split, Clock, Hash, Link2, User, LogOut
+  Eraser, List, Merge, Split, Clock, Hash, Link2, User, LogOut,
+  AlignLeft, Undo2, UserCheck, FileCode, Braces
 } from 'lucide-react'
 import { cn } from '../lib/utils'
 import { supabase } from '../lib/supabase'
@@ -19,9 +20,19 @@ const subtitleTools = [
 const textTools = [
   { name: 'Script Word Counter', path: '/tools/script-word-counter', icon: Type },
   { name: 'Reading Time', path: '/tools/reading-time', icon: Clock },
-  { name: 'Title Case Converter', path: '/tools/title-case', icon: Type },
-  { name: 'Slug Generator', path: '/tools/slug-generator', icon: Link2 },
-  { name: 'Hashtag Counter', path: '/tools/hashtag-counter', icon: Hash },
+  { name: 'Meta Description', path: '/tools/meta-description-checker', icon: Type },
+  { name: 'Keyword Density', path: '/tools/keyword-density', icon: Hash },
+  { name: 'Text Compare', path: '/tools/text-compare', icon: Split },
+  { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', icon: AlignLeft },
+  { name: 'Text Reverser', path: '/tools/text-reverser', icon: Undo2 },
+]
+
+const utilityTools = [
+  { name: 'JSON Formatter', path: '/tools/json-formatter', icon: Braces },
+  { name: 'Base64 Encoder', path: '/tools/base64', icon: FileCode },
+  { name: 'URL Encoder', path: '/tools/url-encoder', icon: Link2 },
+  { name: 'Random Name Picker', path: '/tools/random-name-picker', icon: UserCheck },
+  { name: 'Random Team Generator', path: '/tools/random-team-generator', icon: LayoutGrid },
 ]
 
 const navItems = [
@@ -104,6 +115,11 @@ export function Header() {
     location.pathname.startsWith('/tools/subtitle-')
   const isTextActive = location.pathname.startsWith('/tools/script') ||
     location.pathname.startsWith('/tools/reading') ||
+    location.pathname.startsWith('/tools/meta') ||
+    location.pathname.startsWith('/tools/keyword') ||
+    location.pathname.startsWith('/tools/text-compare') ||
+    location.pathname.startsWith('/tools/remove-extra') ||
+    location.pathname.startsWith('/tools/text-reverser') ||
     location.pathname.startsWith('/tools/title') ||
     location.pathname.startsWith('/tools/slug') ||
     location.pathname.startsWith('/tools/hashtag')
@@ -149,6 +165,13 @@ export function Header() {
               icon={Type}
               items={textTools}
               isActive={isTextActive}
+            />
+
+            <NavDropdown
+              label="Utility Tools"
+              icon={LayoutGrid}
+              items={utilityTools}
+              isActive={location.pathname.startsWith('/tools/') && !isSubtitleActive && !isTextActive}
             />
 
             <Link
@@ -244,6 +267,14 @@ export function Header() {
             <div className="pt-1 pb-1">
               <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Text Tools</p>
               {textTools.map((t) => (
+                <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
+                  <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
+                </Link>
+              ))}
+            </div>
+            <div className="pt-1 pb-1">
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-1">Utility Tools</p>
+              {utilityTools.map((t) => (
                 <Link key={t.path} to={t.path} className="flex items-center gap-2 py-2 px-4 text-sm text-slate-600 hover:text-cyan-600" onClick={() => setMobileOpen(false)}>
                   <t.icon className="w-4 h-4 text-slate-400" /> {t.name}
                 </Link>

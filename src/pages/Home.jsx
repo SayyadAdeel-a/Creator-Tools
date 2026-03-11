@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { Search, Zap, Star, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2 } from 'lucide-react'
+import { Search, Zap, Star, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces } from 'lucide-react'
 import { Layout } from '../components/Layout'
 
 const tools = [
@@ -15,6 +15,16 @@ const tools = [
   { name: 'Title Case', path: '/tools/title-case', description: 'Convert text to title case', icon: Type, tags: ['title', 'case', 'capitalize'] },
   { name: 'Slug Generator', path: '/tools/slug-generator', description: 'Create URL-friendly slugs', icon: Link2, tags: ['slug', 'url', 'seo'] },
   { name: 'Hashtag Counter', path: '/tools/hashtag-counter', description: 'Count and extract hashtags', icon: Hash, tags: ['hashtag', 'social', 'instagram'] },
+  { name: 'Meta Description', path: '/tools/meta-description-checker', description: 'Check meta description length', icon: Type, tags: ['seo', 'meta', 'google'] },
+  { name: 'Keyword Density', path: '/tools/keyword-density', description: 'Analyze keyword frequency', icon: Hash, tags: ['seo', 'keyword', 'density'] },
+  { name: 'Text Compare', path: '/tools/text-compare', description: 'Compare text and find diffs', icon: Split, tags: ['text', 'diff', 'compare'] },
+  { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', description: 'Clean up text spacing', icon: AlignLeft, tags: ['text', 'clean', 'format'] },
+  { name: 'Text Reverser', path: '/tools/text-reverser', description: 'Reverse letters or words', icon: Undo2, tags: ['text', 'fun', 'reverse'] },
+  { name: 'Random Name Picker', path: '/tools/random-name-picker', description: 'Pick a winner from a list', icon: UserCheck, tags: ['random', 'picker', 'winner'] },
+  { name: 'Team Generator', path: '/tools/random-team-generator', description: 'Split names into random teams', icon: LayoutGrid, tags: ['random', 'teams', 'groups'] },
+  { name: 'URL Encoder', path: '/tools/url-encoder', description: 'Encode or decode URLs', icon: Link2, tags: ['url', 'developer', 'encode'] },
+  { name: 'Base64', path: '/tools/base64', description: 'Encode or decode Base64', icon: FileCode, tags: ['base64', 'developer', 'decode'] },
+  { name: 'JSON Formatter', path: '/tools/json-formatter', description: 'Format or minify JSON', icon: Braces, tags: ['json', 'developer', 'format'] },
 ]
 
 export function Home() {

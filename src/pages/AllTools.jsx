@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, Captions } from 'lucide-react'
+import { Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, Captions, AlignLeft, Undo2, UserCheck, LayoutGrid, FileCode, Braces } from 'lucide-react'
 import { Layout } from '../components/Layout'
 
 const categories = [
@@ -19,7 +19,7 @@ const categories = [
         ]
     },
     {
-        name: 'Text & Script Tools',
+        name: 'Text & SEO Tools',
         description: 'Optimize your scripts and written content',
         icon: Type,
         color: 'bg-violet-50 text-violet-600 border-violet-100',
@@ -29,6 +29,32 @@ const categories = [
             { name: 'Title Case Converter', path: '/tools/title-case', description: 'Convert text to proper AP / Chicago title case', icon: Type, tags: ['title', 'capitalize', 'format'] },
             { name: 'Slug Generator', path: '/tools/slug-generator', description: 'Generate SEO-friendly URL slugs from any text', icon: Link2, tags: ['slug', 'url', 'seo'] },
             { name: 'Hashtag Counter', path: '/tools/hashtag-counter', description: 'Count and extract all hashtags from social posts', icon: Hash, tags: ['hashtag', 'instagram', 'social'] },
+            { name: 'Meta Description Checker', path: '/tools/meta-description-checker', description: 'Check meta description length for Google SEO', icon: Type, tags: ['seo', 'meta', 'google'] },
+            { name: 'Keyword Density', path: '/tools/keyword-density', description: 'Analyze keyword frequency relative to total words', icon: Hash, tags: ['seo', 'keyword', 'density'] },
+            { name: 'Remove Extra Spaces', path: '/tools/remove-extra-spaces', description: 'Clean up text spacing and remove blank lines', icon: AlignLeft, tags: ['text', 'clean', 'format'] },
+            { name: 'Text Reverser', path: '/tools/text-reverser', description: 'Reverse letters or word order instantly', icon: Undo2, tags: ['text', 'fun', 'reverse'] },
+            { name: 'Text Compare', path: '/tools/text-compare', description: 'Compare two texts and find differences', icon: Split, tags: ['text', 'diff', 'compare'] },
+        ]
+    },
+    {
+        name: 'Developer & Data Tools',
+        description: 'Useful utilities for coders and power users',
+        icon: FileCode,
+        color: 'bg-amber-50 text-amber-600 border-amber-100',
+        tools: [
+            { name: 'URL Encoder / Decoder', path: '/tools/url-encoder', description: 'Make strings safe for URLs or decode them', icon: Link2, tags: ['url', 'developer', 'encode'] },
+            { name: 'Base64 Encoder / Decoder', path: '/tools/base64', description: 'Encode or decode strings to/from Base64', icon: FileCode, tags: ['base64', 'developer', 'decode'] },
+            { name: 'JSON Formatter', path: '/tools/json-formatter', description: 'Format or minify JSON with one click', icon: Braces, tags: ['json', 'developer', 'format'] },
+        ]
+    },
+    {
+        name: 'Random Generators',
+        description: 'Fun and fair tools for picking and splitting',
+        icon: UserCheck,
+        color: 'bg-green-50 text-green-600 border-green-100',
+        tools: [
+            { name: 'Random Name Picker', path: '/tools/random-name-picker', description: 'Pick a random winner from a list of names', icon: UserCheck, tags: ['random', 'picker', 'winner'] },
+            { name: 'Random Team Generator', path: '/tools/random-team-generator', description: 'Split a list of names into random groups', icon: LayoutGrid, tags: ['random', 'teams', 'groups'] },
         ]
     }
 ]
@@ -50,7 +76,7 @@ export function AllTools() {
         <Layout>
             <Helmet>
                 <title>All Tools — Free Online Tools for Creators | VidToolbox</title>
-                <meta name="description" content="Browse all 10 free tools for content creators — subtitle converters, word counters, slug generators, and more." />
+                <meta name="description" content="Browse all 20 free tools for content creators — subtitle converters, SEO tools, developer utilities, and more." />
             </Helmet>
 
             {/* Hero */}
@@ -59,7 +85,7 @@ export function AllTools() {
                     <h1 className="text-4xl font-heading font-bold text-slate-900 mb-3">
                         All <span className="text-cyan-500">Tools</span>
                     </h1>
-                    <p className="text-slate-500 mb-8">10 free browser-based tools for content creators — no sign-in required.</p>
+                    <p className="text-slate-500 mb-8">20 free browser-based tools for content creators — no sign-in required.</p>
                     <div className="relative max-w-md mx-auto">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                         <input

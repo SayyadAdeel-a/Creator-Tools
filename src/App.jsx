@@ -11,6 +11,16 @@ import { ReadingTime } from './pages/tools/ReadingTime'
 import { TitleCase } from './pages/tools/TitleCase'
 import { SlugGenerator } from './pages/tools/SlugGenerator'
 import { HashtagCounter } from './pages/tools/HashtagCounter'
+import { MetaDescriptionChecker } from './pages/tools/MetaDescriptionChecker'
+import { KeywordDensity } from './pages/tools/KeywordDensity'
+import { TextCompare } from './pages/tools/TextCompare'
+import { RemoveExtraSpaces } from './pages/tools/RemoveExtraSpaces'
+import { TextReverser } from './pages/tools/TextReverser'
+import { RandomNamePicker } from './pages/tools/RandomNamePicker'
+import { RandomTeamGenerator } from './pages/tools/RandomTeamGenerator'
+import { UrlEncoder } from './pages/tools/UrlEncoder'
+import { Base64 } from './pages/tools/Base64'
+import { JsonFormatter } from './pages/tools/JsonFormatter'
 import { AdminGuard } from './components/AdminGuard'
 import { AdminLogin } from './pages/admin/Login'
 import { AdminDashboard } from './pages/admin/Dashboard'
@@ -46,6 +56,16 @@ function App() {
           <Route path="/tools/title-case" element={<TitleCase />} />
           <Route path="/tools/slug-generator" element={<SlugGenerator />} />
           <Route path="/tools/hashtag-counter" element={<HashtagCounter />} />
+          <Route path="/tools/meta-description-checker" element={<MetaDescriptionChecker />} />
+          <Route path="/tools/keyword-density" element={<KeywordDensity />} />
+          <Route path="/tools/text-compare" element={<TextCompare />} />
+          <Route path="/tools/remove-extra-spaces" element={<RemoveExtraSpaces />} />
+          <Route path="/tools/text-reverser" element={<TextReverser />} />
+          <Route path="/tools/random-name-picker" element={<RandomNamePicker />} />
+          <Route path="/tools/random-team-generator" element={<RandomTeamGenerator />} />
+          <Route path="/tools/url-encoder" element={<UrlEncoder />} />
+          <Route path="/tools/base64" element={<Base64 />} />
+          <Route path="/tools/json-formatter" element={<JsonFormatter />} />
 
           {/* Public blog */}
           <Route path="/blog" element={<BlogIndex />} />
