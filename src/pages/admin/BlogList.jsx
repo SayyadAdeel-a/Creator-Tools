@@ -65,9 +65,11 @@ export function BlogList() {
                                                 <td className="px-5 py-3 font-medium text-slate-900 max-w-xs truncate">{post.title}</td>
                                                 <td className="px-5 py-3 text-slate-500 font-mono text-xs">{post.slug}</td>
                                                 <td className="px-5 py-3">
-                                                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${post.published ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-500'
-                                                        }`}>
-                                                        {post.published ? 'Published' : 'Draft'}
+                                                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                                                        (post.published && new Date(post.created_at) > new Date()) ? 'bg-amber-50 text-amber-700' :
+                                                        post.published ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-500'
+                                                    }`}>
+                                                        {(post.published && new Date(post.created_at) > new Date()) ? 'Scheduled' : post.published ? 'Published' : 'Draft'}
                                                     </span>
                                                 </td>
                                                 <td className="px-5 py-3 text-slate-400">

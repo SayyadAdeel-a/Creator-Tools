@@ -24,6 +24,7 @@ export function BlogPost() {
             .select('*')
             .eq('slug', slug)
             .eq('published', true)
+            .lte('created_at', new Date().toISOString())
             .single()
             .then(({ data, error }) => {
                 if (error) console.error('Failed to load post:', error)

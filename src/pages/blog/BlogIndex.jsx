@@ -28,6 +28,7 @@ export function BlogIndex() {
             .from('blog_posts')
             .select('id, title, slug, excerpt, content, created_at')
             .eq('published', true)
+            .lte('created_at', new Date().toISOString())
             .order('created_at', { ascending: false })
             .then(({ data, error }) => {
                 if (error) console.error('Failed to load posts:', error)

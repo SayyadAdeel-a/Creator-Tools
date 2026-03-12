@@ -20,6 +20,7 @@ export function BlogEditor() {
     const [excerpt, setExcerpt] = useState('')
     const [content, setContent] = useState('')
     const [published, setPublished] = useState(false)
+    const [createdAt, setCreatedAt] = useState(new Date().toISOString().slice(0, 16))
     const [slugTouched, setSlugTouched] = useState(false)
     const [loading, setLoading] = useState(!isNew)
     const [saving, setSaving] = useState(false)
@@ -34,6 +35,7 @@ export function BlogEditor() {
                     setExcerpt(data.excerpt || '')
                     setContent(data.content || '')
                     setPublished(data.published)
+                    if (data.created_at) setCreatedAt(new Date(data.created_at).toISOString().slice(0, 16))
                     setSlugTouched(true)
                 }
                 setLoading(false)
@@ -56,7 +58,7 @@ export function BlogEditor() {
     const handleSave = async () => {
         if (!title.trim() || !slug.trim()) return alert('Title and slug are required.')
         setSaving(true)
-        const payload = { title, slug, excerpt, content, published, updated_at: new Date().toISOString() }
+        const payload = { title, slug, excerpt, content, published, created_at: new Date(createdAt).toISOString(), updated_at: new Date().toISOString() }
 
         let error
         if (isNew) {
@@ -152,6 +154,18 @@ export function BlogEditor() {
                                     preview="live"
                                 />
                             </div>
+                        </div>
+
+                        {/* Schedule Date */}
+                        <div>
+                            <label className="block text-sm font-medium text-slate-700 mb-1.5">Publish / Schedule Date</label>
+                            <input
+                                type="datetime-local"
+                                value={createdAt}
+                                onChange={(e) => setCreatedAt(e.target.value)}
+                                className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 font-mono text-sm"
+                            />
+                            <p className="text-xs text-slate-400 mt-1">Set a future date to schedule. Posts automatically become visible after this date.</p>
                         </div>
 
                         {/* Published toggle */}
