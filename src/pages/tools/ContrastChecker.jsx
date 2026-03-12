@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Eye, ShieldCheck, AlertCircle, CheckCircle2, XCircle } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

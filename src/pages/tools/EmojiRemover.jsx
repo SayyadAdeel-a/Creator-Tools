@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Eraser, Copy, Check, Info, Trash2, Ghost, Smile } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Split, RefreshCw, Layers } from 'lucide-react'
 import { diff_match_patch } from 'diff-match-patch'

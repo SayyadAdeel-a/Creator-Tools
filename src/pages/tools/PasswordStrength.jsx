@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Eye, EyeOff, ShieldCheck, Check, X, ShieldAlert, Zap } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

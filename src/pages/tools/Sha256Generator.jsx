@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Binary, Copy, Check, ShieldCheck, Activity } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

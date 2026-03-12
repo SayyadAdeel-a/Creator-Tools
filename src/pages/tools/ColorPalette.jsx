@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Palette, Copy, Check, Hash, Wand2, Layers, Grid } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

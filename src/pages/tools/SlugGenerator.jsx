@@ -1,4 +1,4 @@
-﻿import { useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Copy, Link2 } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

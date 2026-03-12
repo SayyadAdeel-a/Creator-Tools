@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { Zap, Target, Globe, Heart, Mail } from 'lucide-react'
 import { Layout } from '../components/Layout'

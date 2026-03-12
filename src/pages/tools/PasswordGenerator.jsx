@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Shield, Copy, Check, RefreshCw, Settings } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

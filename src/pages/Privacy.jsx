@@ -1,4 +1,4 @@
-﻿import { Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async'
 import { Shield, Lock, EyeOff, ServerOff } from 'lucide-react'
 import { Layout } from '../components/Layout'
 

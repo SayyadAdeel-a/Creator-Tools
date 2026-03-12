@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Hash, Copy, Check, ShieldAlert, Binary } from 'lucide-react'
 import md5 from 'blueimp-md5'

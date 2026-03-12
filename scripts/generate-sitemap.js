@@ -1,4 +1,4 @@
-﻿// scripts/generate-sitemap.js
+// scripts/generate-sitemap.js
 // Run at build time: node scripts/generate-sitemap.js
 // Fetches published blog posts from Supabase and writes public/sitemap.xml
 

@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Monitor, Smartphone, Video, Maximize, MoveRight, ArrowRight, RefreshCcw } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

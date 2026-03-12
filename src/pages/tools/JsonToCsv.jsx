@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { FileJson, Copy, Check, Download, FileSpreadsheet, Table, RefreshCcw, AlertTriangle } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

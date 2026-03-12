@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { BookOpen, AlertCircle, CheckCircle2, Info, Clock, BarChart3 } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

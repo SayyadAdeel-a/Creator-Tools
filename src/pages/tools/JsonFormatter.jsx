@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Braces, Copy, CheckCircle2, ShieldAlert } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

@@ -1,4 +1,4 @@
-﻿import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { LayoutDashboard, FileText, ExternalLink, LogOut, Zap } from 'lucide-react'
 import { supabase } from '../../lib/supabase'
 import { cn } from '../../lib/utils'

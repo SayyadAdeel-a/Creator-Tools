@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Percent, Hash, Calculator, RefreshCcw, TrendingUp } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

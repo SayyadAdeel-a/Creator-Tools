@@ -1,4 +1,4 @@
-﻿import { useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Ruler, Scale, Thermometer, ArrowRightLeft, MoveRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

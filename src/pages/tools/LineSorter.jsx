@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { ListOrdered, Copy, Check, Download, ArrowDownAZ, ArrowUpZA, RefreshCw, Shuffle, Eraser, ToggleLeft, ToggleRight, ListFilter } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

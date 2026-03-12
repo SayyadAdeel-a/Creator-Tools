@@ -1,4 +1,4 @@
-﻿import { useState } from 'react'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Clock, Plus, Trash2, Eraser, Check, Video, Info } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'

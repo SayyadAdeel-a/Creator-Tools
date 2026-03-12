@@ -1,4 +1,4 @@
-﻿import { useState, useCallback } from 'react'
+import { useState, useCallback } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Type, Copy, Check, RefreshCcw, CaseLower, CaseUpper, Heading1, Hash } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
