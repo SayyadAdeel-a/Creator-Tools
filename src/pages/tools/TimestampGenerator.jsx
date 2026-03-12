@@ -43,9 +43,9 @@ export function TimestampGenerator() {
   return (
     <>
       <Helmet>
-        <title>Video Timestamp Generator — YouTube Chapter Maker | Tenreq</title>
+        <title>Video Timestamp Generator — YouTube Chapter Maker | VidToolbox</title>
         <meta name="description" content="Generate correctly formatted timestamps and chapters for your YouTube video descriptions. Free online timestamp maker for creators." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/timestamp-generator" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/timestamp-generator" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -53,7 +53,7 @@ export function TimestampGenerator() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/timestamp-generator",
+          "url": "https://vidtoolbox.qzz.io/tools/timestamp-generator",
           "description": "Easily create formatted YouTube timestamps for better engagement and viewer retention."
         })}</script>
       </Helmet>

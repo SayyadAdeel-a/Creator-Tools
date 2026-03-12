@@ -73,9 +73,9 @@ export function RemoveExtraSpaces() {
       ]}
     >
       <Helmet>
-        <title>Remove Extra Spaces — Online Text Cleaner Tool | Tenreq</title>
+        <title>Remove Extra Spaces — Online Text Cleaner Tool | VidToolbox</title>
         <meta name="description" content="Clean your text instantly. Remove extra spaces, double spaces, and empty lines to make your content professional and readable. Free online text formatting tool." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/remove-extra-spaces" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/remove-extra-spaces" />
       </Helmet>
 
       <div className="p-6">

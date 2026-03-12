@@ -55,9 +55,9 @@ export function KeywordDensity() {
       ]}
     >
       <Helmet>
-        <title>Keyword Density Checker — Free SEO Content Tool | Tenreq</title>
+        <title>Keyword Density Checker — Free SEO Content Tool | VidToolbox</title>
         <meta name="description" content="Calculate your keyword density instantly. Optimize your blog posts and articles for SEO by checking target keyword frequency. Free and browser-based." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/keyword-density" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/keyword-density" />
       </Helmet>
 
       <div className="p-6">

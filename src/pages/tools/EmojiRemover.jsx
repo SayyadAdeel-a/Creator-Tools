@@ -32,9 +32,9 @@ export function EmojiRemover() {
   return (
     <>
       <Helmet>
-        <title>Emoji Remover — Strip Icons from Text | Tenreq</title>
+        <title>Emoji Remover — Strip Icons from Text | VidToolbox</title>
         <meta name="description" content="Quickly strip all emojis, icons, and special symbols from your text content. Maintain clean formatting for professional reports or formal posts. Free emoji cleaner." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/emoji-remover" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/emoji-remover" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -42,7 +42,7 @@ export function EmojiRemover() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/emoji-remover",
+          "url": "https://vidtoolbox.qzz.io/tools/emoji-remover",
           "description": "Remove every emoji and symbol from your text with one click while keeping the words intact."
         })}</script>
       </Helmet>

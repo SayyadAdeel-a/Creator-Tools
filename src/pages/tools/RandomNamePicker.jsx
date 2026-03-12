@@ -63,9 +63,9 @@ export function RandomNamePicker() {
       ]}
     >
       <Helmet>
-        <title>Random Name Picker — Pick a Winner Online Free | Tenreq</title>
+        <title>Random Name Picker — Pick a Winner Online Free | VidToolbox</title>
         <meta name="description" content="Pick a random name from your list instantly. Perfect for giveaways, raffles, and choosing winners fairly. No sign-up required, 100% free and private." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/random-name-picker" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/random-name-picker" />
       </Helmet>
 
       <div className="p-6">

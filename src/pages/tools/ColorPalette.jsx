@@ -117,7 +117,7 @@ export function ColorPalette() {
   return (
     <>
       <Helmet>
-        <title>Color Palette Generator — Design Systems Tool | Tenreq</title>
+        <title>Color Palette Generator — Design Systems Tool | VidToolbox</title>
         <meta name="description" content="Generate beautiful analogous, triadic, and complementary color palettes based on a base HEX color. Free tool for designers and front-end developers." />
       </Helmet>
 

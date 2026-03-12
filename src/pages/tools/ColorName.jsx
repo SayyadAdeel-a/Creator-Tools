@@ -84,7 +84,7 @@ export function ColorName() {
   return (
     <>
       <Helmet>
-        <title>Color Name Finder — Identify HEX Colors | Tenreq</title>
+        <title>Color Name Finder — Identify HEX Colors | VidToolbox</title>
         <meta name="description" content="Instantly find the nearest matching CSS name for any HEX color. Identify over 140 standard web colors and their corresponding codes." />
       </Helmet>
 

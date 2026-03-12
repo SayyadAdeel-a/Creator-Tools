@@ -58,9 +58,9 @@ export function YoutubeDescriptionFormatter() {
   return (
     <>
       <Helmet>
-        <title>YouTube Description Formatter — SEO & Structure Tool | Tenreq</title>
+        <title>YouTube Description Formatter — SEO & Structure Tool | VidToolbox</title>
         <meta name="description" content="Organize your video descriptions with professional headers, social links, and timestamp sections. Free online YouTube description editor." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/youtube-description-formatter" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/youtube-description-formatter" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -68,7 +68,7 @@ export function YoutubeDescriptionFormatter() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/youtube-description-formatter",
+          "url": "https://vidtoolbox.qzz.io/tools/youtube-description-formatter",
           "description": "Format and structure your YouTube descriptions for better SEO and engagement. Free and easy-to-use tool."
         })}</script>
       </Helmet>

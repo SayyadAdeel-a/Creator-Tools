@@ -38,7 +38,7 @@ export function MarkdownToHtml() {
   return (
     <>
       <Helmet>
-        <title>Markdown to HTML Converter — Fast Documentation Tool | Tenreq</title>
+        <title>Markdown to HTML Converter — Fast Documentation Tool | VidToolbox</title>
         <meta name="description" content="Convert Markdown syntax into clean HTML code instantly. Features a real-time previewer and professional HTML code output for your web projects." />
       </Helmet>
 

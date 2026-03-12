@@ -66,7 +66,7 @@ export function NumberToWords() {
   return (
     <>
       <Helmet>
-        <title>Number to Words Converter — Legal & Financial Tool | Tenreq</title>
+        <title>Number to Words Converter — Legal & Financial Tool | VidToolbox</title>
         <meta name="description" content="Convert numeric values into written English words instantly. Perfect for writing checks, legal documents, and formal reports. Supports up to 1 billion." />
       </Helmet>
 

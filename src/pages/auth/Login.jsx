@@ -28,17 +28,17 @@ export function PublicLogin() {
     return (
         <Layout>
             <Helmet>
-                <title>Login — Tenreq</title>
-                <meta name="description" content="Sign in to your Tenreq account." />
+                <title>Login — VidToolbox</title>
+                <meta name="description" content="Sign in to your VidToolbox account." />
             </Helmet>
             <div className="min-h-[calc(100vh-10rem)] bg-slate-50 flex items-center justify-center px-4 py-16">
                 <div className="w-full max-w-sm">
                     <div className="text-center mb-8">
                         <Link to="/" className="inline-flex items-center gap-2 mb-4">
-                            <img src="/logo.svg" alt="Tenreq Logo" className="w-10 h-10" />
+                            <img src="/logo.svg" alt="VidToolbox Logo" className="w-10 h-10" />
                         </Link>
                         <h1 className="text-2xl font-heading font-bold text-slate-900">Welcome back</h1>
-                        <p className="text-slate-500 text-sm mt-1">Sign in to your Tenreq account</p>
+                        <p className="text-slate-500 text-sm mt-1">Sign in to your VidToolbox account</p>
                     </div>
 
                     <form onSubmit={handleSignIn} className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">

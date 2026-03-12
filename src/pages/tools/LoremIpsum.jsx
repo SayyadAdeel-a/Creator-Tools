@@ -77,7 +77,7 @@ export function LoremIpsum() {
   return (
     <>
       <Helmet>
-        <title>Lorem Ipsum Generator — Professional Dummy Text | Tenreq</title>
+        <title>Lorem Ipsum Generator — Professional Dummy Text | VidToolbox</title>
         <meta name="description" content="Generate professional placeholder text for your design mockups. Choose between paragraphs, sentences, or words format. Free online filler text tool." />
       </Helmet>
 

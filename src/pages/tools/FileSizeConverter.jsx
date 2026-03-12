@@ -38,7 +38,7 @@ export function FileSizeConverter() {
   return (
     <>
       <Helmet>
-        <title>File Size Converter — Digital Storage Tools | Tenreq</title>
+        <title>File Size Converter — Digital Storage Tools | VidToolbox</title>
         <meta name="description" content="Calculate and convert between Bytes, KB, MB, GB, and TB instantly. Understand your digital storage limits and file requirements with our simultaneous unit converter." />
       </Helmet>
 

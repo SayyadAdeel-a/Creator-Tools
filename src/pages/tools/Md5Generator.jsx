@@ -22,7 +22,7 @@ export function Md5Generator() {
   return (
     <>
       <Helmet>
-        <title>MD5 Hash Generator — Checksum & Data Integrity | Tenreq</title>
+        <title>MD5 Hash Generator — Checksum & Data Integrity | VidToolbox</title>
         <meta name="description" content="Generate 128-bit MD5 hashes instantly. Perfect for file integrity checks and checksums. Free online cryptographic tool." />
       </Helmet>
 

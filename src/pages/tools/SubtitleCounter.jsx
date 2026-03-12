@@ -32,12 +32,12 @@ export function SubtitleCounter() {
   return (
     <>
       <Helmet>
-        <title>Subtitle Line Counter — Count SRT Blocks, Lines & Characters | Tenreq</title>
+        <title>Subtitle Line Counter — Count SRT Blocks, Lines & Characters | VidToolbox</title>
         <meta name="description" content="Count subtitle blocks, dialogue lines, and characters in any SRT file in seconds. Free online tool, no upload needed. Great for estimating translation or editing time." />
         <meta name="keywords" content="subtitle counter, SRT line counter, count subtitle blocks, count SRT characters, subtitle stats" />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/subtitle-counter" />
-        <meta property="og:title" content="Subtitle Line Counter — Free Online Tool | Tenreq" />
-        <meta property="og:url" content="https://tenreq.qzz.io/tools/subtitle-counter" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/subtitle-counter" />
+        <meta property="og:title" content="Subtitle Line Counter — Free Online Tool | VidToolbox" />
+        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/subtitle-counter" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -45,7 +45,7 @@ export function SubtitleCounter() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/subtitle-counter",
+          "url": "https://vidtoolbox.qzz.io/tools/subtitle-counter",
           "description": "Count subtitle blocks, lines, and characters in SRT files. Free and runs in your browser."
         })}</script>
       </Helmet>

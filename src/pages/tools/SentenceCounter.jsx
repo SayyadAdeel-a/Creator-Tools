@@ -27,9 +27,9 @@ export function SentenceCounter() {
   return (
     <>
       <Helmet>
-        <title>Sentence & Paragraph Counter — Content Analyzer | Tenreq</title>
+        <title>Sentence & Paragraph Counter — Content Analyzer | VidToolbox</title>
         <meta name="description" content="Calculate sentence count, word counts, and average words per sentence in real-time. Professional tool for writers and editors to improve readability." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/sentence-counter" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/sentence-counter" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -37,7 +37,7 @@ export function SentenceCounter() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/sentence-counter",
+          "url": "https://vidtoolbox.qzz.io/tools/sentence-counter",
           "description": "Real-time analysis of your writing structure — sentences, words, characters and paragraphs."
         })}</script>
       </Helmet>

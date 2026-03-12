@@ -41,7 +41,7 @@ export function DateDifference() {
   return (
     <>
       <Helmet>
-        <title>Days Between Dates Calculator — Project Timeline Tool | Tenreq</title>
+        <title>Days Between Dates Calculator — Project Timeline Tool | VidToolbox</title>
         <meta name="description" content="Calculate the exact number of days, weeks, and working days between two dates. Ideal for project management and timeline planning." />
       </Helmet>
 

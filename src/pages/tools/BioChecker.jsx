@@ -29,9 +29,9 @@ export function BioChecker() {
   return (
     <>
       <Helmet>
-        <title>Social Bio Length Checker — Optimize Your Profile | Tenreq</title>
+        <title>Social Bio Length Checker — Optimize Your Profile | VidToolbox</title>
         <meta name="description" content="Check bio character limits for Instagram, TikTok, Twitter, and YouTube simultaneously. Ensure your profile description is perfectly optimized and never cut off. Free social profile tool." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/bio-checker" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/bio-checker" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -39,7 +39,7 @@ export function BioChecker() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/bio-checker",
+          "url": "https://vidtoolbox.qzz.io/tools/bio-checker",
           "description": "Simultaneous bio limit analysis for professional profiles across Instagram, Twitter, and TikTok."
         })}</script>
       </Helmet>

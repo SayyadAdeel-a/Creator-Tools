@@ -56,9 +56,9 @@ export function RandomTeamGenerator() {
       ]}
     >
       <Helmet>
-        <title>Random Team Generator — Quickly Split Lists Online Free | Tenreq</title>
+        <title>Random Team Generator — Quickly Split Lists Online Free | VidToolbox</title>
         <meta name="description" content="Instantly split a list of names into random teams. Perfect for sports, classroom groups, and office activities. Free, fair, and no sign-up required." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/random-team-generator" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/random-team-generator" />
       </Helmet>
 
       <div className="p-6">

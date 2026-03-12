@@ -29,7 +29,7 @@ export function PercentageCalculator() {
   return (
     <>
       <Helmet>
-        <title>Percentage Calculator — Fast Online Math Tool | Tenreq</title>
+        <title>Percentage Calculator — Fast Online Math Tool | VidToolbox</title>
         <meta name="description" content="Calculate percentages, percentage increases, and proportions instantly. Three powerful modes for all your business and financial math needs. Free online calculator." />
       </Helmet>
 

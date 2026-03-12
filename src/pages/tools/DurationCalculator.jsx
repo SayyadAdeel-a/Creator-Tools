@@ -58,9 +58,9 @@ export function DurationCalculator() {
   return (
     <>
       <Helmet>
-        <title>Video Duration Calculator — Sum Up Your Video Clips | Tenreq</title>
+        <title>Video Duration Calculator — Sum Up Your Video Clips | VidToolbox</title>
         <meta name="description" content="Calculate the total duration of your video recording sessions or editing timeline. Support for MM:SS and HH:MM:SS formats with average clip length and statistics. Free online tool." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/duration-calculator" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/duration-calculator" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -68,7 +68,7 @@ export function DurationCalculator() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/duration-calculator",
+          "url": "https://vidtoolbox.qzz.io/tools/duration-calculator",
           "description": "Sum up multiple clip durations and analyze your video recording sessions effortlessly."
         })}</script>
       </Helmet>

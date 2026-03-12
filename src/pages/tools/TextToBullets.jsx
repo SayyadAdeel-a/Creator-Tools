@@ -47,9 +47,9 @@ export function TextToBullets() {
   return (
     <>
       <Helmet>
-        <title>Text to Bullet Points — Viral List Maker | Tenreq</title>
+        <title>Text to Bullet Points — Viral List Maker | VidToolbox</title>
         <meta name="description" content="Quickly convert a list of sentences or ideas into a crisp, formatted bullet list. Choose from multiple styles like arrows, dashes, circles, and numbered lists. Ideal for social media and content creators." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/text-to-bullets" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/text-to-bullets" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -57,7 +57,7 @@ export function TextToBullets() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/text-to-bullets",
+          "url": "https://vidtoolbox.qzz.io/tools/text-to-bullets",
           "description": "Structure your text into organized bullet points with style selectors and auto-capitalization."
         })}</script>
       </Helmet>

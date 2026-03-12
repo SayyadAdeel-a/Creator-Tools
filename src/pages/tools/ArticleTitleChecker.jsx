@@ -70,9 +70,9 @@ export function ArticleTitleChecker() {
   return (
     <>
       <Helmet>
-        <title>Article Title & Headline Checker — CTR Optimization | Tenreq</title>
+        <title>Article Title & Headline Checker — CTR Optimization | VidToolbox</title>
         <meta name="description" content="Validate your article headlines and video titles for CTR and SEO performance. Analyze character length, emotional triggers, and audience appeal. Free online Headline score tool." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/title-checker" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/title-checker" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -80,7 +80,7 @@ export function ArticleTitleChecker() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/title-checker",
+          "url": "https://vidtoolbox.qzz.io/tools/title-checker",
           "description": "Evaluate SEO and psychological performance of your article titles and headlines with scores and suggestions."
         })}</script>
       </Helmet>

@@ -23,8 +23,8 @@ export function AdminLayout({ children }) {
             <aside className="w-60 bg-white border-r border-slate-200 flex flex-col shrink-0">
                 <div className="p-5 border-b border-slate-100">
                     <Link to="/" className="flex items-center gap-2">
-                        <img src="/logo.svg" alt="Tenreq Logo" className="w-7 h-7" />
-                        <span className="font-heading font-bold text-slate-900">Tenreq</span>
+                        <img src="/logo.svg" alt="VidToolbox Logo" className="w-7 h-7" />
+                        <span className="font-heading font-bold text-slate-900">VidToolbox</span>
                     </Link>
                     <p className="text-xs text-slate-400 mt-1 pl-9">Admin Panel</p>
                 </div>

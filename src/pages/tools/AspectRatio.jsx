@@ -45,7 +45,7 @@ export function AspectRatio() {
   return (
     <>
       <Helmet>
-        <title>Aspect Ratio Calculator — Video & Photo Tools | Tenreq</title>
+        <title>Aspect Ratio Calculator — Video & Photo Tools | VidToolbox</title>
         <meta name="description" content="Calculate and simplify aspect ratios for video and photography. Find dimensions for 16:9, 4:3, 21:9, and more. Free tool for YouTube creators and designers." />
       </Helmet>
 

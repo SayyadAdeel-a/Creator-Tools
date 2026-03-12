@@ -54,7 +54,7 @@ export function LineSorter() {
   return (
     <>
       <Helmet>
-        <title>Line Sorter — Professional Text Organizer | Tenreq</title>
+        <title>Line Sorter — Professional Text Organizer | VidToolbox</title>
         <meta name="description" content="Sort, reverse, and shuffle lines of text instantly. Includes advanced options to trim whitespace and remove blank lines for clean data organization." />
       </Helmet>
 

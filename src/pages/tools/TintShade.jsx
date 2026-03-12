@@ -60,7 +60,7 @@ export function TintShade() {
   return (
     <>
       <Helmet>
-        <title>Tint & Shade Generator — Color Variant Tool | Tenreq</title>
+        <title>Tint & Shade Generator — Color Variant Tool | VidToolbox</title>
         <meta name="description" content="Generate 5 lighter tints and 5 darker shades for any HEX color. Perfect for building hover states and UI depth in your design projects. Free online color tool." />
       </Helmet>
 

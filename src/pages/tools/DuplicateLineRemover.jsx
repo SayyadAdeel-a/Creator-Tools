@@ -62,9 +62,9 @@ export function DuplicateLineRemover() {
   return (
     <>
       <Helmet>
-        <title>Duplicate Line Remover — List Cleaning SEO Tool | Tenreq</title>
+        <title>Duplicate Line Remover — List Cleaning SEO Tool | VidToolbox</title>
         <meta name="description" content="Quickly remove duplicate lines from your text, lists, or datasets. Support for case-sensitivity and whitespace trimming. Professional cleaning tool for creators and developers." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/duplicate-lines" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/duplicate-lines" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -72,7 +72,7 @@ export function DuplicateLineRemover() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/duplicate-lines",
+          "url": "https://vidtoolbox.qzz.io/tools/duplicate-lines",
           "description": "Efficiently clean lists by removing identical lines with optional case and whitespace settings."
         })}</script>
       </Helmet>

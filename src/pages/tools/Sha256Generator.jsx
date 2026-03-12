@@ -39,7 +39,7 @@ export function Sha256Generator() {
   return (
     <>
       <Helmet>
-        <title>SHA-256 Hash Generator — High Security Hashing | Tenreq</title>
+        <title>SHA-256 Hash Generator — High Security Hashing | VidToolbox</title>
         <meta name="description" content="Securely generate SHA-256 hashes using built-in browser cryptography. Industry-standard hashing for data security and verification." />
       </Helmet>
 

@@ -31,7 +31,7 @@ export function GradientGenerator() {
   return (
     <>
       <Helmet>
-        <title>CSS Gradient Generator — Modern Design Tool | Tenreq</title>
+        <title>CSS Gradient Generator — Modern Design Tool | VidToolbox</title>
         <meta name="description" content="Design beautiful linear and radial CSS gradients. Real-time preview with direction controls and one-click CSS code generation for your projects." />
       </Helmet>
 

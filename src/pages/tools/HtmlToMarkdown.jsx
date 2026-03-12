@@ -48,7 +48,7 @@ export function HtmlToMarkdown() {
   return (
     <>
       <Helmet>
-        <title>HTML to Markdown Converter — Clean Code Export | Tenreq</title>
+        <title>HTML to Markdown Converter — Clean Code Export | VidToolbox</title>
         <meta name="description" content="Cleanly convert complex HTML into readable Markdown. Perfect for migrating website content to CMS platforms or documentation. Free online converter." />
       </Helmet>
 

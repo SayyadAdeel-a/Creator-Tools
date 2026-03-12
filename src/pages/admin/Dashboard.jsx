@@ -92,7 +92,7 @@ export function AdminDashboard() {
 
     return (
         <>
-            <Helmet><title>Dashboard — Tenreq Admin</title></Helmet>
+            <Helmet><title>Dashboard — VidToolbox Admin</title></Helmet>
             <AdminLayout>
                 <div className="p-8">
                     <h1 className="text-2xl font-heading font-bold text-slate-900 mb-6">Dashboard</h1>

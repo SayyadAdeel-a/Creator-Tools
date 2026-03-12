@@ -43,7 +43,7 @@ export function UuidGenerator() {
   return (
     <>
       <Helmet>
-        <title>UUID v4 Generator — Bulk Unique Identifiers | Tenreq</title>
+        <title>UUID v4 Generator — Bulk Unique Identifiers | VidToolbox</title>
         <meta name="description" content="Generate cryptographically strong UUID v4 identifiers instantly. Support for single generation and bulk batches up to 100." />
       </Helmet>
 

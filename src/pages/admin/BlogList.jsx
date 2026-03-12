@@ -31,7 +31,7 @@ export function BlogList() {
 
     return (
         <>
-            <Helmet><title>Blog Posts — Tenreq Admin</title></Helmet>
+            <Helmet><title>Blog Posts — VidToolbox Admin</title></Helmet>
             <AdminLayout>
                 <div className="p-8">
                     <div className="flex items-center justify-between mb-6">

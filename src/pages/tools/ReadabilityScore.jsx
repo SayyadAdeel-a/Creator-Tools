@@ -56,9 +56,9 @@ export function ReadabilityScore() {
   return (
     <>
       <Helmet>
-        <title>Readability Score Checker — Flesch Reading Ease Tool | Tenreq</title>
+        <title>Readability Score Checker — Flesch Reading Ease Tool | VidToolbox</title>
         <meta name="description" content="Calculate your content's Flesch Reading Ease score instantly. Check grade levels and audience difficulty to ensure your writing is clear and engaging. Free SEO tool." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/readability" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/readability" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -66,7 +66,7 @@ export function ReadabilityScore() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/readability",
+          "url": "https://vidtoolbox.qzz.io/tools/readability",
           "description": "Analyze writing difficulty using the Flesch-Kincaid scale. Optimize for search and reader engagement."
         })}</script>
       </Helmet>

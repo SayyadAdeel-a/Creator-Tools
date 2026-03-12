@@ -41,9 +41,9 @@ export function BlogIndex() {
     return (
         <Layout>
             <Helmet>
-                <title>Blog — Tenreq</title>
+                <title>Blog — VidToolbox</title>
                 <meta name="description" content="Tips, guides and resources for content creators. Learn how to script videos, optimize subtitles, and grow your audience." />
-                <link rel="canonical" href="https://tenreq.qzz.io/blog" />
+                <link rel="canonical" href="https://vidtoolbox.qzz.io/blog" />
             </Helmet>
 
             {/* Hero */}
@@ -53,7 +53,7 @@ export function BlogIndex() {
                         ✍️ Creator Resources
                     </div>
                     <h1 className="text-4xl sm:text-5xl font-heading font-bold text-slate-900 mb-4">
-                        The Tenreq <span className="text-cyan-500">Blog</span>
+                        The VidToolbox <span className="text-cyan-500">Blog</span>
                     </h1>
                     <p className="text-lg text-slate-500 max-w-xl mx-auto">
                         Tips, guides and strategies for YouTubers, subtitle editors, and content creators.

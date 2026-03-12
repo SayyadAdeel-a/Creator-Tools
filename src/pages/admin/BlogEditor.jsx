@@ -84,7 +84,7 @@ export function BlogEditor() {
 
     return (
         <>
-            <Helmet><title>{isNew ? 'New Post' : 'Edit Post'} — Tenreq Admin</title></Helmet>
+            <Helmet><title>{isNew ? 'New Post' : 'Edit Post'} — VidToolbox Admin</title></Helmet>
             <AdminLayout>
                 <div className="p-8 max-w-4xl">
                     <div className="flex items-center justify-between mb-6">

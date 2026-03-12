@@ -47,7 +47,7 @@ export function ContrastChecker() {
   return (
     <>
       <Helmet>
-        <title>WCAG Color Contrast Checker — Accessibility Tool | Tenreq</title>
+        <title>WCAG Color Contrast Checker — Accessibility Tool | VidToolbox</title>
         <meta name="description" content="Validate your color combinations against WCAG 2.1 accessibility standards. Check contrast ratios for normal and large text to ensure your designs are readable by everyone." />
       </Helmet>
 

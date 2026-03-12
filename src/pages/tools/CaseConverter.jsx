@@ -43,7 +43,7 @@ export function CaseConverter() {
   return (
     <>
       <Helmet>
-        <title>Case Converter — Multi-Format Text Tool | Tenreq</title>
+        <title>Case Converter — Multi-Format Text Tool | VidToolbox</title>
         <meta name="description" content="Switch between UPPERCASE, lowercase, Title Case, camelCase, and more instantly. Clean up your text and code formatting with our professional case converter." />
       </Helmet>
 

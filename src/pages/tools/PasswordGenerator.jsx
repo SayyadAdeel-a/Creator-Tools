@@ -83,7 +83,7 @@ export function PasswordGenerator() {
   return (
     <>
       <Helmet>
-        <title>Random Password Generator — Secure & Encrypted | Tenreq</title>
+        <title>Random Password Generator — Secure & Encrypted | VidToolbox</title>
         <meta name="description" content="Generate highly secure, random passwords with custom length and character options. Create unhackable passwords for your accounts instantly." />
       </Helmet>
 

@@ -26,9 +26,9 @@ export function SocialCharacterCounter() {
   return (
     <>
       <Helmet>
-        <title>Social Media Character Counter — Check Limits for All Platforms | Tenreq</title>
+        <title>Social Media Character Counter — Check Limits for All Platforms | VidToolbox</title>
         <meta name="description" content="Check your character count for Twitter, Instagram, TikTok, LinkedIn, and YouTube simultaneously. Instant feedback on platform-specific limits. Free online character counter." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/social-character-counter" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/social-character-counter" />
       </Helmet>
 
       <ToolPage

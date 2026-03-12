@@ -66,9 +66,9 @@ export function TextReverser() {
       ]}
     >
       <Helmet>
-        <title>Text Reverser — Reverse Letters & Words Online | Tenreq</title>
+        <title>Text Reverser — Reverse Letters & Words Online | VidToolbox</title>
         <meta name="description" content="Flip your text or reverse word order instantly. A fun and useful tool for creating backwards text, solving puzzles, or reordering lists. Free and browser-based." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/text-reverser" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/text-reverser" />
       </Helmet>
 
       <div className="p-6">

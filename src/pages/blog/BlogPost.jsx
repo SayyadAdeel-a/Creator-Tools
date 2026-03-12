@@ -69,15 +69,15 @@ export function BlogPost() {
         "headline": post.title,
         "description": post.excerpt,
         "datePublished": post.created_at,
-        "author": { "@type": "Organization", "name": "Tenreq" },
-        "publisher": { "@type": "Organization", "name": "Tenreq", "url": "https://tenreq.qzz.io" },
-        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://tenreq.qzz.io/blog/${post.slug}` }
+        "author": { "@type": "Organization", "name": "VidToolbox" },
+        "publisher": { "@type": "Organization", "name": "VidToolbox", "url": "https://vidtoolbox.qzz.io" },
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://vidtoolbox.qzz.io/blog/${post.slug}` }
     })
 
     return (
         <Layout>
             <Helmet>
-                <title>{post.title} — Tenreq</title>
+                <title>{post.title} — VidToolbox</title>
                 <meta name="description" content={post.excerpt || post.title} />
                 <script type="application/ld+json">{schemaJson}</script>
             </Helmet>

@@ -32,7 +32,7 @@ export function HtmlEncoder() {
   return (
     <>
       <Helmet>
-        <title>HTML Encoder & Decoder — Web Security Tool | Tenreq</title>
+        <title>HTML Encoder & Decoder — Web Security Tool | VidToolbox</title>
         <meta name="description" content="Convert special characters into HTML entities for secure web rendering. Prevent XSS and code injection with our professional encoder/decoder tool." />
       </Helmet>
 

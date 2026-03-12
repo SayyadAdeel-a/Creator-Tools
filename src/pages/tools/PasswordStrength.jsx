@@ -32,7 +32,7 @@ export function PasswordStrength() {
   return (
     <>
       <Helmet>
-        <title>Password Strength Checker — Audit Your Security | Tenreq</title>
+        <title>Password Strength Checker — Audit Your Security | VidToolbox</title>
         <meta name="description" content="Instantly test the strength of your passwords. Our checker analyzes entropy, length, and character complexity to provide a security score." />
       </Helmet>
 

@@ -33,7 +33,7 @@ export function RgbToHex() {
   return (
     <>
       <Helmet>
-        <title>RGB to HEX Converter — Web Design Color Tools | Tenreq</title>
+        <title>RGB to HEX Converter — Web Design Color Tools | VidToolbox</title>
         <meta name="description" content="Convert RGB color values to HEX codes instantly. Free online color converter for web developers and designers with live preview and code copying." />
       </Helmet>
 

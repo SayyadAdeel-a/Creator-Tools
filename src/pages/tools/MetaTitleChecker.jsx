@@ -21,9 +21,9 @@ export function MetaTitleChecker() {
   return (
     <>
       <Helmet>
-        <title>Google Meta Title Length Checker — SEO Preview Tool | Tenreq</title>
+        <title>Google Meta Title Length Checker — SEO Preview Tool | VidToolbox</title>
         <meta name="description" content="Validate your meta titles for Google Search. Track character counts with a real-time progress bar and preview how your headline looks in the SERPs before publishing." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/meta-title" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/meta-title" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -31,7 +31,7 @@ export function MetaTitleChecker() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/meta-title",
+          "url": "https://vidtoolbox.qzz.io/tools/meta-title",
           "description": "Ensure your meta titles are optimized for Google search results with character count thresholds and a live SERP preview."
         })}</script>
       </Helmet>
@@ -61,7 +61,7 @@ export function MetaTitleChecker() {
                   setTitle(e.target.value);
                   if (e.target.value.length === 20) trackToolUse('Meta Title Checker', 'meta-title');
               }}
-              placeholder="e.g., Best SEO Tools for 2025 | Tenreq"
+              placeholder="e.g., Best SEO Tools for 2025 | VidToolbox"
               className="w-full px-6 py-4 border border-slate-200 rounded-3xl focus:ring-4 focus:ring-cyan-500/10 focus:border-cyan-500 outline-none text-xl font-bold text-slate-800 shadow-sm"
             />
           </div>
@@ -115,8 +115,8 @@ export function MetaTitleChecker() {
                              <Globe className="w-3.5 h-3.5 text-slate-400" />
                         </div>
                         <div className="text-xs">
-                            <p className="text-slate-900 font-medium">Tenreq</p>
-                            <p className="text-slate-500 truncate max-w-[200px]">https://tenreq.qzz.io › tools › meta-title</p>
+                            <p className="text-slate-900 font-medium">VidToolbox</p>
+                            <p className="text-slate-500 truncate max-w-[200px]">https://vidtoolbox.qzz.io › tools › meta-title</p>
                         </div>
                         <MoreHorizontal className="w-4 h-4 text-slate-400 ml-auto" />
                     </div>

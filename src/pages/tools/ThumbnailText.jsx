@@ -26,9 +26,9 @@ export function ThumbnailText() {
   return (
     <>
       <Helmet>
-        <title>Thumbnail Text Checker — High CTR Video Creator Tool | Tenreq</title>
+        <title>Thumbnail Text Checker — High CTR Video Creator Tool | VidToolbox</title>
         <meta name="description" content="Validate your thumbnail headline for readability and Click-Through Rate. Check word count and character length limits to ensure your message is clear and never crowded. Free online YouTube tool." />
-        <link rel="canonical" href="https://tenreq.qzz.io/tools/thumbnail-text" />
+        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/thumbnail-text" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -36,7 +36,7 @@ export function ThumbnailText() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://tenreq.qzz.io/tools/thumbnail-text",
+          "url": "https://vidtoolbox.qzz.io/tools/thumbnail-text",
           "description": "Ensure your video thumbnail text is optimized for high CTR with word and character count analysis."
         })}</script>
       </Helmet>

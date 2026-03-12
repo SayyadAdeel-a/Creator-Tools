@@ -41,14 +41,14 @@ export function AdminLogin() {
     return (
         <>
             <Helmet>
-                <title>Admin Login — Tenreq</title>
+                <title>Admin Login — VidToolbox</title>
             </Helmet>
             <div className="min-h-screen bg-slate-50 flex items-center justify-center px-4">
                 <div className="w-full max-w-sm">
                     <div className="text-center mb-8">
-                        <img src="/logo.svg" alt="Tenreq Logo" className="w-12 h-12 mx-auto mb-4" />
+                        <img src="/logo.svg" alt="VidToolbox Logo" className="w-12 h-12 mx-auto mb-4" />
                         <h1 className="text-2xl font-heading font-bold text-slate-900">Admin Login</h1>
-                        <p className="text-slate-500 text-sm mt-1">Tenreq Dashboard</p>
+                        <p className="text-slate-500 text-sm mt-1">VidToolbox Dashboard</p>
                     </div>
 
                     <form onSubmit={handleSignIn} className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">

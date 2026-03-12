@@ -68,7 +68,7 @@ export function HexToRgb() {
   return (
     <>
       <Helmet>
-        <title>HEX to RGB Converter — Design Color Tools | Tenreq</title>
+        <title>HEX to RGB Converter — Design Color Tools | VidToolbox</title>
         <meta name="description" content="Convert HEX color codes to RGB and HSL values instantly. Free online color converter for designers and developers with live preview." />
       </Helmet>
 
