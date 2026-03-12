@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Hash, Copy, Check, Info, Trash2, Search, TrendingUp, Filter, List } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -69,9 +69,9 @@ export function HashtagGenerator() {
   return (
     <>
       <Helmet>
-        <title>Viral Hashtag Generator — Find Smart Tags | VidToolbox</title>
+        <title>Viral Hashtag Generator — Find Smart Tags | Tenreq</title>
         <meta name="description" content="Generate 30+ viral hashtags for Instagram, YouTube, and TikTok. Get categorized tags based on search volume (High, Medium, Low) to maximize your reach. Free niche tool." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/hashtag-generator" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/hashtag-generator" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -79,7 +79,7 @@ export function HashtagGenerator() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/hashtag-generator",
+          "url": "https://tenreq.qzz.io/tools/hashtag-generator",
           "description": "Smart hashtag generator with volume categorization for maximum social media growth."
         })}</script>
       </Helmet>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { List, Copy, Clock, Zap, Check } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -62,9 +62,9 @@ export function ScriptOutline() {
   return (
     <>
       <Helmet>
-        <title>Video Script Outline Generator — Visual Storytelling Tool | VidToolbox</title>
+        <title>Video Script Outline Generator — Visual Storytelling Tool | Tenreq</title>
         <meta name="description" content="Generate structured outlines for your YouTube videos in seconds. Choose your target duration and get timestamped sections to help you script faster and better." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/script-outline" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/script-outline" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -72,7 +72,7 @@ export function ScriptOutline() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/script-outline",
+          "url": "https://tenreq.qzz.io/tools/script-outline",
           "description": "Structure your video content for better retention with timestamped outlines and section prompts."
         })}</script>
       </Helmet>

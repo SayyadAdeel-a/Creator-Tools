@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Search, Copy, Check, Hash, Tag, Info } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -84,7 +84,7 @@ export function ColorName() {
   return (
     <>
       <Helmet>
-        <title>Color Name Finder — Identify HEX Colors | VidToolbox</title>
+        <title>Color Name Finder — Identify HEX Colors | Tenreq</title>
         <meta name="description" content="Instantly find the nearest matching CSS name for any HEX color. Identify over 140 standard web colors and their corresponding codes." />
       </Helmet>
 

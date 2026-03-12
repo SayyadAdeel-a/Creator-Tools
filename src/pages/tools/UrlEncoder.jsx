@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link2, Copy, CheckCircle2 } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -57,9 +57,9 @@ export function UrlEncoder() {
       ]}
     >
       <Helmet>
-        <title>URL Encoder & Decoder Online — Free Developer Tool | VidToolbox</title>
+        <title>URL Encoder & Decoder Online — Free Developer Tool | Tenreq</title>
         <meta name="description" content="Encode or decode URLs instantly. Convert special characters to percent-encoded format for safe web usage. Free, easy to use, and browser-based." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/url-encoder" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/url-encoder" />
       </Helmet>
 
       <div className="p-6">

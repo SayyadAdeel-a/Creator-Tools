@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { Zap, Mail, Lock, AlertCircle, CheckCircle2 } from 'lucide-react'
@@ -45,7 +45,7 @@ export function PublicSignup() {
                         <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-5">
                             <CheckCircle2 className="w-8 h-8 text-cyan-500" />
                         </div>
-                        <h2 className="text-2xl font-heading font-bold text-slate-900 mb-2">Welcome to VidToolbox! 🎉</h2>
+                        <h2 className="text-2xl font-heading font-bold text-slate-900 mb-2">Welcome to Tenreq! 🎉</h2>
                         <p className="text-slate-500 text-sm mb-4">
                             Your account has been created. Redirecting you to the homepage…
                         </p>
@@ -68,14 +68,14 @@ export function PublicSignup() {
     return (
         <Layout>
             <Helmet>
-                <title>Sign Up — VidToolbox</title>
-                <meta name="description" content="Create a free VidToolbox account to save your preferences and get updates." />
+                <title>Sign Up — Tenreq</title>
+                <meta name="description" content="Create a free Tenreq account to save your preferences and get updates." />
             </Helmet>
             <div className="min-h-[calc(100vh-10rem)] bg-slate-50 flex items-center justify-center px-4 py-16">
                 <div className="w-full max-w-sm">
                     <div className="text-center mb-8">
                         <Link to="/" className="inline-flex items-center gap-2 mb-4">
-                            <img src="/logo.svg" alt="VidToolbox Logo" className="w-10 h-10" />
+                            <img src="/logo.svg" alt="Tenreq Logo" className="w-10 h-10" />
                         </Link>
                         <h1 className="text-2xl font-heading font-bold text-slate-900">Create your account</h1>
                         <p className="text-slate-500 text-sm mt-1">Free forever — no credit card required</p>

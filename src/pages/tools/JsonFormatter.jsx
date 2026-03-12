@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Braces, Copy, CheckCircle2, ShieldAlert } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -68,9 +68,9 @@ export function JsonFormatter() {
       ]}
     >
       <Helmet>
-        <title>JSON Formatter & Minifier Online — Free Developer Tool | VidToolbox</title>
+        <title>JSON Formatter & Minifier Online — Free Developer Tool | Tenreq</title>
         <meta name="description" content="Format your JSON with beautiful indentation or minify it for production. Validate your JSON syntax instantly. Free, secure, and developer-friendly." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/json-formatter" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/json-formatter" />
       </Helmet>
 
       <div className="p-6">

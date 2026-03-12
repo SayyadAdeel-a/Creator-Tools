@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { FileText, Copy, Check, Hash, RefreshCcw, Type } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -66,7 +66,7 @@ export function NumberToWords() {
   return (
     <>
       <Helmet>
-        <title>Number to Words Converter — Legal & Financial Tool | VidToolbox</title>
+        <title>Number to Words Converter — Legal & Financial Tool | Tenreq</title>
         <meta name="description" content="Convert numeric values into written English words instantly. Perfect for writing checks, legal documents, and formal reports. Supports up to 1 billion." />
       </Helmet>
 

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { HardDrive, ArrowRightLeft, FileCheck, CheckCircle2, ChevronRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -38,7 +38,7 @@ export function FileSizeConverter() {
   return (
     <>
       <Helmet>
-        <title>File Size Converter — Digital Storage Tools | VidToolbox</title>
+        <title>File Size Converter — Digital Storage Tools | Tenreq</title>
         <meta name="description" content="Calculate and convert between Bytes, KB, MB, GB, and TB instantly. Understand your digital storage limits and file requirements with our simultaneous unit converter." />
       </Helmet>
 

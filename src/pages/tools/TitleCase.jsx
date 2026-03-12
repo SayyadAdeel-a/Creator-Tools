@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+﻿import { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Copy, Type } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -44,12 +44,12 @@ export function TitleCase() {
   return (
     <>
       <Helmet>
-        <title>Title Case Converter — Free Online AP & Chicago Title Case Tool | VidToolbox</title>
+        <title>Title Case Converter — Free Online AP & Chicago Title Case Tool | Tenreq</title>
         <meta name="description" content="Convert any text to proper AP or Chicago title case online, instantly and free. Great for YouTube titles, blog headlines, and article headings. No account needed." />
         <meta name="keywords" content="title case converter, title case tool, capitalize title online, AP title case, Chicago title case, make title case" />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/title-case" />
-        <meta property="og:title" content="Title Case Converter — Free Online Tool | VidToolbox" />
-        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/title-case" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/title-case" />
+        <meta property="og:title" content="Title Case Converter — Free Online Tool | Tenreq" />
+        <meta property="og:url" content="https://tenreq.qzz.io/tools/title-case" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -57,7 +57,7 @@ export function TitleCase() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/title-case",
+          "url": "https://tenreq.qzz.io/tools/title-case",
           "description": "Convert text to proper AP or Chicago title case. Free, instant, no sign-up."
         })}</script>
       </Helmet>

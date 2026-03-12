@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+﻿import { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Upload, Download, FileText, X, Merge, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -63,12 +63,12 @@ export function SubtitleMerge() {
   return (
     <>
       <Helmet>
-        <title>Subtitle Merge Tool — Combine Multiple SRT Files Online Free | VidToolbox</title>
+        <title>Subtitle Merge Tool — Combine Multiple SRT Files Online Free | Tenreq</title>
         <meta name="description" content="Merge multiple SRT subtitle files into one chronologically ordered file online. Free, instant, and runs entirely in your browser — no sign-up, no file upload to servers." />
         <meta name="keywords" content="merge SRT files, combine subtitle files, SRT merge tool, join SRT files, subtitle combiner online" />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/subtitle-merge" />
-        <meta property="og:title" content="Subtitle Merge Tool — Combine SRT Files Online | VidToolbox" />
-        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/subtitle-merge" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/subtitle-merge" />
+        <meta property="og:title" content="Subtitle Merge Tool — Combine SRT Files Online | Tenreq" />
+        <meta property="og:url" content="https://tenreq.qzz.io/tools/subtitle-merge" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -76,7 +76,7 @@ export function SubtitleMerge() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/subtitle-merge",
+          "url": "https://tenreq.qzz.io/tools/subtitle-merge",
           "description": "Merge multiple SRT files into one. Free, browser-based, no upload to servers."
         })}</script>
       </Helmet>

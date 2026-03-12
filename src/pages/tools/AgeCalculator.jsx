@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Calendar, Cake, Clock, Gift, Hash, Baby } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -49,7 +49,7 @@ export function AgeCalculator() {
   return (
     <>
       <Helmet>
-        <title>Professional Age Calculator — Years, Months, Days | VidToolbox</title>
+        <title>Professional Age Calculator — Years, Months, Days | Tenreq</title>
         <meta name="description" content="Calculate your exact age in years, months, and days. Countdown to your next birthday and discover what day of the week you were born." />
       </Helmet>
 

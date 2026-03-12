@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Split, RefreshCw, Layers } from 'lucide-react'
 import { diff_match_patch } from 'diff-match-patch'
@@ -64,9 +64,9 @@ export function TextCompare() {
       ]}
     >
       <Helmet>
-        <title>Text Compare — Online Diff Checker Tool | VidToolbox</title>
+        <title>Text Compare — Online Diff Checker Tool | Tenreq</title>
         <meta name="description" content="Compare two blocks of text and see the differences instantly. Highlight additions and deletions in your scripts or articles. Free, online, and secure." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/text-compare" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/text-compare" />
       </Helmet>
 
       <div className="p-6">

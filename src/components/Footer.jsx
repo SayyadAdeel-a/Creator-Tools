@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { Zap } from 'lucide-react'
 
 export function Footer() {
@@ -7,12 +7,12 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-2">
-            <img src="/logo.svg" alt="VidToolbox Logo" className="w-6 h-6" />
-            <span className="font-heading font-semibold text-slate-900">VidToolbox</span>
+            <img src="/logo.svg" alt="Tenreq Logo" className="w-6 h-6" />
+            <span className="font-heading font-semibold text-slate-900">Tenreq</span>
           </Link>
 
           <p className="text-sm text-slate-500">
-            © {new Date().getFullYear()} VidToolbox. All rights reserved.
+            © {new Date().getFullYear()} Tenreq. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6">

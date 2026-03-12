@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Hash, Copy, Check, Info, Eraser } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -43,9 +43,9 @@ export function YoutubeTags() {
   return (
     <>
       <Helmet>
-        <title>YouTube Tags Extractor — Analyze Video Keywords | VidToolbox</title>
+        <title>YouTube Tags Extractor — Analyze Video Keywords | Tenreq</title>
         <meta name="description" content="Extract hidden tags from any YouTube video page source or clean up your comma-separated tag lists. Track character limits and copy tags for SEO instantly." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/youtube-tags" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/youtube-tags" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -53,7 +53,7 @@ export function YoutubeTags() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/youtube-tags",
+          "url": "https://tenreq.qzz.io/tools/youtube-tags",
           "description": "Analyze competitor keywords or prepare your own tag lists with character count tracking."
         })}</script>
       </Helmet>

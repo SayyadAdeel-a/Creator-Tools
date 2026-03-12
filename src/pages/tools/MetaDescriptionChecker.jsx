@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Info, Type } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -50,9 +50,9 @@ export function MetaDescriptionChecker() {
       ]}
     >
       <Helmet>
-        <title>Meta Description Length Checker — Free SEO Tool | VidToolbox</title>
+        <title>Meta Description Length Checker — Free SEO Tool | Tenreq</title>
         <meta name="description" content="Check your meta description length in real-time. Ensure your SEO snippets are perfect for Google search results. Free, instant, and browser-based." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/meta-description-checker" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/meta-description-checker" />
       </Helmet>
 
       <div className="p-6">

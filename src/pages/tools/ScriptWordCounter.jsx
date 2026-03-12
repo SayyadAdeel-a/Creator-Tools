@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Type, AlignLeft, Clock, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -25,12 +25,12 @@ export function ScriptWordCounter() {
   return (
     <>
       <Helmet>
-        <title>YouTube Script Word Counter — Estimate Video Duration Free | VidToolbox</title>
+        <title>YouTube Script Word Counter — Estimate Video Duration Free | Tenreq</title>
         <meta name="description" content="Count words in your YouTube or podcast script and estimate how long your video will be. Free online tool based on a 130 wpm speaking rate. No sign-up, works instantly in your browser." />
         <meta name="keywords" content="YouTube script word counter, video script word count, estimate video duration, script length calculator, word counter for video" />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/script-word-counter" />
-        <meta property="og:title" content="YouTube Script Word Counter — Estimate Video Duration | VidToolbox" />
-        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/script-word-counter" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/script-word-counter" />
+        <meta property="og:title" content="YouTube Script Word Counter — Estimate Video Duration | Tenreq" />
+        <meta property="og:url" content="https://tenreq.qzz.io/tools/script-word-counter" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -38,7 +38,7 @@ export function ScriptWordCounter() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/script-word-counter",
+          "url": "https://tenreq.qzz.io/tools/script-word-counter",
           "description": "Count words in video scripts and estimate video duration. Free, browser-based tool."
         })}</script>
       </Helmet>

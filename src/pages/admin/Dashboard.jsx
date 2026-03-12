@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
 import { Wrench, TrendingUp, FileText, Eye } from 'lucide-react'
@@ -92,7 +92,7 @@ export function AdminDashboard() {
 
     return (
         <>
-            <Helmet><title>Dashboard — VidToolbox Admin</title></Helmet>
+            <Helmet><title>Dashboard — Tenreq Admin</title></Helmet>
             <AdminLayout>
                 <div className="p-8">
                     <h1 className="text-2xl font-heading font-bold text-slate-900 mb-6">Dashboard</h1>

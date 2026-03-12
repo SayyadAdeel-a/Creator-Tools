@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Layers, Copy, Check, Hash, ArrowRight, MoveDown, MoveRight, MoveUpRight, CircleDot } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -31,7 +31,7 @@ export function GradientGenerator() {
   return (
     <>
       <Helmet>
-        <title>CSS Gradient Generator — Modern Design Tool | VidToolbox</title>
+        <title>CSS Gradient Generator — Modern Design Tool | Tenreq</title>
         <meta name="description" content="Design beautiful linear and radial CSS gradients. Real-time preview with direction controls and one-click CSS code generation for your projects." />
       </Helmet>
 

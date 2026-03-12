@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Box, Copy, Check, Hash } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -33,7 +33,7 @@ export function RgbToHex() {
   return (
     <>
       <Helmet>
-        <title>RGB to HEX Converter — Web Design Color Tools | VidToolbox</title>
+        <title>RGB to HEX Converter — Web Design Color Tools | Tenreq</title>
         <meta name="description" content="Convert RGB color values to HEX codes instantly. Free online color converter for web developers and designers with live preview and code copying." />
       </Helmet>
 

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { CalendarRange, Calendar, Clock, BarChart, Coffee, Briefcase } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -41,7 +41,7 @@ export function DateDifference() {
   return (
     <>
       <Helmet>
-        <title>Days Between Dates Calculator — Project Timeline Tool | VidToolbox</title>
+        <title>Days Between Dates Calculator — Project Timeline Tool | Tenreq</title>
         <meta name="description" content="Calculate the exact number of days, weeks, and working days between two dates. Ideal for project management and timeline planning." />
       </Helmet>
 

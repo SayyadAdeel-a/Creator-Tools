@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Hash, Search } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -55,9 +55,9 @@ export function KeywordDensity() {
       ]}
     >
       <Helmet>
-        <title>Keyword Density Checker — Free SEO Content Tool | VidToolbox</title>
+        <title>Keyword Density Checker — Free SEO Content Tool | Tenreq</title>
         <meta name="description" content="Calculate your keyword density instantly. Optimize your blog posts and articles for SEO by checking target keyword frequency. Free and browser-based." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/keyword-density" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/keyword-density" />
       </Helmet>
 
       <div className="p-6">

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Percent, Hash, Calculator, RefreshCcw, TrendingUp } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -29,7 +29,7 @@ export function PercentageCalculator() {
   return (
     <>
       <Helmet>
-        <title>Percentage Calculator — Fast Online Math Tool | VidToolbox</title>
+        <title>Percentage Calculator — Fast Online Math Tool | Tenreq</title>
         <meta name="description" content="Calculate percentages, percentage increases, and proportions instantly. Three powerful modes for all your business and financial math needs. Free online calculator." />
       </Helmet>
 

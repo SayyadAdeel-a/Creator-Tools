@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { ArrowLeft, CheckCircle } from 'lucide-react'
@@ -84,7 +84,7 @@ export function BlogEditor() {
 
     return (
         <>
-            <Helmet><title>{isNew ? 'New Post' : 'Edit Post'} — VidToolbox Admin</title></Helmet>
+            <Helmet><title>{isNew ? 'New Post' : 'Edit Post'} — Tenreq Admin</title></Helmet>
             <AdminLayout>
                 <div className="p-8 max-w-4xl">
                     <div className="flex items-center justify-between mb-6">

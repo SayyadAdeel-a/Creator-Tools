@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { FileCode, Copy, CheckCircle2, ShieldAlert } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -66,9 +66,9 @@ export function Base64() {
       ]}
     >
       <Helmet>
-        <title>Base64 Encoder & Decoder Online Free | VidToolbox</title>
+        <title>Base64 Encoder & Decoder Online Free | Tenreq</title>
         <meta name="description" content="Convert your text to Base64 or decode Base64 strings instantly. Useful for developers, API testing, and data transport. Free, secure, and browser-based." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/base64" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/base64" />
       </Helmet>
 
       <div className="p-6">

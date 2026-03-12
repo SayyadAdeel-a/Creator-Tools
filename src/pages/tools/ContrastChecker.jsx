@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Eye, ShieldCheck, AlertCircle, CheckCircle2, XCircle } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -47,7 +47,7 @@ export function ContrastChecker() {
   return (
     <>
       <Helmet>
-        <title>WCAG Color Contrast Checker — Accessibility Tool | VidToolbox</title>
+        <title>WCAG Color Contrast Checker — Accessibility Tool | Tenreq</title>
         <meta name="description" content="Validate your color combinations against WCAG 2.1 accessibility standards. Check contrast ratios for normal and large text to ensure your designs are readable by everyone." />
       </Helmet>
 

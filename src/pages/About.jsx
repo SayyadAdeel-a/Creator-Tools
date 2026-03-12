@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+﻿import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { Zap, Target, Globe, Heart, Mail } from 'lucide-react'
 import { Layout } from '../components/Layout'
@@ -32,16 +32,16 @@ export function About() {
     return (
         <Layout>
             <Helmet>
-                <title>About — VidToolbox</title>
-                <meta name="description" content="VidToolbox is a free collection of browser-based tools for content creators — built to save you time, every day." />
+                <title>About — Tenreq</title>
+                <meta name="description" content="Tenreq is a free collection of browser-based tools for content creators — built to save you time, every day." />
             </Helmet>
 
             {/* Hero */}
             <section className="bg-gradient-to-b from-white to-slate-50 border-b border-slate-100 py-20">
                 <div className="max-w-3xl mx-auto px-4 text-center">
-                    <img src="/logo.svg" alt="VidToolbox Logo" className="w-14 h-14 mx-auto mb-6" />
+                    <img src="/logo.svg" alt="Tenreq Logo" className="w-14 h-14 mx-auto mb-6" />
                     <h1 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mb-5">
-                        About <span className="text-cyan-500">VidToolbox</span>
+                        About <span className="text-cyan-500">Tenreq</span>
                     </h1>
                     <p className="text-xl text-slate-500 leading-relaxed">
                         A free, no-nonsense toolbox built specifically for content creators who spend too much time on repetitive tasks.
@@ -72,7 +72,7 @@ export function About() {
                             Content creators spend hours every week doing repetitive technical work — cleaning subtitle files, counting words, converting formats. That time should go toward creating, not formatting.
                         </p>
                         <p>
-                            VidToolbox was built to give creators a reliable set of browser-based utilities that are fast, free, and private. No bloated software, no sign-up walls, no file uploads to mysterious servers — just tools that work.
+                            Tenreq was built to give creators a reliable set of browser-based utilities that are fast, free, and private. No bloated software, no sign-up walls, no file uploads to mysterious servers — just tools that work.
                         </p>
                         <p>
                             Whether you're editing subtitles for a YouTube video, calculating the reading time for a blog post, or generating URL slugs for your content calendar — we've got you covered.

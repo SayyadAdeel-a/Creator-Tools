@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+﻿import { useState, useRef } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Copy, Link2 } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -31,12 +31,12 @@ export function SlugGenerator() {
   return (
     <>
       <Helmet>
-        <title>URL Slug Generator — Create SEO-Friendly Slugs Free | VidToolbox</title>
+        <title>URL Slug Generator — Create SEO-Friendly Slugs Free | Tenreq</title>
         <meta name="description" content="Generate clean, SEO-friendly URL slugs from any text instantly. Lowercase, hyphenated, special-character-free. Free online tool for bloggers, developers and content creators." />
         <meta name="keywords" content="slug generator, URL slug, create URL slug, SEO friendly URL, permalink generator, blog slug tool" />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/slug-generator" />
-        <meta property="og:title" content="URL Slug Generator — SEO-Friendly Slugs Free | VidToolbox" />
-        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/slug-generator" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/slug-generator" />
+        <meta property="og:title" content="URL Slug Generator — SEO-Friendly Slugs Free | Tenreq" />
+        <meta property="og:url" content="https://tenreq.qzz.io/tools/slug-generator" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -44,7 +44,7 @@ export function SlugGenerator() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/slug-generator",
+          "url": "https://tenreq.qzz.io/tools/slug-generator",
           "description": "Generate clean, SEO-friendly URL slugs from any text. Free and instant."
         })}</script>
       </Helmet>

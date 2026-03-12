@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Clock, Plus, Trash2, Eraser, Check, Video, Info } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -58,9 +58,9 @@ export function DurationCalculator() {
   return (
     <>
       <Helmet>
-        <title>Video Duration Calculator — Sum Up Your Video Clips | VidToolbox</title>
+        <title>Video Duration Calculator — Sum Up Your Video Clips | Tenreq</title>
         <meta name="description" content="Calculate the total duration of your video recording sessions or editing timeline. Support for MM:SS and HH:MM:SS formats with average clip length and statistics. Free online tool." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/duration-calculator" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/duration-calculator" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -68,7 +68,7 @@ export function DurationCalculator() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/duration-calculator",
+          "url": "https://tenreq.qzz.io/tools/duration-calculator",
           "description": "Sum up multiple clip durations and analyze your video recording sessions effortlessly."
         })}</script>
       </Helmet>

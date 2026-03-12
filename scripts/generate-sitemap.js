@@ -1,4 +1,4 @@
-// scripts/generate-sitemap.js
+﻿// scripts/generate-sitemap.js
 // Run at build time: node scripts/generate-sitemap.js
 // Fetches published blog posts from Supabase and writes public/sitemap.xml
 
@@ -8,7 +8,7 @@ import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const SITE_URL = 'https://vidtoolbox.qzz.io'
+const SITE_URL = 'https://tenreq.qzz.io'
 
 const STATIC_PAGES = [
     { loc: '/', changefreq: 'weekly', priority: '1.0' },

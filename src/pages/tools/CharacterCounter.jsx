@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Hash, Copy, Check, Info, Trash2, Smartphone, Monitor, LayoutGrid, Twitter, Instagram, Linkedin, Facebook, Youtube } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -30,9 +30,9 @@ export function CharacterCounter() {
   return (
     <>
       <Helmet>
-        <title>Social Media Character Counter — Post Limit Accuracy | VidToolbox</title>
+        <title>Social Media Character Counter — Post Limit Accuracy | Tenreq</title>
         <meta name="description" content="Check character counts for all social media platforms simultaneously. Stay under limits for Twitter, Instagram, LinkedIn, TikTok, and YouTube with a real-time progress bar. Free SEO content tool." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/character-counter" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/character-counter" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -40,7 +40,7 @@ export function CharacterCounter() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/character-counter",
+          "url": "https://tenreq.qzz.io/tools/character-counter",
           "description": "Simultaneous character count analysis for all major social media platforms with limit-aware progress indicators."
         })}</script>
       </Helmet>

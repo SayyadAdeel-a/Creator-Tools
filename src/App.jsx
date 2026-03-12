@@ -55,6 +55,19 @@ import { UnitConverter } from './pages/tools/UnitConverter'
 import { AgeCalculator } from './pages/tools/AgeCalculator'
 import { DateDifference } from './pages/tools/DateDifference'
 import { NumberToWords } from './pages/tools/NumberToWords'
+import { PasswordGenerator } from './pages/tools/PasswordGenerator'
+import { PasswordStrength } from './pages/tools/PasswordStrength'
+import { Md5Generator } from './pages/tools/Md5Generator'
+import { Sha256Generator } from './pages/tools/Sha256Generator'
+import { LoremIpsum } from './pages/tools/LoremIpsum'
+import { UuidGenerator } from './pages/tools/UuidGenerator'
+import { CsvToJson } from './pages/tools/CsvToJson'
+import { JsonToCsv } from './pages/tools/JsonToCsv'
+import { MarkdownToHtml } from './pages/tools/MarkdownToHtml'
+import { HtmlToMarkdown } from './pages/tools/HtmlToMarkdown'
+import { HtmlEncoder } from './pages/tools/HtmlEncoder'
+import { CaseConverter } from './pages/tools/CaseConverter'
+import { LineSorter } from './pages/tools/LineSorter'
 import { AdminGuard } from './components/AdminGuard'
 import { AdminLogin } from './pages/admin/Login'
 import { AdminDashboard } from './pages/admin/Dashboard'
@@ -135,6 +148,19 @@ function App() {
           <Route path="/tools/age-calculator" element={<AgeCalculator />} />
           <Route path="/tools/date-difference" element={<DateDifference />} />
           <Route path="/tools/number-to-words" element={<NumberToWords />} />
+          <Route path="/tools/password-generator" element={<PasswordGenerator />} />
+          <Route path="/tools/password-strength" element={<PasswordStrength />} />
+          <Route path="/tools/md5-generator" element={<Md5Generator />} />
+          <Route path="/tools/sha256-generator" element={<Sha256Generator />} />
+          <Route path="/tools/lorem-ipsum" element={<LoremIpsum />} />
+          <Route path="/tools/uuid-generator" element={<UuidGenerator />} />
+          <Route path="/tools/csv-to-json" element={<CsvToJson />} />
+          <Route path="/tools/json-to-csv" element={<JsonToCsv />} />
+          <Route path="/tools/markdown-to-html" element={<MarkdownToHtml />} />
+          <Route path="/tools/html-to-markdown" element={<HtmlToMarkdown />} />
+          <Route path="/tools/html-encoder" element={<HtmlEncoder />} />
+          <Route path="/tools/case-converter" element={<CaseConverter />} />
+          <Route path="/tools/line-sorter" element={<LineSorter />} />
 
           <Route path="/blog" element={<BlogIndex />} />
           <Route path="/blog/:slug" element={<BlogPost />} />

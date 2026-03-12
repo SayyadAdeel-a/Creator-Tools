@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { 
   Search, FileText, Type, Hash, Clock, Split, Merge, Eraser, List, Link2, 
@@ -166,7 +166,7 @@ export function Home() {
               <Share2 className="w-10 h-10 text-cyan-400 mb-6" />
               <h3 className="text-xl font-bold text-white mb-4">Always Free</h3>
               <p className="text-slate-400 leading-relaxed text-sm">
-                VidToolbox is built for creators, by creators. Our goal is to provide high-quality utilities at no cost, forever.
+                Tenreq is built for creators, by creators. Our goal is to provide high-quality utilities at no cost, forever.
               </p>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Type, Clock, ArrowRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -21,12 +21,12 @@ export function ReadingTime() {
   return (
     <>
       <Helmet>
-        <title>Reading Time Calculator — Estimate Blog & Article Read Time Free | VidToolbox</title>
+        <title>Reading Time Calculator — Estimate Blog & Article Read Time Free | Tenreq</title>
         <meta name="description" content="Calculate the estimated reading time of any blog post, article, or script instantly. Free online tool based on an average 200 wpm reading speed. No account needed." />
         <meta name="keywords" content="reading time calculator, estimate reading time, how long to read, blog reading time, article read time tool" />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/reading-time" />
-        <meta property="og:title" content="Reading Time Calculator — Estimate Blog Read Time | VidToolbox" />
-        <meta property="og:url" content="https://vidtoolbox.qzz.io/tools/reading-time" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/reading-time" />
+        <meta property="og:title" content="Reading Time Calculator — Estimate Blog Read Time | Tenreq" />
+        <meta property="og:url" content="https://tenreq.qzz.io/tools/reading-time" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -34,7 +34,7 @@ export function ReadingTime() {
           "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/reading-time",
+          "url": "https://tenreq.qzz.io/tools/reading-time",
           "description": "Calculate how long it takes to read any text at 200 words per minute. Free and instant."
         })}</script>
       </Helmet>

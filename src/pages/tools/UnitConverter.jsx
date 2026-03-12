@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Ruler, Scale, Thermometer, ArrowRightLeft, MoveRight } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -66,7 +66,7 @@ export function UnitConverter() {
   return (
     <>
       <Helmet>
-        <title>Universal Unit Converter — Length, Weight, Temp | VidToolbox</title>
+        <title>Universal Unit Converter — Length, Weight, Temp | Tenreq</title>
         <meta name="description" content="Calculate and convert between metric and imperial units instantly. Supports length, weight, and temperature conversions with real-time updates." />
       </Helmet>
 

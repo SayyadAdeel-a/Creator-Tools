@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Copy, Wand2, Check } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -73,9 +73,9 @@ export function YoutubeTitleGenerator() {
   return (
     <>
       <Helmet>
-        <title>YouTube Title Generator — Free Video Title Ideas | VidToolbox</title>
+        <title>YouTube Title Generator — Free Video Title Ideas | Tenreq</title>
         <meta name="description" content="Generate high-CTR YouTube titles instantly. Choose from different tones like How To, Listicle, and Story. Free creator tool for viral video titles." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/youtube-title-generator" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/youtube-title-generator" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -83,7 +83,7 @@ export function YoutubeTitleGenerator() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/youtube-title-generator",
+          "url": "https://tenreq.qzz.io/tools/youtube-title-generator",
           "description": "Generate viral YouTube titles based on your topic and preferred tone. Free and instant."
         })}</script>
       </Helmet>

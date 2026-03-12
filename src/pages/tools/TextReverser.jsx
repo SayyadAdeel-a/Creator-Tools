@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Undo2, Copy, CheckCircle2 } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -66,9 +66,9 @@ export function TextReverser() {
       ]}
     >
       <Helmet>
-        <title>Text Reverser — Reverse Letters & Words Online | VidToolbox</title>
+        <title>Text Reverser — Reverse Letters & Words Online | Tenreq</title>
         <meta name="description" content="Flip your text or reverse word order instantly. A fun and useful tool for creating backwards text, solving puzzles, or reordering lists. Free and browser-based." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/text-reverser" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/text-reverser" />
       </Helmet>
 
       <div className="p-6">

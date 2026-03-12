@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Monitor, Smartphone, Video, Maximize, MoveRight, ArrowRight, RefreshCcw } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -45,7 +45,7 @@ export function AspectRatio() {
   return (
     <>
       <Helmet>
-        <title>Aspect Ratio Calculator — Video & Photo Tools | VidToolbox</title>
+        <title>Aspect Ratio Calculator — Video & Photo Tools | Tenreq</title>
         <meta name="description" content="Calculate and simplify aspect ratios for video and photography. Find dimensions for 16:9, 4:3, 21:9, and more. Free tool for YouTube creators and designers." />
       </Helmet>
 

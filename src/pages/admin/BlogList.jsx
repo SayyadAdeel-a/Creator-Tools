@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link, useNavigate } from 'react-router-dom'
 import { Plus, Trash2, Pencil } from 'lucide-react'
@@ -31,7 +31,7 @@ export function BlogList() {
 
     return (
         <>
-            <Helmet><title>Blog Posts — VidToolbox Admin</title></Helmet>
+            <Helmet><title>Blog Posts — Tenreq Admin</title></Helmet>
             <AdminLayout>
                 <div className="p-8">
                     <div className="flex items-center justify-between mb-6">

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { User, Twitter, Instagram, Youtube, Music2, Linkedin, CheckCircle2, XCircle } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -25,9 +25,9 @@ export function BioLengthChecker() {
   return (
     <>
       <Helmet>
-        <title>Bio Length Checker — Professional Social Media Bios | VidToolbox</title>
+        <title>Bio Length Checker — Professional Social Media Bios | Tenreq</title>
         <meta name="description" content="Validate your social media bio against Twitter, Instagram, TikTok, and YouTube limits. Ensure your message is clear and never cut off. Free online bio tool." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/bio-length-checker" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/bio-length-checker" />
       </Helmet>
 
       <ToolPage

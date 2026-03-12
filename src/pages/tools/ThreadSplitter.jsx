@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Twitter, Split, Copy, Check, Hash, AlertTriangle, List, ArrowDownWideArrow } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -74,9 +74,9 @@ export function ThreadSplitter() {
   return (
     <>
       <Helmet>
-        <title>Twitter/X Thread Splitter — Split Long Text for Threads | VidToolbox</title>
+        <title>Twitter/X Thread Splitter — Split Long Text for Threads | Tenreq</title>
         <meta name="description" content="Effortlessly split your long-form thoughts or blog posts into a perfectly numbered Twitter thread. Stay under the 280 character limit with automatic sentence splitting." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/thread-splitter" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/thread-splitter" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -84,7 +84,7 @@ export function ThreadSplitter() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/thread-splitter",
+          "url": "https://tenreq.qzz.io/tools/thread-splitter",
           "description": "Divide and conquer your long-form text into a numbered sequence of tweets for X/Twitter engagement."
         })}</script>
       </Helmet>

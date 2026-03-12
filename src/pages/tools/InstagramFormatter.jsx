@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Copy, Instagram, Type, Check, Eye, Smartphone, AlertCircle } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -23,9 +23,9 @@ export function InstagramFormatter() {
   return (
     <>
       <Helmet>
-        <title>Instagram Caption Formatter — Add Real Line Breaks | VidToolbox</title>
+        <title>Instagram Caption Formatter — Add Real Line Breaks | Tenreq</title>
         <meta name="description" content="Maintain clean line breaks and spacing in your Instagram captions. Our tool adds invisible characters to prevent Instagram from collapsing your paragraphs. Free online formatter." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/instagram-formatter" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/instagram-formatter" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -33,7 +33,7 @@ export function InstagramFormatter() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/instagram-formatter",
+          "url": "https://tenreq.qzz.io/tools/instagram-formatter",
           "description": "Ensure your Instagram captions keep their spacing and line breaks with invisible character injection."
         })}</script>
       </Helmet>

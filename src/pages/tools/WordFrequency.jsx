@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Hash, List, Filter, ArrowUpDown } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -46,9 +46,9 @@ export function WordFrequency() {
   return (
     <>
       <Helmet>
-        <title>Word Frequency Counter — Content SEO Tool | VidToolbox</title>
+        <title>Word Frequency Counter — Content SEO Tool | Tenreq</title>
         <meta name="description" content="Analyze keyword density and word frequency in your content. Identify overused words and optimize your writing for better SEO and readability." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/word-frequency" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/word-frequency" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -56,7 +56,7 @@ export function WordFrequency() {
           "applicationCategory": "MultimediaApplication",
           "operatingSystem": "Web",
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-          "url": "https://vidtoolbox.qzz.io/tools/word-frequency",
+          "url": "https://tenreq.qzz.io/tools/word-frequency",
           "description": "Analyze word frequency and patterns in your text for SEO and writing improvement."
         })}</script>
       </Helmet>

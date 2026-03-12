@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+﻿import { Helmet } from 'react-helmet-async'
 import { Shield, Lock, EyeOff, ServerOff } from 'lucide-react'
 import { Layout } from '../components/Layout'
 
@@ -6,8 +6,8 @@ export function Privacy() {
     return (
         <Layout>
             <Helmet>
-                <title>Privacy Policy — VidToolbox</title>
-                <meta name="description" content="Privacy Policy for VidToolbox. We are a privacy-first collection of tools for creators where everything happens in your browser." />
+                <title>Privacy Policy — Tenreq</title>
+                <meta name="description" content="Privacy Policy for Tenreq. We are a privacy-first collection of tools for creators where everything happens in your browser." />
             </Helmet>
 
             {/* Hero */}
@@ -31,7 +31,7 @@ export function Privacy() {
                     <div className="prose prose-slate max-w-none text-slate-600">
                         <h2 className="text-xl font-heading font-bold text-slate-900 mt-0">Introduction</h2>
                         <p>
-                            At VidToolbox, we believe that your data belongs to you. This Privacy Policy outlines how we handle information across our website and tools. Our core philosophy is <strong>Privacy by Design</strong>.
+                            At Tenreq, we believe that your data belongs to you. This Privacy Policy outlines how we handle information across our website and tools. Our core philosophy is <strong>Privacy by Design</strong>.
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-10 not-prose">
@@ -64,7 +64,7 @@ export function Privacy() {
 
                         <h2 className="text-xl font-heading font-bold text-slate-900">3. Analytics</h2>
                         <p>
-                            To improve our website, we collect anonymous usage statistics (such as which tools are the most popular). This data does not contain any personally identifiable information (PII). We use it only to understand which areas of VidToolbox need the most attention and improvement.
+                            To improve our website, we collect anonymous usage statistics (such as which tools are the most popular). This data does not contain any personally identifiable information (PII). We use it only to understand which areas of Tenreq need the most attention and improvement.
                         </p>
 
                         <h2 className="text-xl font-heading font-bold text-slate-900">4. Third-Party Services</h2>

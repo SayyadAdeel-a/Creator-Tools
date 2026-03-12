@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Type, Twitter, Instagram, Linkedin, Youtube, Music2, CheckCircle2, AlertCircle } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -26,9 +26,9 @@ export function SocialCharacterCounter() {
   return (
     <>
       <Helmet>
-        <title>Social Media Character Counter — Check Limits for All Platforms | VidToolbox</title>
+        <title>Social Media Character Counter — Check Limits for All Platforms | Tenreq</title>
         <meta name="description" content="Check your character count for Twitter, Instagram, TikTok, LinkedIn, and YouTube simultaneously. Instant feedback on platform-specific limits. Free online character counter." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/social-character-counter" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/social-character-counter" />
       </Helmet>
 
       <ToolPage

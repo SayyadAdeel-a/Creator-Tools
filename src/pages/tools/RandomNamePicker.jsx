@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { UserCheck, RotateCcw, Trophy, Trash2 } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -63,9 +63,9 @@ export function RandomNamePicker() {
       ]}
     >
       <Helmet>
-        <title>Random Name Picker — Pick a Winner Online Free | VidToolbox</title>
+        <title>Random Name Picker — Pick a Winner Online Free | Tenreq</title>
         <meta name="description" content="Pick a random name from your list instantly. Perfect for giveaways, raffles, and choosing winners fairly. No sign-up required, 100% free and private." />
-        <link rel="canonical" href="https://vidtoolbox.qzz.io/tools/random-name-picker" />
+        <link rel="canonical" href="https://tenreq.qzz.io/tools/random-name-picker" />
       </Helmet>
 
       <div className="p-6">

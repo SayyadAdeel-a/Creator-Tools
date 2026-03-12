@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+﻿import { useState, useMemo } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Palette, Copy, Check, Hash, Wand2, Layers, Grid } from 'lucide-react'
 import { ToolPage } from '../../components/ToolPage'
@@ -117,7 +117,7 @@ export function ColorPalette() {
   return (
     <>
       <Helmet>
-        <title>Color Palette Generator — Design Systems Tool | VidToolbox</title>
+        <title>Color Palette Generator — Design Systems Tool | Tenreq</title>
         <meta name="description" content="Generate beautiful analogous, triadic, and complementary color palettes based on a base HEX color. Free tool for designers and front-end developers." />
       </Helmet>
 
