@@ -2,14 +2,22 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KSSGPD2F2Y"></script>
-  <script>
+  <!-- Google tag (gtag.js) - Deferred loading -->
+  <script type="text/javascript">
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-KSSGPD2F2Y');
+
+    // Load GTM strictly after the main page is interactive
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-KSSGPD2F2Y';
+        script.async = true;
+        document.head.appendChild(script);
+      }, 500); // 500ms delay ensures critical path is clear
+    });
   </script>
 
   <meta charset="UTF-8" />

@@ -69,7 +69,7 @@ const HtmlToMarkdown = lazy(() => import('./pages/tools/HtmlToMarkdown').then(mo
 const HtmlEncoder = lazy(() => import('./pages/tools/HtmlEncoder').then(module => ({ default: module.HtmlEncoder })));
 const CaseConverter = lazy(() => import('./pages/tools/CaseConverter').then(module => ({ default: module.CaseConverter })));
 const LineSorter = lazy(() => import('./pages/tools/LineSorter').then(module => ({ default: module.LineSorter })));
-import { AdminGuard } from './components/AdminGuard'
+const AdminGuard = lazy(() => import('./components/AdminGuard').then(module => ({ default: module.AdminGuard })));
 const AdminLogin = lazy(() => import('./pages/admin/Login').then(module => ({ default: module.AdminLogin })));
 const AdminDashboard = lazy(() => import('./pages/admin/Dashboard').then(module => ({ default: module.AdminDashboard })));
 const BlogList = lazy(() => import('./pages/admin/BlogList').then(module => ({ default: module.BlogList })));

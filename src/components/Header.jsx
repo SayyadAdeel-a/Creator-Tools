@@ -9,7 +9,6 @@ import {
   Twitter, Instagram, Wand2, TrendingUp, Smartphone, Palette, Calculator, ShieldCheck, Layers, Tag, Sun, Percent, Maximize, HardDrive, Ruler, Baby, CalendarRange
 } from 'lucide-react'
 import { cn } from '../lib/utils'
-import { supabase } from '../lib/supabase'
 
 const youtubeTools = [
   { name: 'YouTube Title Gen', path: '/tools/youtube-title-generator', icon: Wand2 },
@@ -112,11 +111,15 @@ export function Header() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setUser(data.session?.user ?? null))
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
-      setUser(session?.user ?? null)
-    })
-    return () => subscription.unsubscribe()
+    let subscription = null;
+    import('../lib/supabase').then(({ supabase }) => {
+      supabase.auth.getSession().then(({ data }) => setUser(data.session?.user ?? null))
+      const { data } = supabase.auth.onAuthStateChange((_e, session) => {
+        setUser(session?.user ?? null)
+      })
+      subscription = data.subscription;
+    });
+    return () => { if (subscription) subscription.unsubscribe() }
   }, [])
 
   useEffect(() => {
@@ -126,6 +129,7 @@ export function Header() {
   }, [])
 
   const handleSignOut = async () => {
+    const { supabase } = await import('../lib/supabase');
     await supabase.auth.signOut()
     setUserMenuOpen(false)
     navigate('/')
