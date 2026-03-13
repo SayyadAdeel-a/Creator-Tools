@@ -1,85 +1,86 @@
+import { Suspense, lazy } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { Home } from './pages/Home'
-import { SrtToText } from './pages/tools/SrtToText'
-import { SubtitleCleaner } from './pages/tools/SubtitleCleaner'
-import { SubtitleCounter } from './pages/tools/SubtitleCounter'
-import { SubtitleMerge } from './pages/tools/SubtitleMerge'
-import { SubtitleSplit } from './pages/tools/SubtitleSplit'
-import { ScriptWordCounter } from './pages/tools/ScriptWordCounter'
-import { ReadingTime } from './pages/tools/ReadingTime'
-import { TitleCase } from './pages/tools/TitleCase'
-import { SlugGenerator } from './pages/tools/SlugGenerator'
-import { HashtagCounter } from './pages/tools/HashtagCounter'
-import { MetaDescriptionChecker } from './pages/tools/MetaDescriptionChecker'
-import { KeywordDensity } from './pages/tools/KeywordDensity'
-import { TextCompare } from './pages/tools/TextCompare'
-import { RemoveExtraSpaces } from './pages/tools/RemoveExtraSpaces'
-import { TextReverser } from './pages/tools/TextReverser'
-import { RandomNamePicker } from './pages/tools/RandomNamePicker'
-import { RandomTeamGenerator } from './pages/tools/RandomTeamGenerator'
-import { UrlEncoder } from './pages/tools/UrlEncoder'
-import { Base64 } from './pages/tools/Base64'
-import { JsonFormatter } from './pages/tools/JsonFormatter'
-import { YoutubeTitleGenerator } from './pages/tools/YoutubeTitleGenerator'
-import { YoutubeDescriptionFormatter } from './pages/tools/YoutubeDescriptionFormatter'
-import { TimestampGenerator } from './pages/tools/TimestampGenerator'
-import { YoutubeTags } from './pages/tools/YoutubeTags'
-import { ScriptOutline } from './pages/tools/ScriptOutline'
-import { ThumbnailText } from './pages/tools/ThumbnailText'
-import { DurationCalculator } from './pages/tools/DurationCalculator'
-import { WordFrequency } from './pages/tools/WordFrequency'
-import { SentenceCounter } from './pages/tools/SentenceCounter'
-import { ReadabilityScore } from './pages/tools/ReadabilityScore'
-import { ArticleTitleChecker } from './pages/tools/ArticleTitleChecker'
-import { MetaTitleChecker } from './pages/tools/MetaTitleChecker'
-import { DuplicateLineRemover } from './pages/tools/DuplicateLineRemover'
-import { TextToBullets } from './pages/tools/TextToBullets'
-import { InstagramFormatter } from './pages/tools/InstagramFormatter'
-import { ThreadSplitter } from './pages/tools/ThreadSplitter'
-import { EmojiRemover } from './pages/tools/EmojiRemover'
-import { HashtagGenerator } from './pages/tools/HashtagGenerator'
-import { CharacterCounter } from './pages/tools/CharacterCounter'
-import { BioChecker } from './pages/tools/BioChecker'
-import { HexToRgb } from './pages/tools/HexToRgb'
-import { RgbToHex } from './pages/tools/RgbToHex'
-import { ColorPalette } from './pages/tools/ColorPalette'
-import { ContrastChecker } from './pages/tools/ContrastChecker'
-import { GradientGenerator } from './pages/tools/GradientGenerator'
-import { ColorName } from './pages/tools/ColorName'
-import { TintShade } from './pages/tools/TintShade'
-import { PercentageCalculator } from './pages/tools/PercentageCalculator'
-import { AspectRatio } from './pages/tools/AspectRatio'
-import { FileSizeConverter } from './pages/tools/FileSizeConverter'
-import { UnitConverter } from './pages/tools/UnitConverter'
-import { AgeCalculator } from './pages/tools/AgeCalculator'
-import { DateDifference } from './pages/tools/DateDifference'
-import { NumberToWords } from './pages/tools/NumberToWords'
-import { PasswordGenerator } from './pages/tools/PasswordGenerator'
-import { PasswordStrength } from './pages/tools/PasswordStrength'
-import { Md5Generator } from './pages/tools/Md5Generator'
-import { Sha256Generator } from './pages/tools/Sha256Generator'
-import { LoremIpsum } from './pages/tools/LoremIpsum'
-import { UuidGenerator } from './pages/tools/UuidGenerator'
-import { CsvToJson } from './pages/tools/CsvToJson'
-import { JsonToCsv } from './pages/tools/JsonToCsv'
-import { MarkdownToHtml } from './pages/tools/MarkdownToHtml'
-import { HtmlToMarkdown } from './pages/tools/HtmlToMarkdown'
-import { HtmlEncoder } from './pages/tools/HtmlEncoder'
-import { CaseConverter } from './pages/tools/CaseConverter'
-import { LineSorter } from './pages/tools/LineSorter'
+const SrtToText = lazy(() => import('./pages/tools/SrtToText').then(module => ({ default: module.SrtToText })));
+const SubtitleCleaner = lazy(() => import('./pages/tools/SubtitleCleaner').then(module => ({ default: module.SubtitleCleaner })));
+const SubtitleCounter = lazy(() => import('./pages/tools/SubtitleCounter').then(module => ({ default: module.SubtitleCounter })));
+const SubtitleMerge = lazy(() => import('./pages/tools/SubtitleMerge').then(module => ({ default: module.SubtitleMerge })));
+const SubtitleSplit = lazy(() => import('./pages/tools/SubtitleSplit').then(module => ({ default: module.SubtitleSplit })));
+const ScriptWordCounter = lazy(() => import('./pages/tools/ScriptWordCounter').then(module => ({ default: module.ScriptWordCounter })));
+const ReadingTime = lazy(() => import('./pages/tools/ReadingTime').then(module => ({ default: module.ReadingTime })));
+const TitleCase = lazy(() => import('./pages/tools/TitleCase').then(module => ({ default: module.TitleCase })));
+const SlugGenerator = lazy(() => import('./pages/tools/SlugGenerator').then(module => ({ default: module.SlugGenerator })));
+const HashtagCounter = lazy(() => import('./pages/tools/HashtagCounter').then(module => ({ default: module.HashtagCounter })));
+const MetaDescriptionChecker = lazy(() => import('./pages/tools/MetaDescriptionChecker').then(module => ({ default: module.MetaDescriptionChecker })));
+const KeywordDensity = lazy(() => import('./pages/tools/KeywordDensity').then(module => ({ default: module.KeywordDensity })));
+const TextCompare = lazy(() => import('./pages/tools/TextCompare').then(module => ({ default: module.TextCompare })));
+const RemoveExtraSpaces = lazy(() => import('./pages/tools/RemoveExtraSpaces').then(module => ({ default: module.RemoveExtraSpaces })));
+const TextReverser = lazy(() => import('./pages/tools/TextReverser').then(module => ({ default: module.TextReverser })));
+const RandomNamePicker = lazy(() => import('./pages/tools/RandomNamePicker').then(module => ({ default: module.RandomNamePicker })));
+const RandomTeamGenerator = lazy(() => import('./pages/tools/RandomTeamGenerator').then(module => ({ default: module.RandomTeamGenerator })));
+const UrlEncoder = lazy(() => import('./pages/tools/UrlEncoder').then(module => ({ default: module.UrlEncoder })));
+const Base64 = lazy(() => import('./pages/tools/Base64').then(module => ({ default: module.Base64 })));
+const JsonFormatter = lazy(() => import('./pages/tools/JsonFormatter').then(module => ({ default: module.JsonFormatter })));
+const YoutubeTitleGenerator = lazy(() => import('./pages/tools/YoutubeTitleGenerator').then(module => ({ default: module.YoutubeTitleGenerator })));
+const YoutubeDescriptionFormatter = lazy(() => import('./pages/tools/YoutubeDescriptionFormatter').then(module => ({ default: module.YoutubeDescriptionFormatter })));
+const TimestampGenerator = lazy(() => import('./pages/tools/TimestampGenerator').then(module => ({ default: module.TimestampGenerator })));
+const YoutubeTags = lazy(() => import('./pages/tools/YoutubeTags').then(module => ({ default: module.YoutubeTags })));
+const ScriptOutline = lazy(() => import('./pages/tools/ScriptOutline').then(module => ({ default: module.ScriptOutline })));
+const ThumbnailText = lazy(() => import('./pages/tools/ThumbnailText').then(module => ({ default: module.ThumbnailText })));
+const DurationCalculator = lazy(() => import('./pages/tools/DurationCalculator').then(module => ({ default: module.DurationCalculator })));
+const WordFrequency = lazy(() => import('./pages/tools/WordFrequency').then(module => ({ default: module.WordFrequency })));
+const SentenceCounter = lazy(() => import('./pages/tools/SentenceCounter').then(module => ({ default: module.SentenceCounter })));
+const ReadabilityScore = lazy(() => import('./pages/tools/ReadabilityScore').then(module => ({ default: module.ReadabilityScore })));
+const ArticleTitleChecker = lazy(() => import('./pages/tools/ArticleTitleChecker').then(module => ({ default: module.ArticleTitleChecker })));
+const MetaTitleChecker = lazy(() => import('./pages/tools/MetaTitleChecker').then(module => ({ default: module.MetaTitleChecker })));
+const DuplicateLineRemover = lazy(() => import('./pages/tools/DuplicateLineRemover').then(module => ({ default: module.DuplicateLineRemover })));
+const TextToBullets = lazy(() => import('./pages/tools/TextToBullets').then(module => ({ default: module.TextToBullets })));
+const InstagramFormatter = lazy(() => import('./pages/tools/InstagramFormatter').then(module => ({ default: module.InstagramFormatter })));
+const ThreadSplitter = lazy(() => import('./pages/tools/ThreadSplitter').then(module => ({ default: module.ThreadSplitter })));
+const EmojiRemover = lazy(() => import('./pages/tools/EmojiRemover').then(module => ({ default: module.EmojiRemover })));
+const HashtagGenerator = lazy(() => import('./pages/tools/HashtagGenerator').then(module => ({ default: module.HashtagGenerator })));
+const CharacterCounter = lazy(() => import('./pages/tools/CharacterCounter').then(module => ({ default: module.CharacterCounter })));
+const BioChecker = lazy(() => import('./pages/tools/BioChecker').then(module => ({ default: module.BioChecker })));
+const HexToRgb = lazy(() => import('./pages/tools/HexToRgb').then(module => ({ default: module.HexToRgb })));
+const RgbToHex = lazy(() => import('./pages/tools/RgbToHex').then(module => ({ default: module.RgbToHex })));
+const ColorPalette = lazy(() => import('./pages/tools/ColorPalette').then(module => ({ default: module.ColorPalette })));
+const ContrastChecker = lazy(() => import('./pages/tools/ContrastChecker').then(module => ({ default: module.ContrastChecker })));
+const GradientGenerator = lazy(() => import('./pages/tools/GradientGenerator').then(module => ({ default: module.GradientGenerator })));
+const ColorName = lazy(() => import('./pages/tools/ColorName').then(module => ({ default: module.ColorName })));
+const TintShade = lazy(() => import('./pages/tools/TintShade').then(module => ({ default: module.TintShade })));
+const PercentageCalculator = lazy(() => import('./pages/tools/PercentageCalculator').then(module => ({ default: module.PercentageCalculator })));
+const AspectRatio = lazy(() => import('./pages/tools/AspectRatio').then(module => ({ default: module.AspectRatio })));
+const FileSizeConverter = lazy(() => import('./pages/tools/FileSizeConverter').then(module => ({ default: module.FileSizeConverter })));
+const UnitConverter = lazy(() => import('./pages/tools/UnitConverter').then(module => ({ default: module.UnitConverter })));
+const AgeCalculator = lazy(() => import('./pages/tools/AgeCalculator').then(module => ({ default: module.AgeCalculator })));
+const DateDifference = lazy(() => import('./pages/tools/DateDifference').then(module => ({ default: module.DateDifference })));
+const NumberToWords = lazy(() => import('./pages/tools/NumberToWords').then(module => ({ default: module.NumberToWords })));
+const PasswordGenerator = lazy(() => import('./pages/tools/PasswordGenerator').then(module => ({ default: module.PasswordGenerator })));
+const PasswordStrength = lazy(() => import('./pages/tools/PasswordStrength').then(module => ({ default: module.PasswordStrength })));
+const Md5Generator = lazy(() => import('./pages/tools/Md5Generator').then(module => ({ default: module.Md5Generator })));
+const Sha256Generator = lazy(() => import('./pages/tools/Sha256Generator').then(module => ({ default: module.Sha256Generator })));
+const LoremIpsum = lazy(() => import('./pages/tools/LoremIpsum').then(module => ({ default: module.LoremIpsum })));
+const UuidGenerator = lazy(() => import('./pages/tools/UuidGenerator').then(module => ({ default: module.UuidGenerator })));
+const CsvToJson = lazy(() => import('./pages/tools/CsvToJson').then(module => ({ default: module.CsvToJson })));
+const JsonToCsv = lazy(() => import('./pages/tools/JsonToCsv').then(module => ({ default: module.JsonToCsv })));
+const MarkdownToHtml = lazy(() => import('./pages/tools/MarkdownToHtml').then(module => ({ default: module.MarkdownToHtml })));
+const HtmlToMarkdown = lazy(() => import('./pages/tools/HtmlToMarkdown').then(module => ({ default: module.HtmlToMarkdown })));
+const HtmlEncoder = lazy(() => import('./pages/tools/HtmlEncoder').then(module => ({ default: module.HtmlEncoder })));
+const CaseConverter = lazy(() => import('./pages/tools/CaseConverter').then(module => ({ default: module.CaseConverter })));
+const LineSorter = lazy(() => import('./pages/tools/LineSorter').then(module => ({ default: module.LineSorter })));
 import { AdminGuard } from './components/AdminGuard'
-import { AdminLogin } from './pages/admin/Login'
-import { AdminDashboard } from './pages/admin/Dashboard'
-import { BlogList } from './pages/admin/BlogList'
-import { BlogEditor } from './pages/admin/BlogEditor'
-import { BlogIndex } from './pages/blog/BlogIndex'
-import { BlogPost } from './pages/blog/BlogPost'
-import { PublicLogin } from './pages/auth/Login'
-import { PublicSignup } from './pages/auth/Signup'
-import { AllTools } from './pages/AllTools'
-import { About } from './pages/About'
-import { Privacy } from './pages/Privacy'
+const AdminLogin = lazy(() => import('./pages/admin/Login').then(module => ({ default: module.AdminLogin })));
+const AdminDashboard = lazy(() => import('./pages/admin/Dashboard').then(module => ({ default: module.AdminDashboard })));
+const BlogList = lazy(() => import('./pages/admin/BlogList').then(module => ({ default: module.BlogList })));
+const BlogEditor = lazy(() => import('./pages/admin/BlogEditor').then(module => ({ default: module.BlogEditor })));
+const BlogIndex = lazy(() => import('./pages/blog/BlogIndex').then(module => ({ default: module.BlogIndex })));
+const BlogPost = lazy(() => import('./pages/blog/BlogPost').then(module => ({ default: module.BlogPost })));
+const PublicLogin = lazy(() => import('./pages/auth/Login').then(module => ({ default: module.PublicLogin })));
+const PublicSignup = lazy(() => import('./pages/auth/Signup').then(module => ({ default: module.PublicSignup })));
+const AllTools = lazy(() => import('./pages/AllTools').then(module => ({ default: module.AllTools })));
+const About = lazy(() => import('./pages/About').then(module => ({ default: module.About })));
+const Privacy = lazy(() => import('./pages/Privacy').then(module => ({ default: module.Privacy })));
 import { ScrollToTop } from './components/ScrollToTop'
 
 function App() {
@@ -87,7 +88,8 @@ function App() {
     <HelmetProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white"><div className="w-10 h-10 border-4 border-cyan-100 border-t-cyan-500 rounded-full animate-spin"></div></div>}>
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tools" element={<AllTools />} />
           <Route path="/about" element={<About />} />
@@ -172,6 +174,7 @@ function App() {
           <Route path="/admin/blog/new" element={<AdminGuard><BlogEditor /></AdminGuard>} />
           <Route path="/admin/blog/edit/:id" element={<AdminGuard><BlogEditor /></AdminGuard>} />
         </Routes>
+        </Suspense>
       </BrowserRouter>
     </HelmetProvider>
   )
