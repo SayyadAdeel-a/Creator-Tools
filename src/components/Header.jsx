@@ -220,7 +220,7 @@ export function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <button className="xl:hidden p-2 ml-auto" onClick={() => setMobileOpen(!mobileOpen)}>
+          <button aria-label="Toggle mobile menu" className="xl:hidden p-2 ml-auto" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>

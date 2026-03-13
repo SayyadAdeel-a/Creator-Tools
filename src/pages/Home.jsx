@@ -110,7 +110,7 @@ export function Home() {
             <h2 className="text-2xl font-black text-slate-900 font-heading uppercase tracking-tighter">
               {searchQuery ? `Search results for "${searchQuery}"` : 'Flagship Utility Suite'}
             </h2>
-            <Link to="/tools" className="text-cyan-600 font-bold hover:underline flex items-center gap-1 group text-sm">
+            <Link to="/tools" className="text-cyan-700 font-bold hover:underline flex items-center gap-1 group text-sm">
               View all tools <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
@@ -131,7 +131,7 @@ export function Home() {
                   <p className="text-xs text-slate-500 mb-5 leading-relaxed flex-1">{tool.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {tool.tags.slice(0, 2).map((tag) => (
-                      <span key={tag} className="text-[8px] font-black uppercase tracking-widest px-2 py-1 bg-slate-50 text-slate-400 rounded-lg group-hover:bg-cyan-50 group-hover:text-cyan-500 transition-colors">
+                      <span key={tag} className="text-[8px] font-black uppercase tracking-widest px-2 py-1 bg-slate-100 text-slate-600 rounded-lg group-hover:bg-cyan-100 group-hover:text-cyan-700 transition-colors">
                         {tag}
                       </span>
                     ))}
