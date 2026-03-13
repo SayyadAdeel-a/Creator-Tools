@@ -81,7 +81,7 @@ export function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
             <div className="max-w-3xl">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-100 text-cyan-600 text-[10px] font-black uppercase tracking-widest mb-6 animate-in fade-in slide-in-from-left-4 duration-500">
-                    <Zap className="w-3 h-3 fill-cyan-600" /> 60+ Professional Tools Added
+                    <Zap className="w-3 h-3 fill-cyan-600" /> 70+ Professional Tools Added
                 </div>
               <h1 className="text-5xl md:text-6xl font-bold font-heading text-slate-900 mb-6 leading-tight">
                 Professional Tools for <span className="text-cyan-600">Viral Creators</span> & Designers

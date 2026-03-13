@@ -4,7 +4,7 @@ import { Zap, Target, Globe, Heart, Mail } from 'lucide-react'
 import { Layout } from '../components/Layout'
 
 const stats = [
-    { value: '10+', label: 'Free Tools' },
+    { value: '70+', label: 'Free Tools' },
     { value: '100%', label: 'Browser-Based' },
     { value: '0', label: 'Sign-up Required' },
     { value: '∞', label: 'Uses — No Limits' },

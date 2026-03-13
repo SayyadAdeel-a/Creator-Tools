@@ -58,15 +58,36 @@ const utilityTools = [
   { name: 'Base64 Tool', path: '/tools/base64', icon: FileCode, description: 'Encode or decode string' },
   { name: 'URL Encoder', path: '/tools/url-encoder', icon: Link2, description: 'Encode/decode special characters' },
   { name: 'Random Picker', path: '/tools/random-name-picker', icon: UserCheck, description: 'Select winners from a list' },
+  { name: 'MD5 Gen', path: '/tools/md5-generator', icon: ShieldCheck, description: 'Generate MD5 hash' },
+  { name: 'SHA256 Gen', path: '/tools/sha256-generator', icon: ShieldCheck, description: 'Generate SHA-256 hash' },
+  { name: 'UUID Gen', path: '/tools/uuid-generator', icon: Hash, description: 'Generate unique IDs' },
+  { name: 'Password Gen', path: '/tools/password-generator', icon: Zap, description: 'Secure password creator' },
+]
+
+const subtitleTools = [
+  { name: 'SRT to Text', path: '/tools/srt-to-text', icon: FileText, description: 'Convert SRT to plain text' },
+  { name: 'Subtitle Cleaner', path: '/tools/subtitle-cleaner', icon: Eraser, description: 'Remove timestamps' },
+  { name: 'Subtitle Counter', path: '/tools/subtitle-counter', icon: List, description: 'Count blocks and lines' },
+  { name: 'Subtitle Merge', path: '/tools/subtitle-merge', icon: Merge, description: 'Combine SRT files' },
+  { name: 'Subtitle Split', path: '/tools/subtitle-split', icon: Split, description: 'Divide long subtitles' },
+]
+
+const devTools = [
+  { name: 'CSV to JSON', path: '/tools/csv-to-json', icon: FileCode, description: 'Convert data formats' },
+  { name: 'JSON to CSV', path: '/tools/json-to-csv', icon: Braces, description: 'Export JSON to CSV' },
+  { name: 'MD to HTML', path: '/tools/markdown-to-html', icon: FileText, description: 'Markdown renderer' },
+  { name: 'HTML to MD', path: '/tools/html-to-markdown', icon: LayoutGrid, description: 'HTML to Markdown' },
 ]
 
 const categories = [
+  { id: 'youtube', name: 'YouTube Tools', icon: Video, tools: youtubeTools },
+  { id: 'subtitles', name: 'Subtitle Tools', icon: Captions, tools: subtitleTools },
   { id: 'design', name: 'Design Tools', icon: Palette, tools: designTools },
   { id: 'calculators', name: 'Calculator Tools', icon: Calculator, tools: calculatorTools },
-  { id: 'youtube', name: 'YouTube Tools', icon: Video, tools: youtubeTools },
   { id: 'seo', name: 'SEO Tools', icon: TrendingUp, tools: seoTools },
   { id: 'social', name: 'Social Media Tools', icon: Share2, tools: socialTools },
-  { id: 'utilities', name: 'Utility Tools', icon: LayoutGrid, tools: utilityTools },
+  { id: 'utilities', name: 'Dev & Utilities', icon: LayoutGrid, tools: utilityTools },
+  { id: 'converters', name: 'Data Converters', icon: Braces, tools: devTools },
 ]
 
 export function AllTools() {
@@ -95,7 +116,7 @@ export function AllTools() {
             <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400" />
             <input
               type="text"
-              placeholder="Search all 60+ tools..."
+              placeholder="Search all 70+ tools..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-14 pr-6 py-5 bg-white border border-slate-200 rounded-3xl shadow-xl focus:ring-4 focus:ring-cyan-500/10 outline-none transition-all text-lg"
