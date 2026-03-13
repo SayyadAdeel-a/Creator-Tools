@@ -16,11 +16,70 @@ const STATIC_PAGES = [
     { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
     { loc: '/about', changefreq: 'monthly', priority: '0.6' },
     { loc: '/privacy', changefreq: 'monthly', priority: '0.4' },
+    
+    // YouTube Tools
+    { loc: '/tools/youtube-title-generator', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/youtube-description-formatter', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/timestamp-generator', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/youtube-tags', changefreq: 'monthly', priority: '0.8' },
+
+    // Subtitle Tools
     { loc: '/tools/srt-to-text', changefreq: 'monthly', priority: '0.8' },
     { loc: '/tools/subtitle-cleaner', changefreq: 'monthly', priority: '0.8' },
     { loc: '/tools/subtitle-counter', changefreq: 'monthly', priority: '0.8' },
     { loc: '/tools/subtitle-merge', changefreq: 'monthly', priority: '0.8' },
     { loc: '/tools/subtitle-split', changefreq: 'monthly', priority: '0.8' },
+
+    // Design Tools
+    { loc: '/tools/hex-to-rgb', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/rgb-to-hex', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/color-palette', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/contrast-checker', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/gradient-generator', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/color-name', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/tint-shade', changefreq: 'monthly', priority: '0.8' },
+
+    // Calculator Tools
+    { loc: '/tools/percentage-calculator', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/aspect-ratio', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/file-size', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/unit-converter', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/age-calculator', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/date-difference', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/number-to-words', changefreq: 'monthly', priority: '0.8' },
+
+    // SEO Tools
+    { loc: '/tools/word-frequency', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/sentence-counter', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/readability', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/title-checker', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/meta-title', changefreq: 'monthly', priority: '0.8' },
+
+    // Social Tools
+    { loc: '/tools/instagram-formatter', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/thread-splitter', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/emoji-remover', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/hashtag-generator', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/character-counter', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/bio-checker', changefreq: 'monthly', priority: '0.8' },
+
+    // Utilities
+    { loc: '/tools/json-formatter', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/base64', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/url-encoder', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/random-name-picker', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/md5-generator', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/sha256-generator', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/uuid-generator', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/password-generator', changefreq: 'monthly', priority: '0.8' },
+
+    // Data Converters
+    { loc: '/tools/csv-to-json', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/json-to-csv', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/markdown-to-html', changefreq: 'monthly', priority: '0.8' },
+    { loc: '/tools/html-to-markdown', changefreq: 'monthly', priority: '0.8' },
+
+    // New Subtitle/Script Tools
     { loc: '/tools/script-word-counter', changefreq: 'monthly', priority: '0.8' },
     { loc: '/tools/reading-time', changefreq: 'monthly', priority: '0.8' },
     { loc: '/tools/title-case', changefreq: 'monthly', priority: '0.8' },
