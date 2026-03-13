@@ -147,8 +147,8 @@ export function Header() {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 bg-gradient-to-tr from-cyan-500 to-teal-400 rounded-xl flex items-center justify-center p-1 shadow-lg shadow-cyan-500/20">
-                <img src="/logo.svg" alt="VidToolbox Logo font-black" className="w-6 h-6 invert brightness-0" />
+            <div className="w-8 h-8 bg-gradient-to-tr from-cyan-500 to-teal-400 rounded-xl flex items-center justify-center p-1 shadow-lg shadow-cyan-500/20 overflow-hidden">
+                <img src="/logo.svg" alt="VidToolbox Logo" width="24" height="24" className="w-6 h-6 invert brightness-0" />
             </div>
             <span className="font-heading font-bold text-lg lg:text-xl text-slate-900 tracking-tight hidden sm:block">VidToolbox</span>
           </Link>

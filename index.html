@@ -11,12 +11,18 @@
 
     // Load GTM strictly after the main page is interactive
     window.addEventListener('load', function() {
-      setTimeout(function() {
+      // Use requestIdleCallback if available, fallback to 2s delay
+      var loadGtm = function() {
         var script = document.createElement('script');
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-KSSGPD2F2Y';
         script.async = true;
         document.head.appendChild(script);
-      }, 500); // 500ms delay ensures critical path is clear
+      };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGtm);
+      } else {
+        setTimeout(loadGtm, 2000);
+      }
     });
   </script>
 
@@ -65,6 +71,10 @@
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" />
   </noscript>
+
+  <!-- Preconnect to external API for faster tracking -->
+  <link rel="preconnect" href="https://sgvnxdnicmvytggspwml.supabase.co" />
+  <link rel="dns-prefetch" href="https://sgvnxdnicmvytggspwml.supabase.co" />
 
   <!-- JSON-LD Structured Data — Website -->
   <script type="application/ld+json">
