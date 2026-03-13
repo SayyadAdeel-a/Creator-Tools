@@ -10,13 +10,15 @@
       "source": "/sitemap.xml",
       "headers": [
         { "key": "Content-Type", "value": "application/xml" },
+        { "key": "X-Robots-Tag", "value": "all" },
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
     },
     {
       "source": "/robots.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain" }
+        { "key": "Content-Type", "value": "text/plain" },
+        { "key": "X-Robots-Tag", "value": "all" }
       ]
     }
   ]

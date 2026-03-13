@@ -88,8 +88,9 @@ const STATIC_PAGES = [
 ]
 
 function urlTag(page) {
+    const today = new Date().toISOString().split('T')[0];
     const lines = ['  <url>', `    <loc>${SITE_URL}${page.loc}</loc>`]
-    if (page.lastmod) lines.push(`    <lastmod>${page.lastmod}</lastmod>`)
+    lines.push(`    <lastmod>${page.lastmod || today}</lastmod>`)
     lines.push(`    <changefreq>${page.changefreq}</changefreq>`)
     lines.push(`    <priority>${page.priority}</priority>`)
     lines.push('  </url>')
@@ -132,7 +133,7 @@ async function main() {
 
     const xml = [
         '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">',
         allPages.map(urlTag).join('\n'),
         '</urlset>',
     ].join('\n')
