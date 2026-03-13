@@ -65,7 +65,8 @@ export function Home() {
   return (
     <>
       <Helmet>
-        <title>Free Online Tools for Content Creators | VidToolbox</title>
+        <title>Free Online Tools for Content Creators - VidToolbox (60+ Free Tools)</title>
+        <meta name="description" content="60+ free tools for YouTube SEO, content creation, and design. Generate viral titles, tags, color palettes, and more. No sign-up required." />
         <link rel="canonical" href="https://vidtoolbox.qzz.io/" />
       </Helmet>
       <Layout>

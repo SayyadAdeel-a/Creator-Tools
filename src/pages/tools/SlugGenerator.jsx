@@ -53,10 +53,17 @@ export function SlugGenerator() {
         title="Slug Generator"
         icon={Link2}
         description="Create URL-friendly slugs from any text."
+        introContent="The Slug Generator is a free SEO tool that creates clean, URL-friendly slugs from any text. Perfect for bloggers, content creators, and website owners who need optimized URLs for better search engine rankings. This free online slug generator converts titles into lowercase strings with hyphens, removing special characters and spaces. Use it for WordPress permalinks, blog post URLs, or any web address."
         howToUse={[
           "Enter or paste your text in the input field",
           "The slug is generated automatically in real-time",
           "Click 'Copy' to use the slug in your URLs"
+        ]}
+        faq={[
+          { question: "What is a URL slug?", answer: "A slug is the part of a URL that identifies a specific page in a human-readable way." },
+          { question: "Why are slugs important for SEO?", answer: "Clean, descriptive slugs help search engines understand your page content and improve rankings." },
+          { question: "Can I customize the generated slug?", answer: "Yes, you can edit the input text to get your desired slug format." },
+          { question: "Does this work for non-English text?", answer: "For best results, use English text. Special characters will be removed." }
         ]}
       >
         <div className="p-4 space-y-4">

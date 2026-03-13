@@ -138,11 +138,45 @@ export function AllTools() {
             </div>
           ))}
           
-          {filteredCategories.length === 0 && (
-            <div className="text-center py-20 bg-slate-50 rounded-[40px] border-2 border-dashed border-slate-200">
-              <p className="text-slate-500 text-lg">No tools found matching your search.</p>
+        </div>
+
+        {/* SEO Information Section */}
+        <div className="mt-24 pt-16 border-t border-slate-100">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-slate-50 rounded-[40px] p-10 md:p-16">
+            <div>
+              <h2 className="text-3xl font-bold font-heading text-slate-900 mb-6">Why Use VidToolbox for Your Creative Workflow?</h2>
+              <p className="text-slate-600 mb-6 leading-relaxed">
+                As a modern content creator, your time is your most valuable asset. VidToolbox was built to eliminate the friction of jumping between multiple browser tabs to perform simple tasks like <strong>HEX to RGB color conversion</strong>, <strong>YouTube title optimization</strong>, or <strong>Instagram caption formatting</strong>.
+              </p>
+              <p className="text-slate-600 mb-6 leading-relaxed">
+                Our suite of 60+ free online tools is specifically designed for <strong>YouTube SEO</strong> and viral growth. Whether you're generating listicle-style titles using our <strong>YouTube Title Generator</strong>, extracting tags from competitors, or calculating the perfect aspect ratio for your next TikTok, VidToolbox provides the accuracy you need with zero cost.
+              </p>
             </div>
-          )}
+            <div>
+              <h3 className="text-xl font-bold text-slate-800 mb-4">A Professional Utility Set for Every Project</h3>
+              <ul className="space-y-4 text-slate-600">
+                <li className="flex gap-2">
+                  <Zap className="w-5 h-5 text-cyan-500 shrink-0" />
+                  <span><strong>YouTube Growth:</strong> Maximize CTR with our metadata tools and description generators.</span>
+                </li>
+                <li className="flex gap-2">
+                  <Palette className="w-5 h-5 text-cyan-500 shrink-0" />
+                  <span><strong>Design Precision:</strong> Ensure accessibility with WCAG contrast checkers and brand-safe color palettes.</span>
+                </li>
+                <li className="flex gap-2">
+                  <Share2 className="w-5 h-5 text-cyan-500 shrink-0" />
+                  <span><strong>Social Formats:</strong> Keep your captions clean on Instagram and Twitter with specialized formatters.</span>
+                </li>
+                <li className="flex gap-2">
+                  <Calculator className="w-5 h-5 text-cyan-500 shrink-0" />
+                  <span><strong>Business Math:</strong> Calculate profit margins, age differences, and data conversions instantly.</span>
+                </li>
+              </ul>
+              <p className="mt-8 text-xs text-slate-400">
+                Privacy is our priority: All processing happens locally in your browser. We never store or upload your sensitive data.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </Layout>

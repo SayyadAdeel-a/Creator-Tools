@@ -57,6 +57,7 @@ const socialTools = [
 const navItems = [
   { name: 'Home', path: '/', icon: Home },
   { name: 'Tools', path: '/tools', icon: LayoutGrid },
+  { name: 'Blog', path: '/blog', icon: MessageSquare },
 ]
 
 function NavDropdown({ label, icon: Icon, items, isActive }) {

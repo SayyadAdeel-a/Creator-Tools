@@ -94,10 +94,17 @@ export function SrtToText() {
         title="SRT to Text Converter"
         icon={FileText}
         description="Convert your SRT subtitle files to clean, readable plain text."
+        introContent="The SRT to Text Converter is a free online tool designed for YouTubers, video editors, and content creators who need to extract text from subtitle files. Whether you're creating transcripts, writing blog posts from video content, or need plain text versions of your subtitles, this tool handles it all instantly in your browser. Simply paste your SRT file or upload it, and get clean, readable text without any timestamps or sequence numbers."
         howToUse={[
           "Paste your SRT content into the input textarea or upload an .srt file",
           "Click the 'Convert' button to process the file",
           "Copy the result or download it as a .txt file"
+        ]}
+        faq={[
+          { question: "Is this SRT to Text converter free?", answer: "Yes, completely free with no limits or sign-up required." },
+          { question: "Does it work with other subtitle formats?", answer: "Currently optimized for SRT format. For other formats, convert to SRT first." },
+          { question: "Is my data secure?", answer: "Absolutely! All processing happens locally in your browser. No data is sent to any server." },
+          { question: "Can I use the converted text commercially?", answer: "Yes, you own all output generated from this tool." }
         ]}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">

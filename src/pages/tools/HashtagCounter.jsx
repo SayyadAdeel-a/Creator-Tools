@@ -41,14 +41,17 @@ export function HashtagCounter() {
         title="Hashtag Counter"
         icon={Hash}
         description="Count hashtags in your social media posts and extract unique hashtags."
+        introContent="The Hashtag Counter is a free social media tool for Instagram, Twitter/X, TikTok, and LinkedIn creators. Count hashtags, track usage, and optimize your hashtag strategy. This free tool shows total and unique hashtags, helping you stay within platform limits (Instagram allows up to 30, Twitter has a character limit). Perfect for influencers, marketers, and content creators who want to maximize their reach."
         howToUse={[
           "Paste your social media post or caption into the textarea",
           "Click 'Count Hashtags' to analyze the text",
           "View the total count and unique hashtags below"
         ]}
         faq={[
-          { question: "Does it count duplicates?", answer: "It shows both total count and unique count, so you can see if you're overusing the same hashtags." },
-          { question: "What characters are supported?", answer: "It supports word characters after the # symbol (letters, numbers, and underscores)." }
+          { question: "How many hashtags can I use on Instagram?", answer: "Instagram allows up to 30 hashtags per post. Using the right mix can improve your reach." },
+          { question: "Does it work for TikTok?", answer: "Yes! Works for any platform that uses hashtags including TikTok, Twitter, LinkedIn, and Facebook." },
+          { question: "What's the difference between total and unique hashtags?", answer: "Total counts all hashtags including duplicates. Unique shows only distinct hashtags." },
+          { question: "Can I copy all hashtags at once?", answer: "Yes, the extracted hashtags are displayed in a copy-friendly format." }
         ]}
       >
         <div className="p-4">
