@@ -1,4 +1,3 @@
-```markdown
 # VidToolbox
 
 A comprehensive web-based toolkit built for content creators. VidToolbox provides 68+ specialized utilities to streamline video production, editing, and channel management workflows.
@@ -47,47 +46,3 @@ cp .env.example .env
 ```
 
 Add your Supabase credentials:
-```
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
-
-4. Run the development server
-```bash
-npm run dev
-```
-
-## Project Structure
-
-```
-vidtoolbox/
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── tools/          # Individual tool implementations
-│   ├── pages/          # Route pages
-│   ├── lib/            # Utilities and helpers
-│   └── blog/           # Blog content and components
-├── public/             # Static assets
-└── supabase/           # Database schemas and edge functions
-```
-
-## Roadmap
-
-- [ ] Complete remaining tool implementations (currently at 68+)
-- [ ] Add user accounts for tool history and favorites
-- [ ] Implement batch processing for multi-file operations
-- [ ] Expand blog content for SEO growth
-- [ ] Mobile app version
-
-## Contributing
-
-This is a personal project, but suggestions and feedback are welcome! Open an issue if you find bugs or have feature ideas.
-
-## License
-
-MIT License - feel free to use this project as inspiration for your own creator tools.
-
----
-
-Built by [Sayyad Adeel](https://github.com/SayyadAdeel-a) | Shipped with AI-assisted development
-```
